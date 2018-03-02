@@ -2,12 +2,30 @@
 <html>
     <head>
         <title>House Hunt!</title>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="../css/main.css">
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="../js/map.js"> </script>
     </head>
     <body>
-        <h1></h1>
-        
+        <div>
+            <div id="header">
+                <h2>Find a house</h2>
+                <div id="filter=bar"></div>
+            </div>
+            <div id="content">
+                <div id="map"></div>
+                <div id="side_menu">
+                    <div id="charts_overview">
+                    </div>
+                    <div id="questionnaire">
+                    </div>
+                </div>  
+            </div>   
+        </div>
+                                                                 <!--Use your own api key here-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap">
+        </script>
+        <!--AIzaSyAEHZBujLk6bZtbb6nwiXskcprLaLRaOKQ-->
     </body>
 </html>
