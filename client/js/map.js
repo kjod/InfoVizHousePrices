@@ -1,5 +1,4 @@
 function createMap() {
-  console.log("here");
   var mapProp= {
       center:new google.maps.LatLng(52.3702, 4.8952),
       zoom:11,
@@ -143,5 +142,4 @@ function createMap() {
       ],
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
-  console.log("should be a map");
 }
