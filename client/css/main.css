@@ -5,10 +5,6 @@
 body{
   font-family:Helvetica;
 }
-#header{
-  width:100%;
-  float:left;
-}
 #header h2{
   letter-spacing:18px;
   font-size:18px;
@@ -21,13 +17,13 @@ body{
   color:#FFF;
 }
 #questions #questionnaire{
-  margin:25px 0;
+  margin:21px 0;
   text-align:center;
   font-weight:666;
   letter-spacing:8px;
 }
 #questions select{
-  margin-top:17px;
+  margin-top:14px;
   color:#FFF;
   background:none;
   border-width:0 0 1px 0;
@@ -78,28 +74,46 @@ body{
   margin:7px;
 }
 #content{
+  display:inline-flex;
   width:95%;
-  min-width:calc(100% - var(--filter-min-width));
-  float:right;
+  min-width:calc(100% - 2*var(--filter-min-width));
+  float:left;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
 }
-
 #map{ 
-	width:70%;
+	width:100%;
 	height:var(--map-height);
 	float:left;
+  -webkit-transition:.3s all ease-out;
+  transition:.3s all ease-out;
 }
-#side_menu{
-	margin-left:70%;
-	width:30%;
+#charts_overview{
+  position:static;
+}
+#side_stats{
+  position:absolute;
+  overflow:hidden;
+	width:60%;
+  opacity:0;
   height:var(--map-height);
-	border:1px solid black;
+  box-sizing:border-box;
+  border:1px solid black;
+	border-top:none;
+  -webkit-transition:.3s width ease-out;
+  transition:.3s width ease-out;
 }
-
 h2, h3{
 	text-align:center;	
 }
+button#showstats{
+  margin:15px 0;
+  padding:5px 50px;
+}
+
+
+
+
 
 /* The switch - the box around the slider */
 .switch {
@@ -201,4 +215,8 @@ svg,svg g{
 .rotate-left{
   -webkit-transform:rotate(-180deg);
   -webkit-transition:-webkit-transform .3s;
+}
+.defaultdiv{
+  width:100%;
+  float:left;
 }
