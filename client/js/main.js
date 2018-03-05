@@ -27,3 +27,31 @@ function openCloseFilters(){
 		},300);
 	}
 }
+
+function showStats(){
+	var side_stats = document.getElementById('side_stats');
+	var map = document.getElementById('map');
+	if(map.style.width=="100%" || map.style.width==""){
+		side_stats.style.display = "block";
+		setTimeout(function(){
+		map.style.width = "30%";
+		side_stats.style.width = "calc(70% - 2px)";
+		},10);
+	}else{
+		map.style.width = "100%";
+		side_stats.style.width = "0%";
+		setTimeout(function(){
+			side_stats.style.display = "none";
+		},300);
+	}
+}
+
+setTimeout(function(){
+	var side_stats = document.getElementById('side_stats');
+	side_stats.style.width = "0%";
+	setTimeout(function(){
+		side_stats.style.opacity = "1";
+		side_stats.style.position = "static";
+		side_stats.style.display = "none";
+	},300);
+},500);

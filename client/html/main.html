@@ -5,13 +5,9 @@
         <link rel="stylesheet" href="../css/main.css">
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="../js/overviewChart.js"> </script>
-        <script src="../js/map.js"> </script>
-        <script src="../js/employment.js"> </script>
-        <script src="../js/main.js"> </script>
     </head>
     <body onload="initGraph()">
-        <div id="header">
+        <div id="header" class="defaultdiv">
             <h2>FIND A HOUSE</h2>
         </div>
         <div id="questions" class="flexcentered">
@@ -75,7 +71,7 @@
             </div>
             <div id="content">
                 <div id="map"></div>
-                <div id="side_menu">
+                <div id="side_stats">
                     <div id="charts_overview">
                         <h3>Stats: Avg housing price</h3>
                         <div id="overviewChart"></div>
@@ -83,6 +79,13 @@
                 </div>
             </div>   
         </div>
+        <div class="flexcentered defaultdiv">
+            <button id="showstats" onclick="showStats()">SHOW STATS</button>
+        </div>
+        <script src="../js/overviewChart.js"></script>
+        <script src="../js/map.js"></script>
+        <script src="../js/employment.js"></script>
+        <script src="../js/main.js"></script>
                                                                  <!--Use your own api key here-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap">
         </script>
