@@ -28,6 +28,7 @@ body{
   background:none;
   border-width:0 0 1px 0;
   font-size:15px;
+  text-align-last:center;
 }
 #questions option{
   background-color:#FFF;
@@ -94,7 +95,7 @@ body{
 #side_stats{
   position:absolute;
   overflow:hidden;
-	width:60%;
+	width:50%;
   opacity:0;
   height:var(--map-height);
   box-sizing:border-box;
@@ -102,6 +103,9 @@ body{
 	border-top:none;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
+}
+#overviewChart{
+  text-align:center;
 }
 h2, h3{
 	text-align:center;	
@@ -183,9 +187,6 @@ path {
 	stroke:steelblue;
 	stroke-width:1;
 	fill:none;
-}
-svg,svg g{
-  width:100%;
 }
 .axis {
   shape-rendering:crispEdges;
