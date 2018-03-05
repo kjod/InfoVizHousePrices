@@ -5,10 +5,11 @@ var EMPLOYMENTSWITCH = false;
 function getEmploymentLayer() {
     console.log("In layer"); 
     EMPLOYMENTSWITCH = !EMPLOYMENTSWITCH;
-  // Load the station data. When the data comes back, create an overlay.
-    /*d3.json("stations.json", function(error, data) {
+    
+    // Load the station data. When the data comes back, create an overlay.
+    d3.csv("../../server/data/formattedFiles/locations_and_people_employed.csv", function(error, data) {
       if (error) throw error;
-
+      console.log("data ,", data)
       var overlay = new google.maps.OverlayView();
 
       // Add the container when the overlay is added to the map.
@@ -54,7 +55,7 @@ function getEmploymentLayer() {
 
       // Bind our overlay to the map…
       overlay.setMap(map);
-    });*/
+    });//*/
 
 
 }
