@@ -1,0 +1,226 @@
+;area;house_price;rooms;street_name;zipcode
+0;85;575000;4 ;Lindengracht 274 A;1015 KN
+1;72;500000;3 ;Derde Weteringdwarsstraat 3 A;1017 TA
+2;198;1300000;5 ;Johan Braakensiekhof 27;1068 KK
+3;62;300000; ;Scharwouderstraat 3;1023 CW
+4;75;550000;3 ;Utrechtsedwarsstraat 113 c;1017 WD
+5;185;1375000;3 ;Bloemgracht 129 A3;1016 KL
+6;266;1295000;10 ;Amsteldijk 31 hs;1074 HT
+7;144;600000;3 ;Bert Haanstrahof 26;1087 DL
+8;81;600000;2 ;Nieuwe Herengracht 25 III;1011 RL
+9;529;4690000;7 14 ;Zuidelijke Wandelweg 33;1079 RK
+10;51;345000;2 ;Derde Weteringdwarsstraat 5 B;1017 TA
+11;115;885000;3 ;Lindengracht 168 III;1015 KL
+12;82;550000;4 ;Van Bossestraat 52 III;1051 KA
+13;105;400000;4 ;Sem Presserhof 31;1087 JE
+14;199;1500000;4 ;Eerste Jacob van Campenstraat 52 H;1072 BH
+15;160;Prijs op aanvraag;6 ;Boerensteeg 9;1012 CC
+16;134;850000;4 ;Jacob van Lennepkade 75 III-IV;1054 ZH
+17;43;365000;2 ;Elandsgracht 84 -2;1016 TZ
+18;58;309000;3 ;Grianestraat 16 1;1055 GA
+19;97;319000;4 ;Ruimzicht 286;1068 CZ
+20;72;225000;4 ;Langswater 897;1069 EH
+21;91;445000;4 ;Haarlemmerweg 229 C;1051 NV
+22;64;225000;3 ;De Egmondenstraat 123;1024 SB
+23;88;475000;3 ;Meerhuizenstraat 14 L;1078 TH
+24;147;825000;4 ;Spadinalaan 5;1031 KB
+25;45;265000;2 ;Van Hogendorpstraat 145 H;1051 BM
+26;99;300000;4 ;Baden Powellweg 18 B;1069 KW
+27;96;350000;3 ;Jan Vrijmanstraat 281;1087 MN
+28;155;695000;4 ;Prins Hendrikkade 151 A;1011 AV
+29;49;395000;2 ;Eikenweg 74 F;1092 CB
+30;79;350000;3 ;Entrepothof 34;1019 DJ
+31;113;495000;5 ;Oostzanerdijk 79;1033 AB
+32;190;765000; ;Barkentijnkade 123;1086 VL
+33;98;400000;3 ;Kadoelenweg 210;1035 NN
+34;181;1750000;6 ;Jan Luijkenstraat 32 Hs;1071 CP
+35;43;300000;2 ;Zamenhofstraat 38;1022 AD
+36;42;179000;2 ;Roosje Vosstraat 111;1069 RA
+37;111;359500;3 ;A.J. Krophollerstraat 30;1064 DB
+38;85;390000;5 ;Chasséstraat 1 II;1057 HV
+39;80;500000;3 ;Nassaukade 170 -4;1053 LM
+40;105;275000;4 ;C.K. Eloutstraat 14;1068 JZ
+41;65;275000;3 ;Loevestein 68;1082 XK
+42;79;450000;3 ;Jacob van Lennepkade 60 III+IV;1053 ML
+43;50;149500;2 ;Dolingadreef 201;1102 WT
+44;70;350000;3 ;Cabotstraat 23 II+III;1057 VP
+45;27;225000;2 ;Kinkerstraat 114 III;1053 ED
+46;68;445000;3 ;Zandstraat 28 HS;1011 HL
+47;86;520000;2 ;Visseringstraat 91;1051 MG
+48;101;449000;3 ;Linnaeusparkweg 196 HS;1098 EP
+49;52;225000;2 ;Bos en Lommerplantsoen 73 H;1055 AA
+50;100;600000;4 ;Haarlemmer Houttuinen 7 B;1013 GL
+51;51;295000;3 ;Katwijkstraat 16 I;1059 XP
+52;80;199596;4 ;Koppenburglaan 96;1104 PR
+53;199;750000;6 ;Kometensingel 111 b;1033 BC
+54;68;540000;3 ;Keizersgracht 643 -B;1017 DT
+55;123;660000;4 ;Reinier Claeszenstraat 68 hs;1056 WP
+56;140;750000;5 ;Admiraal De Ruijterweg 400 Huis;1055 ND
+57;108;500000;4 ;John Blankensteinstraat 143 B;1095 MB
+58;36;265000;2 ;De Kempenaerstraat 8 I;1051 CN
+59;28;175000;1 ;Bos en Lommerplantsoen 31 D;1055 AA
+60;62;189000;2 ;Het Breed 549;1025 HV
+61;128;220000;5 ;Rhenenhof 62;1106 JG
+62;80;225000;4 ;Amerbos 386;1025 ZX
+63;70;520000;2 ;Tweede Weteringdwarsstraat 38 III;1017 SX
+64;150;699000;4 ;Rijnstraat 234;1079 HV
+65;70;375000;3 ;Gibraltarstraat 82 huis;1055 NT
+66;73;550000;2 ;Weesperzijde 106 II;1091 EM
+67;121;575000;3 ;Donker Curtiusstraat 2 N;1051 JN
+68;180;1500000;3 ;Gustav Mahlerlaan 561 A +ppl;1082 MK
+69;58;285000;2 ;Soembawastraat 22 B;1095 XB
+70;51;249350;2 ;Valentijnkade 35 3;1095 JH
+71;238;975000;7 ;Landsmeerderdijk 22 A;1035 PW
+72;85;549000;5 ;J.J. Cremerplein 40 III;1054 TL
+73;44;285000;2 ;Lutmastraat 155 D;1073 GW
+74;52;325000;3 ;Woestduinstraat 142 -1;1059 SZ
+75;65;225000;4 ;Sam van Houtenstraat 273 A;1067 JK
+76;155;995000;8 ;Albert Cuypstraat 95 I & III;1072 CP
+77;113;289000;5 ;Esther de Boer-van Rijkstraat 26 2;1065 GN
+78;149;800000;5 ;Churchill-laan 312 2;1078 GC
+79;72;449000;3 ;Zeilstraat 37 III;1075 SB
+80;90;595000;3 ;Nassaukade 151 IV;1052 EJ
+81;50;300000;2 ;Woestduinstraat 104 I;1059 SW
+82;69;399000;3 ;Egelantiersgracht 600;1015 RS
+83;202;1595000;6 ;Herengracht 253 hs;1016 BH
+84;176;1050000;5 ;Sarphatistraat 75 C;1018 EX
+85;94;460000;3 ;Sumatrakade 1339;1019 RM
+86;690;5735000;9 ;Prinsengracht 1109 C;1017 JJ
+87;152;1200000;3 ;Amstel 256 L;1017 AL
+88;226;1020000;6 ;Edward Wrightstraat 18;1086 WC
+89;228;1825000; ;Alexander Boersstraat 29;1071 KV
+90;154;795000;4 ;Hertzstraat 21;1098 VJ
+91;148;1000000;3 ;Prinsengracht 1035 -D;1017 KP
+92;127;850000;3 ;Prinsengracht 1031 -C;1017 KP
+93;63;375000;2 ;Wakkerstraat 18 C;1097 CE
+94;261;1995000;8 ;Derde Helmersstraat 84;1054 BM
+95;59;325000;3 ;Aalsmeerweg 41 3;1059 AB
+96;85;500000;3 ;Nassaukade 170 -II;1053 LM
+97;92;499000;5 ;Jan Evertsenstraat 102 bv;1056 EH
+98;144;399000;4 ;Landzicht 49;1068 ZV
+99;134;749000;6 ;Rozenstraat 39 bov;1016 NM
+100;381;3800000;5 ;Gustav Mahlerplein 283;1082 MS
+101;292;1695000;8 ;Zuiderakerweg 41;1069 MD
+102;91;550000;4 ;Middenweg 319;1098 AT
+103;58;375000;3 ;Vrolikstraat 140 -2;1092 TN
+104;72;250000;4 ;Johan Huizingalaan 326 -II;1065 JP
+105;139;700000;4 ;Peperstraat 9 A;1011 TJ
+106;53;399000;2 ;Haringpakkerssteeg 5 L;1012 LR
+107;132;825000;4 ;Lauriergracht 108 III;1016 RP
+108;187;600000;5 ;Iseoplantsoen 44;1060 PW
+109;179;1700000;8 ;Stadionkade 111;1076 BN
+110;168;490000;6 ;Eurokade 1;1060 RZ
+111;58;325000;3 ;Hasebroekstraat 1 -IV;1053 CL
+112;127;375000;5 ;Baden Powellweg 36 D;1069 LK
+113;38;275000;2 ;Hekelveld 3 -II;1012 SN
+114;78;600000;3 ;Gustav Mahlerlaan 545 D+ppl;1082 MK
+115;268;2500000;7 ;Johannes Verhulststraat 92 huis;1071 NK
+116;63;380000;2 ;Barentszstraat 335;1013 NN
+117;46;290000;2 ;Prinsengracht 832 d;1017 JM
+118;100;675000;4 ;Hoendiepstraat 31 HS;1079 LS
+119;79;240000;4 ;S. F. van Ossstraat 330;1068 JS
+120;44;350000;2 ;Prinsengracht 37 - III;1015 DL
+121;111;375000;4 ;Schutterweg 77;1033 XW
+122;120;418800;4 ;Juttepeerpad 28;1036 KM
+123;152;650000;4 ;IJburglaan 409;1086 ZJ
+124;78;265000; ;Jan de Louterstraat 105;1063 KZ
+125;82;259000;4 ;Tussen Meer 134;1069 DT
+126;75;395000;3 ;Tweede Wittenburgerdwarsstraat 164;1018 LP
+127;63;300000;3 ;Bonistraat 1;1094 SH
+128;121;649000;4 ;Baarsjesweg 142 B;1057 HM
+129;100;475000;3 ;C. van Eesterenlaan 346;1019 KE
+130;99;245000;3 ;1e Kekerstraat 55;1104 VA
+131;59;325000;2 ;Poolstraat 47;1018 LR
+132;56;329000;3 ;Heemstedestraat 12 II;1058 NM
+133;156;1225000;3 ;Herengracht 96 D;1015 BS
+134;79;750000;3 ;Bloemgracht 77 A;1016 KG
+135;67;369000;3 ;Govert Flinckstraat 10;1072 EJ
+136;70;235000;3 ;J.M. den Uylstraat 96;1067 WD
+137;42;285000;2 ;Kinkerstraat 316 III;1053 GD
+138;57;300000;2 ;Admiralengracht 140 HS;1057 GG
+139;108;529000;5 ;Orteliusstraat 294 II;1056 PN
+140;117;750000;6 ;Amsteldijk 110 hs;1078 RP
+141;35;350000;3 ;Blauwburgwal 16 I;1015 AT
+142;77;185000;4 ;Wethouder Insingerstraat 93;1107 XE
+143;48;280000;2 ;Fannius Scholtenstraat 4 1;1051 EX
+144;77;400000;3 ;Schalk Burgerstraat 18;1091 LK
+145;72;175000;3 ;Montfoorthof 53;1106 JN
+146;58;425000;3 ;Tweede Helmersstraat 36 II;1054 CK
+147;106;700000;4 ;Vierwindenstraat 241 *;1013 CW
+148;108;650000;5 ;Da Costakade 46 I;1053 WL
+149;92;242500;3 ;1e Kekerstraat 13;1104 VA
+150;142;985000;4 ;Prof. Tulpstraat 36;1018 HA
+151;62;399000;3 ;Tweede Van der Helststraat 101 II;1073 AP
+152;52;260000;2 ;Hoofdweg 420 1;1056 DG
+153;185;815000;4 ;Nieuwezijds Voorburgwal 146 C;1012 SJ
+154;39;275000;2 ;Van Hogendorpstraat 60 hs;1051 BR
+155;28;189000;1 ;Welnastraat 651;1096 GJ
+156;67;350000;2 ;Bilderdijkstraat 79 A;1053 KM
+157;125;800000;5 ;Ruysdaelstraat 24 II;1071 XD
+158;71;600000;3 ;Vierwindenstraat 239;1013 CW
+159;177;1300000;6 ;Vierwindenstraat 241;1013 CW
+160;318;4500000;6 ;Jan Luijkenstraat 2 /D;1071 CM
+161;79;749000;3 ;Willemsparkweg 182 II;1071 HV
+162;75;310000;3 ;Bankwerkerij 102;1021 NW
+163;95;865000;3 ;Prinseneiland 31 C;1013 LL
+164;148;925000;4 ;Amstelveenseweg 980 A;1081 JR
+165;173;950000;4 ;Van Leijenberghlaan 16 -F;1082 GM
+166;113;647500;2 ;Sloterkade 167 H;1059 EB
+167;124;895000;4 ;Amstelbeststraat 2 -F;1096 GD
+168;335;4000000;4 ;Prinsengracht 468;1017 KG
+169;29;280000;1 ;Hemonystraat 18 -4 L;1074 BP
+170;55;250000;2 ;Assumburg 44;1081 GC
+171;68;415000;2 ;Beulingstraat 4 F;1017 BA
+172;82;550000;4 ;Lumeijstraat 13 IV;1056 VS
+173;61;225000;3 ;Lou Jansenplein 19 HS;1063 GT
+174;170;549500;4 ;Kempenlaan 19;1066 PW
+175;82;300000;3 ;Pampuslaan 90;1087 LA
+176;92;415000;3 ;Mary van der Sluisstraat 482;1095 ME
+177;56;300000; ;Panamakade 35;1019 AX
+178;105;500000;5 ;Peter Wotkehof 6;1087 DG
+179;120;350000; ;Mikonospad 36;1060 MX
+180;62;250000;3 ;Planetenplein 17;1033 CS
+181;109;300000;4 ;Willem Dreesplantsoen 66;1067 VJ
+182;78;300000; ;Thomas à Kempisstraat 10;1064 LV
+183;185;1495000;0 5 ;Sloterweg 842;1066 CP
+184;95;200000; ;Jelle Posthumapad 73;1106 ZP
+185;132;640000;5 ;Pijlkruidstraat 5;1087 CE
+186;147;399000;5 ;Meentstraat 1;1069 EX
+187;454;5200000;9 ;Jan Luijkenstraat 16;1071 CN
+188;194;1700000 von;4 ;Gustav Mahlerlaan 567 C;1082 MK
+189;141;375000; ;Valutaboulevard 14;1060 RX
+190;494;4850000;13 ;Waldeck Pyrmontlaan 26;1075 BX
+191;283;925000;5 6 ;Lange Stammerdijk 28;1109 BN
+192;86;300000;3 ;Erich Salomonstraat 663;1087 KC
+193;70;400000;3 ;Korte Leidsedwarsstraat 151 -B;1017 PZ
+194;74;197500;3 ;Daniël Defoelaan 59;1102 ZE
+195;77;345000;2 ;Joos Banckersweg 17 H;1056 EP
+196;105;265000;4 ;Liendenhof 180;1108 HL
+197;46;295000;2 ;Schinkelkade 63 3;1075 VM
+198;152;1000000;6 ;Tintorettostraat 5 I + III;1077 RM
+199;80;425000;4 ;Rijnsburgstraat 20 1;1059 AV
+200;104;525000;4 ;Fahrenheitstraat 67 I;1097 PM
+201;126;695000;3 ;Van Oldenbarneveldtstraat 3 III IV;1052 JN
+202;48;259000;3 ;Filips van Almondestraat 11 2;1057 ZR
+203;72;450000;2 ;Amstel 124 A;1017 AD
+204;51;285000;4 ;Esmoreitstraat 8 H;1055 CD
+205;81;325000;3 ;Jacques Veltmanstraat 231 + PP;1065 DB
+206;125;468800;3 ;Jacques Veltmanstraat 45 + PP;1065 EG
+207;57;275000;4 ;Esmoreitstraat 5 I;1055 BX
+208;66;400000;3 ;Lutmastraat 59 HS;1073 GN
+209;60;495000;2 ;Vierwindenstraat 70;1013 LA
+210;76;335000;4 ;Haarlemmerweg 589 HS;1055 PR
+211;78;550000;3 ;Gustav Mahlerlaan 545 -d;1082 MK
+212;79;630000;2 ;Koninginneweg 134 IV;1075 EC
+213;62;335000;3 ;Aalsmeerweg 86 III;1059 AN
+214;78;315000;4 ;Oldengaarde 86;1083 TK
+215;42;315000;2 ;Marathonweg 18 III;1076 TG
+216;123;595000;4 ;De Lierhof 19;1059 WB
+217;141;1180000;5 ;Graaf Florisstraat 2 H+PP;1091 TG
+218;141;1120000;5 ;Graaf Florisstraat 2 H;1091 TG
+219;99;600000;3 ;Spadinalaan 95;1031 KB
+220;56;375000;3 ;Frederik Hendrikstraat 79 2;1052 HM
+221;126;675000;6 ;Dintelstraat 20 II;1078 VT
+222;55;350000;2 ;Vrolikstraat 311 A;1091 VE
+223;142;390000;4 ;Oeverpad 590;1068 PM
+224;75;439000;3 ;Vogelenzangstraat 45 I;1058 SP
