@@ -6,8 +6,17 @@ body{
   float:left;
 }
 #filters{
-  width:20%;
+  width:5%;
+  max-width:25px;
   float:left;
+  -webkit-transition:.2s width ease-out;
+  transition:.2s width ease-out;
+}
+#filter_bar{
+  width:100%;
+  opacity:0;
+  -webkit-transition:.2s width ease-out;
+  transition:.2s width ease-out;
 }
 #filter_bar ul{
   margin:0;
@@ -19,18 +28,30 @@ body{
   justify-content:left;
   padding:7px 0;
 }
+#filters #openclosecontainer{
+  width:100%;
+  overflow:auto;
+}
+#filters #openclose{
+  float:right;
+  width:20px;
+  margin-right:5px;
+  cursor:pointer;
+}
 #content{
-  width:80%;
-  float:left;
+  width:95%;
+  min-width:calc(100% - 25px);
+  float:right;
+  -webkit-transition:.2s width ease-out;
+  transition:.2s width ease-out;
 }
 
-#map { 
+#map{ 
 	width:70%;
 	height:400px;
 	float:left;
 }
-
-#side_menu {
+#side_menu{
 	margin-left:70%;
 	width:30%;
 	border:1px solid black;
