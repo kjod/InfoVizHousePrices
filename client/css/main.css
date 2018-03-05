@@ -1,3 +1,7 @@
+:root{
+  --filter-min-width:30px;
+  --map-height:400px;
+}
 body{
   font-family:Helvetica;
 }
@@ -5,28 +9,62 @@ body{
   width:100%;
   float:left;
 }
+#header h2{
+  letter-spacing:18px;
+  font-size:18px;
+  margin:20px 0;
+}
+#questions{
+  float:left;
+  background-color:#000;
+  width:100%;
+  color:#FFF;
+}
+#questions #questionnaire{
+  margin:25px 0;
+  text-align:center;
+  font-weight:666;
+  letter-spacing:8px;
+}
+#questions select{
+  margin-top:17px;
+  color:#FFF;
+  background:none;
+  border-width:0 0 1px 0;
+  font-size:15px;
+}
+#questions option{
+  background-color:#FFF;
+  color:#000;
+}
+
+#container{
+  width:100%;
+  float:left;
+}
 #filters{
   width:5%;
-  max-width:25px;
+  max-width:var(--filter-min-width);
   float:left;
-  -webkit-transition:.2s width ease-out;
-  transition:.2s width ease-out;
+  -webkit-transition:.3s width ease-out;
+  transition:.3s width ease-out;
 }
 #filter_bar{
-  width:100%;
-  opacity:0;
-  -webkit-transition:.2s width ease-out;
-  transition:.2s width ease-out;
+  width:0%;
+  overflow:hidden;
+  -webkit-transition:.3s width ease-out;
+  transition:.3s width ease-out;
 }
 #filter_bar ul{
   margin:0;
   padding:0;
 }
 #filter_bar li{
+  font-size:13px;
   display:flex;
   align-items:center;
   justify-content:left;
-  padding:7px 0;
+  padding:7px 5px;
 }
 #filters #openclosecontainer{
   width:100%;
@@ -37,27 +75,29 @@ body{
   width:20px;
   margin-right:5px;
   cursor:pointer;
+  margin:7px;
 }
 #content{
   width:95%;
-  min-width:calc(100% - 25px);
+  min-width:calc(100% - var(--filter-min-width));
   float:right;
-  -webkit-transition:.2s width ease-out;
-  transition:.2s width ease-out;
+  -webkit-transition:.3s width ease-out;
+  transition:.3s width ease-out;
 }
 
 #map{ 
 	width:70%;
-	height:400px;
+	height:var(--map-height);
 	float:left;
 }
 #side_menu{
 	margin-left:70%;
 	width:30%;
+  height:var(--map-height);
 	border:1px solid black;
 }
 
-h2, h3 {
+h2, h3{
 	text-align:center;	
 }
 
@@ -66,7 +106,9 @@ h2, h3 {
   position:relative;
   display:inline-block;
   width:30px;
+  width:28px;
   height:20px;
+  height:17px;
   margin-right:10px;
 }
 
@@ -90,7 +132,9 @@ h2, h3 {
   position:absolute;
   content:"";
   height:12px;
+  height:10px;
   width:11px;
+  width:10px;
   left:4px;
   bottom:4px;
   background-color:white;
@@ -149,4 +193,12 @@ svg,svg g{
   display:flex;
   align-items:center;
   justify-content:center;
+}
+.rotate-right{
+  -webkit-transform:rotate(180deg);
+  -webkit-transition:-webkit-transform .3s;
+}
+.rotate-left{
+  -webkit-transform:rotate(-180deg);
+  -webkit-transition:-webkit-transform .3s;
 }
