@@ -8,6 +8,7 @@
         <script src="../js/overviewChart.js"> </script>
         <script src="../js/map.js"> </script>
         <script src="../js/employment.js"> </script>
+        <script src="../js/main.js"> </script>
     </head>
     <body onload="initGraph()">
         <div id="header">
@@ -15,6 +16,9 @@
         </div>
         <div>
             <div id="filters">
+                <div id="openclosecontainer">
+                    <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
+                </div>
                 <div id="filter_bar">
                     <ul>
                         <li>
@@ -54,7 +58,6 @@
                             </label>
                         </li>
                     </ul>
-
                 </div>
             </div>
             <div id="content">
