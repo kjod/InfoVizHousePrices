@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Pand Visualization</title>
+		<script type="text/javascript" src="d3/d3.js"></script>
+	</head>
+	<body>
+		<script>
+			var outerUrl = "https://api.data.amsterdam.nl/bag/pand/?format=json";
+			var nextUrl = outerUrl;
+			var counter = 0;
+			var pageSize;
+			var entrySize;
+			
+			//how many pages should be loaded
+			var numLoadPages = 2000;
+			var pageLoadCount = 0;
+
+			
+			//initialize Array
+			var coordinate_list = [];
+			
+			//loop over all the pages
+			while(nextUrl != null && pageLoadCount <= numLoadPages) {
+				pageLoadCount += 1;
+				
+				//Data loading is happening asynchronous
+				d3.json(nextUrl, function(pandData)
+				{
+					
+					entrySize = pandData.count;
+					pageSize = pandData.results.length;
+					//d3.json(pandData.)
+					//pandData.results.forEach(function(result){ //get all the results
+						//get the link
+						//var pandUrl = result._links.self.href;
+						var pandUrl = pandData.results[0]._links.self.href; // only use the first result
+						d3.json(pandUrl, function(pand)
+						{
+							//get first coordinate of list (combined they probably plot the house)
+							var GPS_coord = pand.geometrie.coordinates[0][0];
+							
+							//console.log(GPS_coord);
+							coordinate_list.push(GPS_coord);	
+							
+							callback(null, coordinate_list);	
+						});	
+					//});
+					
+					//set the next url
+					//nextUrl = pandData._links.next.href;
+				});
+				
+				//console.log(pageLoadCount);
+				nextUrl = "https://api.data.amsterdam.nl/bag/pand/?format=json&page=" + pageLoadCount;
+				console.log(nextUrl);	
+			}
+			
+			
+				
+			function callback(err, results) {
+				console.log(counter + "/" + entrySize);
+				//wait for all the results
+				counter += 1;
+				//if(counter == pageSize) {
+				//	console.log(results[0]);
+				//}
+				//if(results.length == entrySize) {
+				//if(results.length == entrySize/pageSize) {
+				if(results.length == numLoadPages) {
+					console.log(results);
+					
+					//finally create the visualization
+					create_vis(results);
+					
+					let csvContent = "data:text/csv;charset=utf-8,";
+					
+					results.forEach(function(coordinate) {
+						let coord = coordinate.join(",");
+						csvContent += coord + "\r\n";
+					});
+					
+					var encodedUri = encodeURI(csvContent);
+					window.open(encodedUri);
+					
+					
+				}
+			}
+			
+			function create_vis(data) {
+				
+				var w = 700;
+				var h = 500;
+			
+				//DATASET SCATTERPLOT
+				var dataset = [
+	                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+	                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+	              ];
+	
+				dataset = data;
+
+				//Scaling
+				var padding = 30;
+
+				//scale for the scatterplot
+				//first the x-axis
+				var xScale = d3.scaleLinear()
+					.domain([d3.min(dataset, function(d) {return d[0];}), d3.max(dataset, function(d){ //get the max of the first column in the dataset
+						return d[0];
+					})])
+					.range([padding, w - padding * 2]); //as output range use the SVG's width, padding
+
+				//next the y-axis
+				var yScale = d3.scaleLinear()
+					.domain([d3.min(dataset, function(d) {return d[1];}), d3.max(dataset, function(d){
+						return d[1];
+					})])
+					.range([h - padding, padding]); //switch the order to let higher values appear higher
+
+				//scale for the dot size
+				var rScale = d3.scaleLinear()
+					.domain([0, d3.max(dataset, function(d){
+						return d[1];
+					})])
+					.range([2, 5]);
+
+				
+				//The scatter plot
+				//uses dataset
+				//Create SVG element
+				var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+				svg.selectAll("circle")
+					.data(dataset)
+					.enter()
+					.append("circle")
+					.attr("cx", function(d){
+						return xScale(d[0]); //use the scale instead of d[0]
+					})
+					.attr("cy", function(d){
+						return yScale(d[1]); //use the scale instead of d[1]
+					})
+					.attr("r", function(d){
+						//return Math.sqrt(h - d[1]);
+						return rScale(d[1]);
+					});
+
+				/*svg.selectAll("text")
+					.data(dataset)
+					.enter()
+					.append("text")
+					.text(function(d){
+						return d[0] + ", " + d[1];
+					})
+					.attr("x", function(d){
+						return xScale(d[0]); // also use the scale for the text
+					})
+					.attr("y", function(d){
+						return yScale(d[1]); //same here
+					})
+					.attr("font-family", "sans-serif")
+					.attr("font-size", "11px")
+					.attr("fill", "red");
+				*/
+					
+				//Axes
+				//Define X axis
+				var xAxis = d3.axisBottom()
+					.scale(xScale)
+					.ticks(5);
+
+				//Define Y axis
+				var yAxis = d3.axisLeft()
+					.scale(yScale)
+					.ticks(5);
+
+				//Create X axis
+				svg.append("g")
+					.attr("class", "axis") //Assign "axis" class for CSS
+					.attr("transform", "translate(0," + (h - padding) + ")")
+					.call(xAxis);
+
+				//Create Y axis
+				svg.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(" + padding + ",0)")
+					.call(yAxis);
+			}
+			
+
+		</script>
+	</body>
+</html>
