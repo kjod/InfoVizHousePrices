@@ -17,7 +17,7 @@ urls = [
 
 data = []
 
-pages = range(1, 139)
+pages = range(1, 2)
 
 for url in urls:
     for page in pages:
@@ -31,11 +31,16 @@ for url in urls:
             zipcode1, zipcode2, city = item.find_element_by_css_selector("small.search-result-subtitle").text.split(" ",
                                                                                                                     2)
             zipcode = zipcode1 + " " + zipcode2
-            street_zipcode_city = item.find_element_by_css_selector("h3.search-result-title").text
+            street_name = item.find_element_by_css_selector("h3.search-result-title").text
+            street_name = street_name.split('\n')[0]
+
+            house_price = item.find_element_by_css_selector("span.search-result-price").text.lstrip('€ ').rstrip(
+                ' k.k,').replace('.', '')
 
             data.append({
-                "street_zipcode_city":street_zipcode_city,
+                "street_name":street_name,
                 "zipcode":zipcode,
+                "house_price":house_price,
             })
         except ValueError:
             pass
