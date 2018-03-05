@@ -10,17 +10,51 @@
         <script src="../js/employment.js"> </script>
     </head>
     <body onload="initGraph()">
+        <div id="header">
+            <h2>Find a house</h2>
+        </div>
         <div>
-            <div id="header">
-                <h2>Find a house</h2>
-                <div id="filter=bar">
-                    <label>
-                        Employment:
-                    </label> 
-                    <label class="switch">
-                      <input type="checkbox" onclick="getEmploymentLayer()">
-                      <span class="slider round"></span>
-                    </label>
+            <div id="filters">
+                <div id="filter_bar">
+                    <ul>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Employment
+                            </label>
+                        </li>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Employment
+                            </label>
+                        </li>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Employment
+                            </label>
+                        </li>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Employment
+                            </label>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
             <div id="content">
