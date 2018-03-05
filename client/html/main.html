@@ -8,13 +8,30 @@
         <script src="../js/overviewChart.js"> </script>
         <script src="../js/map.js"> </script>
         <script src="../js/employment.js"> </script>
+        <script src="../js/main.js"> </script>
     </head>
     <body onload="initGraph()">
         <div id="header">
-            <h2>Find a house</h2>
+            <h2>FIND A HOUSE</h2>
         </div>
-        <div>
+        <div id="questions" class="flexcentered">
+            <div id="questionnaire">
+                <section>Do you like poor people?<br>
+                    <!-- Use javascript to render this -->
+                    <select>
+                        <!--option value="" disabled selected>Select your option</option-->
+                        <option value="y1">Yes</option>  
+                        <option value="y2">I love poor people, they make me laugh hahah</option>
+                        <option value="n">No, they smell.</option>
+                    </select>
+                </section>
+            </div>
+        </div>
+        <div id="container">
             <div id="filters">
+                <div id="openclosecontainer">
+                    <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
+                </div>
                 <div id="filter_bar">
                     <ul>
                         <li>
@@ -54,7 +71,6 @@
                             </label>
                         </li>
                     </ul>
-
                 </div>
             </div>
             <div id="content">
@@ -64,19 +80,7 @@
                         <h3>Stats: Avg housing price</h3>
                         <div id="overviewChart"></div>
                     </div>
-                    <div id="questionnaire">
-                        <h3>What do you want?</h3>
-                        <section>Do you like poor people?
-                            <!-- Use javascript to render this -->
-                            <select>
-                              <option value="y1">Yes</option>  
-                              <option value="y2">I love poor people, they make me laugh hahah</option>
-                              <option value="n">No, they smell.</option>
-                            </select>
-                        </section>
-
-                    </div>
-                </div>  
+                </div>
             </div>   
         </div>
                                                                  <!--Use your own api key here-->
