@@ -46,6 +46,38 @@ function showStats(){
 	}
 }
 
+var shownQuestion = 0;
+function nextQuestion(){
+	var questions = document.getElementById('questions').getElementsByTagName('section');
+	var nextQuestion = shownQuestion+1;
+	if(nextQuestion >= questions.length) nextQuestion = 0;
+	if(questions[nextQuestion].style.left != "200%"){
+		questions[nextQuestion].style.transition = "0s"
+		questions[nextQuestion].style.left = "200%";
+	}
+	questions[shownQuestion].style.left = "-100%";
+	setTimeout(function(){
+		questions[nextQuestion].style.transition =".5s all ease-out";
+		questions[nextQuestion].style.left = "50%";
+	},1)
+	shownQuestion = nextQuestion;
+}
+function prevQuestion(){
+	var questions = document.getElementById('questions').getElementsByTagName('section');
+	var nextQuestion = shownQuestion-1;
+	if(nextQuestion < 0) nextQuestion = questions.length-1;
+	if(questions[nextQuestion].style.left != "-100%"){
+		questions[nextQuestion].style.transition = "0s"
+		questions[nextQuestion].style.left = "-100%";
+	}
+	questions[shownQuestion].style.left = "200%";
+	setTimeout(function(){
+		questions[nextQuestion].style.transition =".5s all ease-out";
+		questions[nextQuestion].style.left = "50%";
+	},1)
+	shownQuestion = nextQuestion;
+}
+
 setTimeout(function(){
 	var side_stats = document.getElementById('side_stats');
 	side_stats.style.width = "0%";

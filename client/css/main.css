@@ -16,23 +16,30 @@ body{
   background-color:#000;
   width:100%;
   color:#FFF;
-  justify-content: space-evenly;
+  overflow:hidden;
+  position:relative;
+  min-height:94px;
 }
 #questions .leftarrow,#questions .rightarrow{
   background:rgba(66,66,66,0.54);
   -webkit-border-radius:28px;
   border-radius:28px;
   cursor:pointer;
-  position:relative;
+  position:absolute;
   height:56px;
   width:56px;
+  -webkit-transition:.15s background ease-out;
+  transition:.15s background ease-out;
 }
-/*#questions .leftarrow{
-  right:15%;
+#questions .leftarrow:hover,#questions .rightarrow:hover{
+  background:rgba(66,66,66,0.7);
+}
+#questions .leftarrow{
+  left:18%;
 }
 #questions .rightarrow{
-  left:15%;
-}*/
+  right:18%;
+}
 #questions .arrowsvg{
   fill:white;
 }
@@ -40,12 +47,23 @@ body{
   fill:white;
   stroke:none;
 }
-#questions #questionnaire{
-  margin:21px 0;
+#questions section.transit{
+  transition:.5s all ease-out;
+}
+#questions section{
+  display:inline-block;
+  position:absolute;
   text-align:center;
   font-weight:666;
   letter-spacing:8px;
-  width:30%;
+  left:50%;
+}
+#questions section .subsection{
+  position:relative;
+  left:-50%;
+}
+#questions section:not(:first-of-type){
+  left:200%;
 }
 #questions select{
   margin-top:14px;
@@ -54,6 +72,7 @@ body{
   border-width:0 0 1px 0;
   font-size:15px;
   text-align-last:center;
+  min-width:300px;
 }
 #questions option{
   background-color:#FFF;

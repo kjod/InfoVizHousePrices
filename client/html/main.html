@@ -11,23 +11,41 @@
             <h2>FIND A HOUSE</h2>
         </div>
         <div id="questions" class="flexcentered">
-            <div class="leftarrow flexcentered" id="questionleftarrow">
+            <div class="leftarrow flexcentered" id="questionleftarrow" onclick="prevQuestion()">
                 <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
                     <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"></path>
                 </svg>
             </div>
-            <div id="questionnaire">
-                <section>Do you like poor people?<br>
-                    <!-- Use javascript to render this -->
-                    <select>
-                        <!--option value="" disabled selected>Select your option</option-->
-                        <option value="y1">Yes</option>  
-                        <option value="y2">I love poor people, they make me laugh hahah</option>
-                        <option value="n">No, they smell.</option>
-                    </select>
+                <section id="poorfilter" class="transit">
+                    <div class="subsection">
+                        Do you like poor people?<br>
+                        <!-- Use javascript to render this -->
+                        <select>
+                            <option value="y">Yes</option>
+                            <option value="y">I love poor people, they make me laugh hahah</option>
+                            <option value="n">No, they smell.</option>
+                        </select>
+                    </div>
                 </section>
-            </div>
-            <div class="rightarrow flexcentered" id="questionrightarrow">
+                <section id="italianfilter" class="transit">
+                    <div class="subsection">
+                        Do you like italians?<br>
+                        <select>
+                            <option value="y">Yes, I love pizza.</option>
+                            <option value="n">No, they smell.</option>
+                        </select>
+                    </div>
+                </section>
+                <section id="mexicofilter" class="transit">
+                    <div class="subsection">
+                        Do you like spaniards?<br>
+                        <select>
+                            <option value="y">Yes, I love tacos.</option>
+                            <option value="n">No, they smell.</option>
+                        </select>
+                    </div>
+                </section>
+            <div class="rightarrow flexcentered" id="questionrightarrow" onclick="nextQuestion()">
                 <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
                     <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
                 </svg>
@@ -55,7 +73,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Employment
+                                Poor people
                             </label>
                         </li>
                         <li>
@@ -64,7 +82,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Employment
+                                Pasta
                             </label>
                         </li>
                         <li>
@@ -73,7 +91,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Employment
+                                Mexico
                             </label>
                         </li>
                     </ul>
