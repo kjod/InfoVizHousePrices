@@ -1,5 +1,6 @@
 :root{
   --filter-min-width:30px;
+  --filter-max-width:200px;
   --map-height:400px;
 }
 body{
@@ -15,12 +16,36 @@ body{
   background-color:#000;
   width:100%;
   color:#FFF;
+  justify-content: space-evenly;
+}
+#questions .leftarrow,#questions .rightarrow{
+  background:rgba(66,66,66,0.54);
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  cursor:pointer;
+  position:relative;
+  height:56px;
+  width:56px;
+}
+/*#questions .leftarrow{
+  right:15%;
+}
+#questions .rightarrow{
+  left:15%;
+}*/
+#questions .arrowsvg{
+  fill:white;
+}
+#questions path{
+  fill:white;
+  stroke:none;
 }
 #questions #questionnaire{
   margin:21px 0;
   text-align:center;
   font-weight:666;
   letter-spacing:8px;
+  width:30%;
 }
 #questions select{
   margin-top:14px;

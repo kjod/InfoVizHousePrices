@@ -21,7 +21,7 @@ function openCloseFilters(){
 		openclose.classList.add('rotate-left');
 		setTimeout(function(){
 			filters.style.maxWidth = "var(--filter-min-width)";
-			content.style.minWidth = "calc(100% - var(--filter-min-width))";
+			content.style.minWidth = "calc(100% - 2*var(--filter-min-width))";
 			openclose.src="../img/burger.png";
 			openclose.classList.remove('rotate-left');
 		},300);
