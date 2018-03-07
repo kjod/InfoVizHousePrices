@@ -3,14 +3,20 @@ var EMPLOYMENTSWITCH = false;
 //Need filterSet??
 //Might need to pus these into one file, if we wnat heat maps
 function getEmploymentLayer() {
-    console.log("In layer"); 
     EMPLOYMENTSWITCH = !EMPLOYMENTSWITCH;
-    
+    //console.log("d3 ", d3)
     // Load the station data. When the data comes back, create an overlay.
-    d3.csv("../../server/data/formattedFiles/locations_and_people_employed.csv", function(error, data) {
-      if (error) throw error;
-      console.log("data ,", data)
-      var overlay = new google.maps.OverlayView();
+    //console.log(d3.csv("locations_and_people_employed.csv", function(data) {
+      //console.log("Error ", error);
+     //if (error) throw error;
+    // return data;
+    //}));
+    console.log("Here");
+    d3.csv("locations_and_people_employed.csv", function(data) {
+      //console.log("Error ", error);
+     //if (error) throw error;
+     
+     var overlay = new google.maps.OverlayView();
 
       // Add the container when the overlay is added to the map.
       overlay.onAdd = function() {
@@ -52,7 +58,7 @@ function getEmploymentLayer() {
           }
         };
       };
-
+      console.log("Here too")
       // Bind our overlay to the map…
       overlay.setMap(map);
     });//*/
