@@ -9,26 +9,50 @@
         </script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="../js/overviewChart.js"> </script>
-        <script src="../js/map.js"> </script>
-        <script src="../js/employment.js"> </script>
-        <script src="../js/main.js"> </script>
     </head>
     <body onload="initGraph()">
-        <div id="header">
+        <div id="header" class="defaultdiv">
             <h2>FIND A HOUSE</h2>
         </div>
         <div id="questions" class="flexcentered">
-            <div id="questionnaire">
-                <section>Do you like poor people?<br>
-                    <!-- Use javascript to render this -->
-                    <select>
-                        <!--option value="" disabled selected>Select your option</option-->
-                        <option value="y1">Yes</option>  
-                        <option value="y2">I love poor people, they make me laugh hahah</option>
-                        <option value="n">No, they smell.</option>
-                    </select>
+            <div class="leftarrow flexcentered" id="questionleftarrow" onclick="prevQuestion()">
+                <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
+                    <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"></path>
+                </svg>
+            </div>
+                <section id="poorfilter" class="transit">
+                    <div class="subsection">
+                        Do you like poor people?<br>
+                        <!-- Use javascript to render this -->
+                        <select>
+                            <option value="y">Yes</option>
+                            <option value="y">I love poor people, they make me laugh hahah</option>
+                            <option value="n">No, they smell.</option>
+                        </select>
+                    </div>
                 </section>
+                <section id="italianfilter" class="transit">
+                    <div class="subsection">
+                        Do you like italians?<br>
+                        <select>
+                            <option value="y">Yes, I love pizza.</option>
+                            <option value="n">No, they smell.</option>
+                        </select>
+                    </div>
+                </section>
+                <section id="mexicofilter" class="transit">
+                    <div class="subsection">
+                        Do you like spaniards?<br>
+                        <select>
+                            <option value="y">Yes, I love tacos.</option>
+                            <option value="n">No, they smell.</option>
+                        </select>
+                    </div>
+                </section>
+            <div class="rightarrow flexcentered" id="questionrightarrow" onclick="nextQuestion()">
+                <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                </svg>
             </div>
         </div>
         <div id="container">
@@ -53,7 +77,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Employment
+                                Poor people
                             </label>
                         </li>
                         <li>
@@ -62,7 +86,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Employment
+                                Pasta
                             </label>
                         </li>
                         <li>
@@ -71,7 +95,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Employment
+                                Mexico
                             </label>
                         </li>
                     </ul>
@@ -79,7 +103,7 @@
             </div>
             <div id="content">
                 <div id="map"></div>
-                <div id="side_menu">
+                <div id="side_stats">
                     <div id="charts_overview">
                         <h3>Stats: Avg housing price</h3>
                         <div id="overviewChart"></div>
@@ -87,6 +111,13 @@
                 </div>
             </div>   
         </div>
+        <div class="flexcentered defaultdiv">
+            <button id="showstats" onclick="showStats()">SHOW STATS</button>
+        </div>
+        <script src="../js/overviewChart.js"></script>
+        <script src="../js/map.js"></script>
+        <script src="../js/employment.js"></script>
+        <script src="../js/main.js"></script>
                                                                  <!--Use your own api key here-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap">
         </script>
