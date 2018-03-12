@@ -1,13 +1,16 @@
 :root{
   --filter-min-width:30px;
-  --map-height:400px;
+  --filter-max-width:200px;
+  --header-height:9.4%;
+  --questions-height:14.5%;
+  --map-height:calc(100% - var(--header-height) - var(--questions-height));
+  --map-min-height:500px;
 }
 body{
   font-family:Helvetica;
 }
 #header{
-  width:100%;
-  float:left;
+  height:var(--header-height);
 }
 #header h2{
   letter-spacing:18px;
@@ -19,19 +22,64 @@ body{
   background-color:#000;
   width:100%;
   color:#FFF;
+  overflow:hidden;
+  position:relative;
+  min-height:var(--questions-height);
+  min-height:94px;
 }
-#questions #questionnaire{
-  margin:25px 0;
+#questions .leftarrow,#questions .rightarrow{
+  background:rgba(66,66,66,0.54);
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  cursor:pointer;
+  position:absolute;
+  height:56px;
+  width:56px;
+  -webkit-transition:.15s background ease-out;
+  transition:.15s background ease-out;
+}
+#questions .leftarrow:hover,#questions .rightarrow:hover{
+  background:rgba(66,66,66,0.75);
+}
+#questions .leftarrow{
+  left:18%;
+}
+#questions .rightarrow{
+  right:18%;
+}
+#questions .arrowsvg{
+  fill:white;
+}
+#questions path{
+  fill:white;
+  stroke:none;
+}
+#questions section.transit{
+  transition:.5s all ease-out;
+}
+#questions section{
+  display:inline-block;
+  position:absolute;
   text-align:center;
   font-weight:666;
   letter-spacing:8px;
+  left:50%;
+}
+#questions section .subsection{
+  position:relative;
+  left:-50%;
+}
+#questions section:not(:first-of-type){
+  left:200%;
 }
 #questions select{
-  margin-top:17px;
+  margin-top:14px;
   color:#FFF;
   background:none;
   border-width:0 0 1px 0;
   font-size:15px;
+  text-align-last:center;
+  min-width:300px;
 }
 #questions option{
   background-color:#FFF;
@@ -40,6 +88,7 @@ body{
 
 #container{
   width:100%;
+  height:calc(100% - );
   float:left;
 }
 #filters{
@@ -78,28 +127,50 @@ body{
   margin:7px;
 }
 #content{
+  display:inline-flex;
   width:95%;
-  min-width:calc(100% - var(--filter-min-width));
-  float:right;
+  min-width:calc(100% - 2*var(--filter-min-width));
+  min-height:var(--map-height);
+  float:left;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
 }
-
 #map{ 
-	width:70%;
-	height:var(--map-height);
+	width:100%;
+	min-height:var(--map-min-height);
 	float:left;
+  -webkit-transition:.3s all ease-out;
+  transition:.3s all ease-out;
 }
-#side_menu{
-	margin-left:70%;
-	width:30%;
-  height:var(--map-height);
-	border:1px solid black;
+#charts_overview{
+  position:static;
 }
-
+#side_stats{
+  position:absolute;
+  overflow:hidden;
+	width:50%;
+  opacity:0;
+  min-height:var(--map-min-height);
+  box-sizing:border-box;
+  border:1px solid black;
+	border-top:none;
+  -webkit-transition:.3s width ease-out;
+  transition:.3s width ease-out;
+}
+#overviewChart{
+  text-align:center;
+}
 h2, h3{
 	text-align:center;	
 }
+button#showstats{
+  margin:15px 0;
+  padding:5px 50px;
+}
+
+
+
+
 
 /* The switch - the box around the slider */
 .switch {
@@ -170,9 +241,6 @@ path {
 	stroke-width:1;
 	fill:none;
 }
-svg,svg g{
-  width:100%;
-}
 .axis {
   shape-rendering:crispEdges;
 }
@@ -201,4 +269,24 @@ svg,svg g{
 .rotate-left{
   -webkit-transform:rotate(-180deg);
   -webkit-transition:-webkit-transform .3s;
+}
+.defaultdiv{
+  width:100%;
+  float:left;
+}
+
+
+.stations, .stations svg {
+  position:absolute;
+}
+.stations svg {
+  width:60px;
+  height:20px;
+  padding-right:100px;
+  font:10px sans-serif;
+}
+.stations circle {
+  fill:brown;
+  stroke:black;
+  stroke-width:1.5px;
 }

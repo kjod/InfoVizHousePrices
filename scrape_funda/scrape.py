@@ -17,7 +17,7 @@ urls = [
 
 data = []
 
-pages = range(1, 50) #139
+pages = range(1, 139) #139
 
 for url in urls:
     for page in pages:
@@ -25,7 +25,7 @@ for url in urls:
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div.search-result-content")))
 
         for item in browser.find_elements_by_css_selector("div.search-result-content"):
-            print(item)
+            # print(item)
 
             try:
                 zipcode1, zipcode2, city = item.find_element_by_css_selector("small.search-result-subtitle").text.split(" ",
@@ -51,7 +51,7 @@ for url in urls:
             except ValueError:
                 pass
 
-        time.sleep(randint(5,10))
+        time.sleep(randint(0,5))
 
 browser.close()
 df = pd.DataFrame(data)
