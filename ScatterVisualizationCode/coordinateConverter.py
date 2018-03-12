@@ -5,9 +5,17 @@
 
 import csv
 
+#filename = "DistrictWithName.csv"
+#save_filename = "convertedDistrictWithName.csv"
+
 filename = "DistrictWithNameCode.csv"
 save_filename = "convertedDistrictWithNameCode.csv"
-first_coordinate_index = 2;
+
+#first case only name
+#first_coordinate_index = 1; #number of fields before first coordinate
+
+#second case: name and code
+first_coordinate_index = 2; #number of fields before first coordinate
 
 class RDWGSConverter:
 
@@ -109,14 +117,15 @@ def main():
 				while(not row[coordinate_index + rowOffset].replace(".", "").isdigit()):
 					rowOffset += 1
 				
+				
 				latitude = row[coordinate_index + rowOffset]
 				longitude = row[coordinate_index+ 1 + rowOffset]
 				#print("ri: "+ str(rowCounter) + " ci: " + str(coordinate_index))
 				
 				#print(conv.fromRdToWgs([float(latitude), float(longitude)]))
 				GPS_coords = conv.fromRdToWgs([float(latitude), float(longitude)])
-				row[coordinate_index] = GPS_coords[0]
-				row[coordinate_index+1] = GPS_coords[1]
+				row[coordinate_index + rowOffset] = GPS_coords[0]
+				row[coordinate_index + 1 + rowOffset] = GPS_coords[1]
 	
 	print("writing array.... ")
 	
