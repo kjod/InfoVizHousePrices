@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Load Neighborhood (Buurt) Coordinates</title>
+		<script type="text/javascript" src="d3/d3.js"></script>
+	</head>
+	<body>
+		<script>
+			var startUrl = "https://api.data.amsterdam.nl/gebieden/buurtcombinatie/";
+
+			var coordinates_list = [];
+			var numDistricts;
+			var numNeighborhoods = 0;
+			var dataCall = 0;
+			var dataCallN = 0;
+
+			//loop over all the pages
+			//while(nextURL != null) {
+			go_to_next_page_district(startUrl);
+				
+			//}
+
+			function go_to_next_page_district(url) {
+				if(url != null) {
+					d3.json(url, function(data) {
+						console.log(data);
+						numDistricts = data.count;
+
+						data.results.forEach(function(district) {
+							d3.json(district._links.self.href, function(district_data){
+								//coordinates_list.push(district_data.geometrie.coordinates);
+								//count the number of neighborhoods
+								numNeighborhoods += district_data.buurten.count;
+								
+								console.log("neighborhood size: " + district_data.buurten.count);
+								//make sure there is no neighborhood page with next links, otherwise go_to_next_page_neigborhood
+								
+								//go to the list of neighborhoods
+								d3.json(district_data.buurten.href, function(neighborhoods) {
+									//for each neighborhood
+									neighborhoods.results.forEach(function(neighborhood){
+										d3.json(neighborhood._links.self.href, function(neighborhood_data){
+											
+											let conv_data = neighborhood_data.geometrie.coordinates;
+											conv_data.unshift(neighborhood_data.volledige_code);
+											conv_data.unshift(neighborhood_data.naam);
+											coordinates_list.push(conv_data);
+											
+											//wait for the data
+											wait_for_data_neighborhoods(coordinates_list);
+										});
+									});
+								});
+
+								//finally save all
+								//this happens after all asynchronous comunication
+								wait_for_data_districts(coordinates_list);
+
+							});
+						});
+						
+						go_to_next_page_district(data._links.next.href);
+					});
+				}
+				
+			}
+			
+			function go_to_next_page_neighborhood(url) {
+				
+			}
+
+			function wait_for_data_districts(data) {
+				dataCall++;
+				//console.log(dataCall + "/" + numDistricts);
+				
+				if(dataCall == numDistricts) {
+					//save_data(data);
+					console.log("Neighborhoods counted.");
+				}
+			}
+			
+			function wait_for_data_neighborhoods(data) {
+				dataCallN++;
+				console.log(dataCallN + "/" + numNeighborhoods);
+				if(dataCallN == numNeighborhoods) {
+					save_data(data);
+				}
+			}
+
+			function save_data(data) {
+				let csvContent = "data:text/csv;charset=utf-8,";
+
+
+				data.forEach(function(coordinate_l){
+					let coord = coordinate_l.join(",");
+					csvContent += coord + "\r\n";
+				});
+
+				var encodedUri = encodeURI(csvContent);
+				window.open(encodedUri);
+			}
+		</script>
+	</body>
+</html>
