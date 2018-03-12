@@ -18,7 +18,8 @@ function getEmploymentLayer() {
          //if (error) throw error;
          
          var overlay = new google.maps.OverlayView();
-         exampleData = [{lat: 52.3791, lon:4.9003, key:"Amsterdam"}, {lat:52.3452, lon:4.9676, key:"Diemen"}]
+         //exampleData = [{lat: 52.3791, lon:4.9003, key:"Amsterdam"}, {lat:52.3452, lon:4.9676, key:"Diemen"}]
+         exampleData = {"AMSTERDAM":[52.3791,4.9003], "DIEMEN":[52.3452,4.9676]}
           // Add the container when the overlay is added to the map.
           overlay.onAdd = function() {
             var layer = d3.select(this.getPanes().overlayLayer).append("div")
@@ -51,7 +52,7 @@ function getEmploymentLayer() {
                   .text(function(d) { return d.key; });
 
               function transform(d) {
-                d = new google.maps.LatLng(d.lat, d.lon);
+                d = new google.maps.LatLng(d.value[0], d.value[1]);
                 d = projection.fromLatLngToDivPixel(d);
                 return d3.select(this)
                     .style("left", (d.x - padding) + "px")
@@ -65,5 +66,5 @@ function getEmploymentLayer() {
     } else {
         document.getElementsByClassName("stations")[0].remove();
     }
-
 }
+getEmploymentLayer();
