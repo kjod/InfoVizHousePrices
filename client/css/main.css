@@ -4,7 +4,7 @@
   --header-height:9.4%;
   --questions-height:14.5%;
   --map-height:calc(100% - var(--header-height) - var(--questions-height));
-  --map-min-height:400px;
+  --map-min-height:500px;
 }
 body{
   font-family:Helvetica;
@@ -273,4 +273,20 @@ path {
 .defaultdiv{
   width:100%;
   float:left;
+}
+
+
+.stations, .stations svg {
+  position:absolute;
+}
+.stations svg {
+  width:60px;
+  height:20px;
+  padding-right:100px;
+  font:10px sans-serif;
+}
+.stations circle {
+  fill:brown;
+  stroke:black;
+  stroke-width:1.5px;
 }

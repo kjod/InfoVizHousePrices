@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Load District (Wijk) Coordinates</title>
+		<script type="text/javascript" src="d3/d3.js"></script>
+	</head>
+	<body>
+		<script>
+			var startUrl = "https://api.data.amsterdam.nl/gebieden/buurtcombinatie/";
+
+			var coordinates_list = [];
+			var numDistricts;
+			var dataCall = 0;
+
+			//loop over all the pages
+			//while(nextURL != null) {
+			go_to_next_page(startUrl);
+				
+			//}
+
+			function go_to_next_page(url) {
+				if(url != null) {
+					d3.json(url, function(data) {
+						console.log(data);
+						numDistricts = data.count;
+
+						data.results.forEach(function(district) {
+							d3.json(district._links.self.href, function(district_data){
+								//coordinates_list.push(district_data.geometrie.coordinates);
+								let conv_data = district_data.geometrie.coordinates
+								conv_data.unshift(district_data.naam);
+								coordinates_list.push(conv_data);
+								
+								console.log(coordinates_list);
+								
+								//finally save all
+								//this happens after all asynchronous comunication
+								wait_for_data(coordinates_list);
+
+							});
+						});
+						
+						go_to_next_page(data._links.next.href);
+					});
+				}
+				
+			}
+
+			function wait_for_data(data) {
+				dataCall++;
+				console.log(dataCall + "/" + numDistricts);
+				if(dataCall == numDistricts) {
+					save_data(data);
+				}
+			}
+
+
+			function save_data(data) {
+				let csvContent = "data:text/csv;charset=utf-8,";
+
+
+				data.forEach(function(coordinate_l){
+					console.log(coordinate_l)
+					let coord = coordinate_l.join(",");
+					csvContent += coord + "\r\n";
+				});
+
+				var encodedUri = encodeURI(csvContent);
+				window.open(encodedUri);
+			}
+		</script>
+	</body>
+</html>

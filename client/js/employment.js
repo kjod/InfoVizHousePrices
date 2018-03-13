@@ -13,13 +13,15 @@ function getEmploymentLayer() {
     //}));
     
     if(EMPLOYMENTSWITCH){
-        d3.csv("locations_and_people_employed.csv", function(data) {
+        d3.csv("exampleData.csv", function(data) {
           //console.log("Error ", error);
          //if (error) throw error;
          
          var overlay = new google.maps.OverlayView();
-         exampleData = [{lat: 52.3791, lon:4.9003, key:"Amsterdam"}, {lat:52.3452, lon:4.9676, key:"Diemen"}]
+         //exampleDataCSV = [{lat:52.3791, lon:4.9003, key:"Amsterdam"}, {lat:52.3452, lon:4.9676, key:"Diemen"}]
+         //exampleData = {"AMSTERDAM":[52.3791,4.9003], "DIEMEN":[52.3452,4.9676]}
           // Add the container when the overlay is added to the map.
+          console.log(data);
           overlay.onAdd = function() {
             var layer = d3.select(this.getPanes().overlayLayer).append("div")
                 .attr("class", "stations");
@@ -31,7 +33,7 @@ function getEmploymentLayer() {
               var padding = 10;
 
               var marker = layer.selectAll("svg")
-                  .data(d3.entries(exampleData))
+                  .data(d3.entries(data))
                   .each(transform) // update existing markers
                 .enter().append("svg")
                   .each(transform)
@@ -48,14 +50,20 @@ function getEmploymentLayer() {
                   .attr("x", padding + 7)
                   .attr("y", padding)
                   .attr("dy", ".31em")
-                  .text(function(d) { return d.key; });
+                  //.text(function(d) { return d.key; });
+                  .text(function(d) { return d.value.name; });
 
               function transform(d) {
-                d = new google.maps.LatLng(d.lat, d.lon);
-                d = projection.fromLatLngToDivPixel(d);
-                return d3.select(this)
-                    .style("left", (d.x - padding) + "px")
-                    .style("top", (d.y - padding) + "px");
+                if(d.key != "columns"){
+                  //d = new google.maps.LatLng(d.value[0], d.value[1]);
+                  d = new google.maps.LatLng(d.value.lat, d.value.lon);
+                  d = projection.fromLatLngToDivPixel(d);
+                  return d3.select(this)
+                      .style("left", (d.x - padding) + "px")
+                      .style("top", (d.y - padding) + "px");
+                }else{
+                  return d3.select(this).remove();
+                }
               }
             };
           };
@@ -65,5 +73,5 @@ function getEmploymentLayer() {
     } else {
         document.getElementsByClassName("stations")[0].remove();
     }
-
 }
+getEmploymentLayer();

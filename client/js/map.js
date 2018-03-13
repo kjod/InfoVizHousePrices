@@ -141,5 +141,5 @@ function createMap() {
         }
       ],
   };
-  map =new google.maps.Map(document.getElementById("map"),mapProp);
+  map =new google.maps.Map(d3.select("#map").node(),mapProp);
 }
