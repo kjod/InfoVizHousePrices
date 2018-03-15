@@ -70,7 +70,7 @@ function getEmploymentLayer() {
           // Bind our overlay to the map…
           overlay.setMap(map);
         });//*/
-    } else {
+    }else{
         document.getElementsByClassName("stations")[0].remove();
     }
 }
