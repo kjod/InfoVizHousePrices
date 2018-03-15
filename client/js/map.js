@@ -149,7 +149,7 @@ function createMap() {
   strokeOpacity: 0.5,
   strokeWeight: 2,
   fillColor: '#CACACA',
-  fillOpacity: 0.35,
+  fillOpacity: 0.5,
   paths: [[new google.maps.LatLng(52.205432, 4.378356),
   new google.maps.LatLng(52.543880, 4.378356),
   new google.maps.LatLng(52.543880, 5.429566),
