@@ -21,7 +21,7 @@ function getEmploymentLayer() {
          //exampleDataCSV = [{lat:52.3791, lon:4.9003, key:"Amsterdam"}, {lat:52.3452, lon:4.9676, key:"Diemen"}]
          //exampleData = {"AMSTERDAM":[52.3791,4.9003], "DIEMEN":[52.3452,4.9676]}
           // Add the container when the overlay is added to the map.
-          console.log(data);
+          //console.log(data);
           overlay.onAdd = function() {
             var layer = d3.select(this.getPanes().overlayLayer).append("div")
                 .attr("class", "stations");
