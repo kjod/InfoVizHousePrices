@@ -276,16 +276,16 @@ path {
 }
 
 
-.stations, .stations svg {
+.scatter, .scatter svg {
   position:absolute;
 }
-.stations svg {
+.scatter svg {
   width:60px;
   height:20px;
   padding-right:100px;
   font:10px sans-serif;
 }
-.stations circle {
+.scatter circle {
   fill:brown;
   stroke:black;
   stroke-width:1.5px;
