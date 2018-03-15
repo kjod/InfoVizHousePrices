@@ -44,15 +44,15 @@ const redBlueScaleColor = d3.scaleLinear()
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
 
-d3.json("names_coordinates_data/districts.json", function(shapes) {			//district level
-// d3.json("names_coordinates_data/neigbhourhoods.json", function(shapes) {	//neighbourhoods level
+// d3.json("names_coordinates_data/districts.json", function(shapes) {			//district level
+d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {	//neighbourhoods level
     var padding = 10;
 	var areas = svg.selectAll("polygon")
 		.data(shapes.Areas)
 		.enter().append("polygon")
 		.attr("points",function(d) { 
 			return d.points.map(function(d) {
-				return [scaleLong(d.y),scaleLat(d.x)].join(","); 
+				return [scaleLong(d.y),scaleLat(d.x)].join(",");
 			}).join(" ");
 		})
 		// .attr("stroke","white").attr("stroke-width",1) //stroke
@@ -65,7 +65,6 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {			//district
 				return "rgb(169,169,169)"; //gray when the value is empty
 			}
 		});
-
 });
  
 </script>
