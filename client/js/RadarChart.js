@@ -13,7 +13,7 @@ var RadarChart = {
   var cfg = {
      radius: 5,
      w: 600,
-     h: 600,
+     h: 300,
      factor: 1,
      factorLegend: .85,
      levels: 3,
@@ -44,10 +44,12 @@ var RadarChart = {
     
     var g = d3.select(id)
             .append("svg")
-            .attr("width", cfg.w+cfg.ExtraWidthX)
-            .attr("height", cfg.h+cfg.ExtraWidthY)
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("style", "margin-left:15%;")
             .append("g")
-            .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
+            .attr("height", "100%")
+            //.attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
             ;
 
     var tooltip;

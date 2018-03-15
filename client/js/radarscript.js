@@ -35,8 +35,8 @@ var mycfg = {
 //Call function to draw the Radar chart
 //Will expect that data is in %'s
 function initGraph(){
-  RadarChart.draw("#chart", d, mycfg);
-  var svg = d3.select('#body')
+  RadarChart.draw("#overviewChart", d, mycfg);
+  var svg = d3.select('#overviewChart')
   .selectAll('svg')
   .append('svg')
   .attr("width", w+300)
