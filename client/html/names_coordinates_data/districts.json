@@ -9,6 +9,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "290005.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "0.6",
+"No_migration_background_2016": "55.3",
+"Other_non_western_2016": "10.8",
+"Surinamese_2016": "1.9",
+"Turks_2016": "0.8",
+"Western_2016": "29.6"
+}],
 "points":[
 {"x":52.372708716896675, "y":4.8929719533995035},
 {"x":52.372707256384516, "y":4.8930081556415015},
@@ -156,6 +165,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "296672.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "0.8",
+"No_migration_background_2016": "52.3",
+"Other_non_western_2016": "12.1",
+"Surinamese_2016": "1.6",
+"Turks_2016": "0.9",
+"Western_2016": "31.5"
+}],
 "points":[
 {"x":52.377032514555616, "y":4.892079357631906},
 {"x":52.37718048383521, "y":4.892244756669281},
@@ -294,6 +312,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "562899.0",
+"ethinicities":[{
+"Antillean_2016": "0.6",
+"Moroccan_2016": "0.2",
+"No_migration_background_2016": "59.0",
+"Other_non_western_2016": "7.1",
+"Surinamese_2016": "1.1",
+"Turks_2016": "0.7",
+"Western_2016": "31.4"
+}],
 "points":[
 {"x":52.373992209375025, "y":4.883065763537744},
 {"x":52.37422391084538, "y":4.883086636396563},
@@ -395,6 +422,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "531223.0",
+"ethinicities":[{
+"Antillean_2016": "0.6",
+"Moroccan_2016": "0.3",
+"No_migration_background_2016": "60.0",
+"Other_non_western_2016": "8.1",
+"Surinamese_2016": "1.3",
+"Turks_2016": "1.2",
+"Western_2016": "28.4"
+}],
 "points":[
 {"x":52.362805264057876, "y":4.902767241338587},
 {"x":52.36274814829512, "y":4.902452825930812},
@@ -501,6 +537,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "339498.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "0.9",
+"No_migration_background_2016": "60.8",
+"Other_non_western_2016": "8.3",
+"Surinamese_2016": "2.8",
+"Turks_2016": "0.8",
+"Western_2016": "25.8"
+}],
 "points":[
 {"x":52.371467630744384, "y":4.913410526594125},
 {"x":52.371173174544325, "y":4.912960923175035},
@@ -978,6 +1023,15 @@
 "surface_green_2016": "2.0",
 "surface_sports_2016": "1.3",
 "WOZ_value_2016": "345271.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "2.1",
+"No_migration_background_2016": "60.9",
+"Other_non_western_2016": "8.5",
+"Surinamese_2016": "3.9",
+"Turks_2016": "0.8",
+"Western_2016": "23.0"
+}],
 "points":[
 {"x":52.38600344441236, "y":4.883036420722836},
 {"x":52.38624442103469, "y":4.883236125151358},
@@ -1065,6 +1119,15 @@
 "surface_green_2016": "1.1",
 "surface_sports_2016": "0.4",
 "WOZ_value_2016": "307654.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "1.5",
+"No_migration_background_2016": "63.5",
+"Other_non_western_2016": "7.0",
+"Surinamese_2016": "2.2",
+"Turks_2016": "0.9",
+"Western_2016": "24.1"
+}],
 "points":[
 {"x":52.38193219364078, "y":4.879635222476898},
 {"x":52.38195906682431, "y":4.879657792415633},
@@ -1792,6 +1855,15 @@
 "surface_green_2016": "8.9",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "399971.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "0.6",
+"No_migration_background_2016": "61.9",
+"Other_non_western_2016": "7.4",
+"Surinamese_2016": "1.6",
+"Turks_2016": "1.1",
+"Western_2016": "26.7"
+}],
 "points":[
 {"x":52.36327002059784, "y":4.8812334681237495},
 {"x":52.363362591026586, "y":4.881118755805052},
@@ -4535,6 +4607,15 @@
 "surface_green_2016": "24.2",
 "surface_sports_2016": "0.8",
 "WOZ_value_2016": "350939.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "1.7",
+"No_migration_background_2016": "60.0",
+"Other_non_western_2016": "9.2",
+"Surinamese_2016": "3.6",
+"Turks_2016": "0.7",
+"Western_2016": "23.9"
+}],
 "points":[
 {"x":52.36213130829215, "y":4.917487918732236},
 {"x":52.362131199596575, "y":4.917484905768034},
@@ -8559,6 +8640,15 @@
 "surface_green_2016": "5.4",
 "surface_sports_2016": "0.1",
 "WOZ_value_2016": "276481.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "4.9",
+"No_migration_background_2016": "57.6",
+"Other_non_western_2016": "10.1",
+"Surinamese_2016": "6.5",
+"Turks_2016": "1.7",
+"Western_2016": "18.3"
+}],
 "points":[
 {"x":52.374942045741626, "y":4.911377048992231},
 {"x":52.37768374913501, "y":4.910750138425872},
@@ -9905,6 +9995,15 @@
 "surface_green_2016": "4.8",
 "surface_sports_2016": "2.7",
 "WOZ_value_2016": "224491.0",
+"ethinicities":[{
+"Antillean_2016": "0.0",
+"Moroccan_2016": "0.0",
+"No_migration_background_2016": "58.5",
+"Other_non_western_2016": "10.0",
+"Surinamese_2016": "2.5",
+"Turks_2016": "0.5",
+"Western_2016": "28.5"
+}],
 "points":[
 {"x":52.39444533711597, "y":4.805984726106403},
 {"x":52.39455778384879, "y":4.805873956991086},
@@ -10478,6 +10577,15 @@
 "surface_green_2016": "36.6",
 "surface_sports_2016": "2.9",
 "WOZ_value_2016": "",
+"ethinicities":[{
+"Antillean_2016": "0.0",
+"Moroccan_2016": "0.0",
+"No_migration_background_2016": "33.0",
+"Other_non_western_2016": "14.2",
+"Surinamese_2016": "1.9",
+"Turks_2016": "2.8",
+"Western_2016": "48.1"
+}],
 "points":[
 {"x":52.394800161137496, "y":4.809657001904021},
 {"x":52.394732209106245, "y":4.809721254379802},
@@ -10814,6 +10922,15 @@
 "surface_green_2016": "11.5",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "186544.0",
+"ethinicities":[{
+"Antillean_2016": "0.6",
+"Moroccan_2016": "1.3",
+"No_migration_background_2016": "60.8",
+"Other_non_western_2016": "6.2",
+"Surinamese_2016": "2.6",
+"Turks_2016": "1.1",
+"Western_2016": "27.4"
+}],
 "points":[
 {"x":52.39165700165891, "y":4.8782049819239734},
 {"x":52.3916609651226, "y":4.878196605889676},
@@ -11057,6 +11174,15 @@
 "surface_green_2016": "35.4",
 "surface_sports_2016": "6.7",
 "WOZ_value_2016": "222336.0",
+"ethinicities":[{
+"Antillean_2016": "1.4",
+"Moroccan_2016": "8.0",
+"No_migration_background_2016": "51.6",
+"Other_non_western_2016": "11.1",
+"Surinamese_2016": "8.2",
+"Turks_2016": "2.4",
+"Western_2016": "17.3"
+}],
 "points":[
 {"x":52.38546247985706, "y":4.882588116394423},
 {"x":52.385582834881575, "y":4.882023432039218},
@@ -11373,6 +11499,15 @@
 "surface_green_2016": "0.2",
 "surface_sports_2016": "0.2",
 "WOZ_value_2016": "241509.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "6.9",
+"No_migration_background_2016": "55.4",
+"Other_non_western_2016": "10.2",
+"Surinamese_2016": "4.5",
+"Turks_2016": "2.0",
+"Western_2016": "20.1"
+}],
 "points":[
 {"x":52.385645450806905, "y":4.874995800287188},
 {"x":52.38571579862039, "y":4.879878679766336},
@@ -11501,6 +11636,15 @@
 "surface_green_2016": "1.0",
 "surface_sports_2016": "1.0",
 "WOZ_value_2016": "291913.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "9.2",
+"No_migration_background_2016": "55.4",
+"Other_non_western_2016": "9.5",
+"Surinamese_2016": "4.7",
+"Turks_2016": "2.3",
+"Western_2016": "18.0"
+}],
 "points":[
 {"x":52.380394097743846, "y":4.862623462670404},
 {"x":52.3817149393252, "y":4.86211503599617},
@@ -11588,6 +11732,15 @@
 "surface_green_2016": "9.5",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "248089.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "6.0",
+"No_migration_background_2016": "58.1",
+"Other_non_western_2016": "9.3",
+"Surinamese_2016": "3.2",
+"Turks_2016": "1.7",
+"Western_2016": "20.7"
+}],
 "points":[
 {"x":52.37850689124874, "y":4.8781631114479485},
 {"x":52.37840085496815, "y":4.878094920224137},
@@ -12107,6 +12260,15 @@
 "surface_green_2016": "3.8",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "297668.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "2.8",
+"No_migration_background_2016": "61.9",
+"Other_non_western_2016": "7.0",
+"Surinamese_2016": "2.8",
+"Turks_2016": "1.1",
+"Western_2016": "23.2"
+}],
 "points":[
 {"x":52.368605379604844, "y":4.8695827886593985},
 {"x":52.37048325906235, "y":4.868303727079864},
@@ -12213,6 +12375,15 @@
 "surface_green_2016": "2.5",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "248265.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "6.4",
+"No_migration_background_2016": "57.4",
+"Other_non_western_2016": "8.5",
+"Surinamese_2016": "4.5",
+"Turks_2016": "3.0",
+"Western_2016": "18.9"
+}],
 "points":[
 {"x":52.36823958467404, "y":4.863280956519814},
 {"x":52.370138764793246, "y":4.865024370711717},
@@ -12281,6 +12452,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "234660.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "8.8",
+"No_migration_background_2016": "51.5",
+"Other_non_western_2016": "10.3",
+"Surinamese_2016": "5.9",
+"Turks_2016": "3.5",
+"Western_2016": "19.1"
+}],
 "points":[
 {"x":52.36685071226173, "y":4.870806324795598},
 {"x":52.367505561014184, "y":4.873087329398453},
@@ -12419,6 +12599,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "346386.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "1.5",
+"No_migration_background_2016": "63.9",
+"Other_non_western_2016": "6.8",
+"Surinamese_2016": "2.6",
+"Turks_2016": "0.9",
+"Western_2016": "23.3"
+}],
 "points":[
 {"x":52.363067225424174, "y":4.863781406314169},
 {"x":52.36311772430718, "y":4.863991994963318},
@@ -12534,6 +12723,15 @@
 "surface_green_2016": "3.2",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "298880.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "1.7",
+"No_migration_background_2016": "63.5",
+"Other_non_western_2016": "6.6",
+"Surinamese_2016": "2.1",
+"Turks_2016": "1.1",
+"Western_2016": "24.1"
+}],
 "points":[
 {"x":52.35775579252394, "y":4.854778665255744},
 {"x":52.35786163886221, "y":4.854862220605177},
@@ -12635,6 +12833,15 @@
 "surface_green_2016": "10.4",
 "surface_sports_2016": "4.3",
 "WOZ_value_2016": "643605.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "2.3",
+"No_migration_background_2016": "58.9",
+"Other_non_western_2016": "8.4",
+"Surinamese_2016": "2.6",
+"Turks_2016": "0.6",
+"Western_2016": "26.4"
+}],
 "points":[
 {"x":52.35885389883635, "y":4.865536989410375},
 {"x":52.358855979845096, "y":4.865530243140467},
@@ -12954,6 +13161,15 @@
 "surface_green_2016": "13.5",
 "surface_sports_2016": "7.7",
 "WOZ_value_2016": "266701.0",
+"ethinicities":[{
+"Antillean_2016": "1.6",
+"Moroccan_2016": "0.9",
+"No_migration_background_2016": "36.6",
+"Other_non_western_2016": "30.4",
+"Surinamese_2016": "3.2",
+"Turks_2016": "1.8",
+"Western_2016": "25.5"
+}],
 "points":[
 {"x":52.34424744429331, "y":4.890678923938458},
 {"x":52.344198148091856, "y":4.890695363765618},
@@ -13195,6 +13411,15 @@
 "surface_green_2016": "6.4",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "277590.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "2.7",
+"No_migration_background_2016": "59.5",
+"Other_non_western_2016": "9.1",
+"Surinamese_2016": "3.2",
+"Turks_2016": "1.5",
+"Western_2016": "23.1"
+}],
 "points":[
 {"x":52.36023292277004, "y":4.887386509376853},
 {"x":52.360231202704405, "y":4.887390124733349},
@@ -15145,6 +15370,15 @@
 "surface_green_2016": "2.1",
 "surface_sports_2016": "2.1",
 "WOZ_value_2016": "261891.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "4.6",
+"No_migration_background_2016": "58.8",
+"Other_non_western_2016": "8.5",
+"Surinamese_2016": "4.6",
+"Turks_2016": "2.1",
+"Western_2016": "20.5"
+}],
 "points":[
 {"x":52.348473925700986, "y":4.886279039790578},
 {"x":52.350656458268595, "y":4.8865241160034065},
@@ -15258,6 +15492,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "262799.0",
+"ethinicities":[{
+"Antillean_2016": "1.1",
+"Moroccan_2016": "10.2",
+"No_migration_background_2016": "49.4",
+"Other_non_western_2016": "11.1",
+"Surinamese_2016": "7.0",
+"Turks_2016": "3.9",
+"Western_2016": "17.3"
+}],
 "points":[
 {"x":52.351322822032586, "y":4.894745160679322},
 {"x":52.35132534450433, "y":4.894762996333057},
@@ -15316,6 +15559,15 @@
 "surface_green_2016": "0.7",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "306506.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "4.0",
+"No_migration_background_2016": "60.3",
+"Other_non_western_2016": "8.7",
+"Surinamese_2016": "3.5",
+"Turks_2016": "1.2",
+"Western_2016": "21.1"
+}],
 "points":[
 {"x":52.354322343339156, "y":4.9157516046083956},
 {"x":52.354252488646495, "y":4.9158966727261255},
@@ -15409,6 +15661,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "233162.0",
+"ethinicities":[{
+"Antillean_2016": "1.1",
+"Moroccan_2016": "17.0",
+"No_migration_background_2016": "41.8",
+"Other_non_western_2016": "10.4",
+"Surinamese_2016": "8.6",
+"Turks_2016": "7.1",
+"Western_2016": "14.1"
+}],
 "points":[
 {"x":52.3523314909727, "y":4.9216170129556005},
 {"x":52.352255007444946, "y":4.921446700432756},
@@ -15477,6 +15738,15 @@
 "surface_green_2016": "0.8",
 "surface_sports_2016": "0.8",
 "WOZ_value_2016": "238203.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "12.2",
+"No_migration_background_2016": "45.9",
+"Other_non_western_2016": "10.2",
+"Surinamese_2016": "8.7",
+"Turks_2016": "7.0",
+"Western_2016": "14.7"
+}],
 "points":[
 {"x":52.36002795071797, "y":4.9252929785604085},
 {"x":52.360314422846, "y":4.925084415174994},
@@ -16605,6 +16875,15 @@
 "surface_green_2016": "52.2",
 "surface_sports_2016": "1.3",
 "WOZ_value_2016": "145313.0",
+"ethinicities":[{
+"Antillean_2016": "2.9",
+"Moroccan_2016": "1.4",
+"No_migration_background_2016": "56.3",
+"Other_non_western_2016": "11.5",
+"Surinamese_2016": "4.5",
+"Turks_2016": "0.4",
+"Western_2016": "22.9"
+}],
 "points":[
 {"x":52.36972939182122, "y":4.984196659956244},
 {"x":52.3696484329175, "y":4.984063494100431},
@@ -17953,6 +18232,15 @@
 "surface_green_2016": "17.7",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "237213.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "10.0",
+"No_migration_background_2016": "49.1",
+"Other_non_western_2016": "10.6",
+"Surinamese_2016": "8.0",
+"Turks_2016": "4.9",
+"Western_2016": "16.4"
+}],
 "points":[
 {"x":52.363760416256, "y":4.922311864717357},
 {"x":52.362987553457096, "y":4.923389452345446},
@@ -21982,6 +22270,15 @@
 "surface_green_2016": "25.4",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "194418.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "10.1",
+"No_migration_background_2016": "52.6",
+"Other_non_western_2016": "7.9",
+"Surinamese_2016": "2.6",
+"Turks_2016": "8.6",
+"Western_2016": "17.3"
+}],
 "points":[
 {"x":52.37340186396254, "y":4.852413777742907},
 {"x":52.37338849222159, "y":4.8523354932548095},
@@ -22200,6 +22497,15 @@
 "surface_green_2016": "37.2",
 "surface_sports_2016": "7.2",
 "WOZ_value_2016": "213074.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "20.5",
+"No_migration_background_2016": "34.9",
+"Other_non_western_2016": "11.4",
+"Surinamese_2016": "9.3",
+"Turks_2016": "10.8",
+"Western_2016": "11.7"
+}],
 "points":[
 {"x":52.36164646999423, "y":4.9397428435189},
 {"x":52.361878852604576, "y":4.939655391089042},
@@ -22682,6 +22988,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "199437.0",
+"ethinicities":[{
+"Antillean_2016": "1.1",
+"Moroccan_2016": "18.3",
+"No_migration_background_2016": "37.8",
+"Other_non_western_2016": "11.7",
+"Surinamese_2016": "7.8",
+"Turks_2016": "7.9",
+"Western_2016": "15.4"
+}],
 "points":[
 {"x":52.366649384027085, "y":4.9394627288335675},
 {"x":52.365702187550326, "y":4.939488117081691},
@@ -23095,6 +23410,15 @@
 "surface_green_2016": "10.2",
 "surface_sports_2016": "8.7",
 "WOZ_value_2016": "182273.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "28.3",
+"No_migration_background_2016": "27.6",
+"Other_non_western_2016": "9.5",
+"Surinamese_2016": "5.9",
+"Turks_2016": "17.3",
+"Western_2016": "10.1"
+}],
 "points":[
 {"x":52.37790391228246, "y":4.844064645496015},
 {"x":52.377828059772945, "y":4.844541592709888},
@@ -23392,6 +23716,15 @@
 "surface_green_2016": "2.7",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "330873.0",
+"ethinicities":[{
+"Antillean_2016": "1.5",
+"Moroccan_2016": "9.1",
+"No_migration_background_2016": "51.4",
+"Other_non_western_2016": "10.8",
+"Surinamese_2016": "10.0",
+"Turks_2016": "3.0",
+"Western_2016": "14.2"
+}],
 "points":[
 {"x":52.35818274030042, "y":5.01030203229875},
 {"x":52.35484691655742, "y":5.006571566869845},
@@ -23567,6 +23900,15 @@
 "surface_green_2016": "37.2",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "296372.0",
+"ethinicities":[{
+"Antillean_2016": "0.0",
+"Moroccan_2016": "2.3",
+"No_migration_background_2016": "62.1",
+"Other_non_western_2016": "8.0",
+"Surinamese_2016": "4.5",
+"Turks_2016": "0.4",
+"Western_2016": "22.7"
+}],
 "points":[
 {"x":52.388933305773044, "y":4.859167223355273},
 {"x":52.38895317365565, "y":4.861818320216125},
@@ -23792,6 +24134,15 @@
 "surface_green_2016": "12.0",
 "surface_sports_2016": "2.0",
 "WOZ_value_2016": "263192.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "1.9",
+"No_migration_background_2016": "66.5",
+"Other_non_western_2016": "6.7",
+"Surinamese_2016": "2.6",
+"Turks_2016": "1.0",
+"Western_2016": "20.4"
+}],
 "points":[
 {"x":52.35802396360592, "y":4.85389400754701},
 {"x":52.35775579252394, "y":4.854778665255744},
@@ -24365,6 +24716,15 @@
 "surface_green_2016": "5.1",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "341485.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "4.3",
+"No_migration_background_2016": "60.9",
+"Other_non_western_2016": "8.1",
+"Surinamese_2016": "5.6",
+"Turks_2016": "2.3",
+"Western_2016": "18.1"
+}],
 "points":[
 {"x":52.38240941173985, "y":4.93735251945169},
 {"x":52.38251480721607, "y":4.939828870442944},
@@ -25379,6 +25739,15 @@
 "surface_green_2016": "6.7",
 "surface_sports_2016": "0.9",
 "WOZ_value_2016": "724535.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "0.2",
+"No_migration_background_2016": "61.5",
+"Other_non_western_2016": "6.6",
+"Surinamese_2016": "1.0",
+"Turks_2016": "0.6",
+"Western_2016": "29.5"
+}],
 "points":[
 {"x":52.34656039096837, "y":4.868166354156687},
 {"x":52.34867702485375, "y":4.867397974462452},
@@ -25610,6 +25979,15 @@
 "surface_green_2016": "5.6",
 "surface_sports_2016": "1.6",
 "WOZ_value_2016": "188962.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "18.1",
+"No_migration_background_2016": "41.4",
+"Other_non_western_2016": "9.9",
+"Surinamese_2016": "4.9",
+"Turks_2016": "10.1",
+"Western_2016": "14.7"
+}],
 "points":[
 {"x":52.37541331640858, "y":4.864436168185042},
 {"x":52.37519884212429, "y":4.862864059549328},
@@ -25817,6 +26195,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "229115.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "5.0",
+"No_migration_background_2016": "60.7",
+"Other_non_western_2016": "7.5",
+"Surinamese_2016": "3.0",
+"Turks_2016": "3.4",
+"Western_2016": "19.7"
+}],
 "points":[
 {"x":52.37541331640858, "y":4.864436168185042},
 {"x":52.37512253436874, "y":4.8645415842751065},
@@ -25907,6 +26294,15 @@
 "surface_green_2016": "13.5",
 "surface_sports_2016": "13.5",
 "WOZ_value_2016": "196805.0",
+"ethinicities":[{
+"Antillean_2016": "1.9",
+"Moroccan_2016": "14.4",
+"No_migration_background_2016": "39.5",
+"Other_non_western_2016": "12.1",
+"Surinamese_2016": "9.8",
+"Turks_2016": "8.2",
+"Western_2016": "14.0"
+}],
 "points":[
 {"x":52.371126631225486, "y":4.856553192721911},
 {"x":52.371081894247574, "y":4.856289284782821},
@@ -26140,6 +26536,15 @@
 "surface_green_2016": "0.9",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "193554.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "12.1",
+"No_migration_background_2016": "46.8",
+"Other_non_western_2016": "10.4",
+"Surinamese_2016": "5.5",
+"Turks_2016": "8.2",
+"Western_2016": "15.8"
+}],
 "points":[
 {"x":52.36420837043589, "y":4.858250807836652},
 {"x":52.3642274142512, "y":4.858020084558531},
@@ -26223,6 +26628,15 @@
 "surface_green_2016": "22.9",
 "surface_sports_2016": "2.4",
 "WOZ_value_2016": "159109.0",
+"ethinicities":[{
+"Antillean_2016": "1.4",
+"Moroccan_2016": "11.6",
+"No_migration_background_2016": "49.1",
+"Other_non_western_2016": "13.8",
+"Surinamese_2016": "7.8",
+"Turks_2016": "5.0",
+"Western_2016": "11.4"
+}],
 "points":[
 {"x":52.39907576958298, "y":4.921540528475325},
 {"x":52.39899016906141, "y":4.921286475994525},
@@ -27639,6 +28053,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "247949.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "3.9",
+"No_migration_background_2016": "60.6",
+"Other_non_western_2016": "7.6",
+"Surinamese_2016": "3.2",
+"Turks_2016": "3.3",
+"Western_2016": "20.5"
+}],
 "points":[
 {"x":52.35786163886221, "y":4.854862220605177},
 {"x":52.35775579252394, "y":4.854778665255744},
@@ -27744,6 +28167,15 @@
 "surface_green_2016": "9.1",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "260700.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "2.7",
+"No_migration_background_2016": "62.1",
+"Other_non_western_2016": "7.0",
+"Surinamese_2016": "4.7",
+"Turks_2016": "1.6",
+"Western_2016": "21.1"
+}],
 "points":[
 {"x":52.35652284157207, "y":4.8541199505051305},
 {"x":52.35640983835825, "y":4.855081933509358},
@@ -27853,6 +28285,15 @@
 "surface_green_2016": "27.7",
 "surface_sports_2016": "27.5",
 "WOZ_value_2016": "297966.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "4.9",
+"No_migration_background_2016": "59.2",
+"Other_non_western_2016": "8.7",
+"Surinamese_2016": "4.8",
+"Turks_2016": "2.1",
+"Western_2016": "19.1"
+}],
 "points":[
 {"x":52.34225365716078, "y":4.857297581500728},
 {"x":52.342143523144195, "y":4.857337884948654},
@@ -28075,6 +28516,15 @@
 "surface_green_2016": "20.6",
 "surface_sports_2016": "1.4",
 "WOZ_value_2016": "620874.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "0.2",
+"No_migration_background_2016": "62.7",
+"Other_non_western_2016": "6.0",
+"Surinamese_2016": "1.4",
+"Turks_2016": "0.5",
+"Western_2016": "28.4"
+}],
 "points":[
 {"x":52.36099762170028, "y":4.873933530908753},
 {"x":52.36101938637614, "y":4.874016547422441},
@@ -29145,6 +29595,15 @@
 "surface_green_2016": "32.6",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "667872.0",
+"ethinicities":[{
+"Antillean_2016": "0.4",
+"Moroccan_2016": "0.9",
+"No_migration_background_2016": "59.7",
+"Other_non_western_2016": "6.6",
+"Surinamese_2016": "1.6",
+"Turks_2016": "0.9",
+"Western_2016": "29.8"
+}],
 "points":[
 {"x":52.350897680596525, "y":4.866076159724418},
 {"x":52.35069388931316, "y":4.865300341902651},
@@ -29306,6 +29765,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "",
+"ethinicities":[{
+"Antillean_2016": "",
+"Moroccan_2016": "",
+"No_migration_background_2016": "",
+"Other_non_western_2016": "",
+"Surinamese_2016": "",
+"Turks_2016": "",
+"Western_2016": ""
+}],
 "points":[
 {"x":52.375403367425264, "y":5.037682368590242},
 {"x":52.374858797447494, "y":5.037718775579033},
@@ -29360,6 +29828,15 @@
 "surface_green_2016": "9.8",
 "surface_sports_2016": "2.6",
 "WOZ_value_2016": "301349.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "11.4",
+"No_migration_background_2016": "46.5",
+"Other_non_western_2016": "12.8",
+"Surinamese_2016": "9.1",
+"Turks_2016": "4.7",
+"Western_2016": "14.3"
+}],
 "points":[
 {"x":52.34717533935746, "y":5.01489363757571},
 {"x":52.34670147039371, "y":5.014478103255956},
@@ -29537,6 +30014,15 @@
 "surface_green_2016": "3.1",
 "surface_sports_2016": "0.6",
 "WOZ_value_2016": "260950.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "5.2",
+"No_migration_background_2016": "60.5",
+"Other_non_western_2016": "6.5",
+"Surinamese_2016": "4.4",
+"Turks_2016": "2.4",
+"Western_2016": "19.7"
+}],
 "points":[
 {"x":52.34733759150093, "y":4.912706251992347},
 {"x":52.346292199359596, "y":4.9052351187498715},
@@ -29569,6 +30055,15 @@
 "surface_green_2016": "5.1",
 "surface_sports_2016": "0.8",
 "WOZ_value_2016": "333869.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "1.6",
+"No_migration_background_2016": "69.6",
+"Other_non_western_2016": "5.5",
+"Surinamese_2016": "2.2",
+"Turks_2016": "0.7",
+"Western_2016": "19.8"
+}],
 "points":[
 {"x":52.348228675277056, "y":4.891278502289016},
 {"x":52.348013515162584, "y":4.895254456442881},
@@ -29704,6 +30199,15 @@
 "surface_green_2016": "15.7",
 "surface_sports_2016": "5.3",
 "WOZ_value_2016": "252623.0",
+"ethinicities":[{
+"Antillean_2016": "1.1",
+"Moroccan_2016": "4.1",
+"No_migration_background_2016": "64.0",
+"Other_non_western_2016": "7.9",
+"Surinamese_2016": "4.1",
+"Turks_2016": "1.3",
+"Western_2016": "17.5"
+}],
 "points":[
 {"x":52.334580652144425, "y":4.892744227088399},
 {"x":52.33627695460477, "y":4.895768083914261},
@@ -29944,6 +30448,15 @@
 "surface_green_2016": "39.8",
 "surface_sports_2016": "1.9",
 "WOZ_value_2016": "154271.0",
+"ethinicities":[{
+"Antillean_2016": "3.5",
+"Moroccan_2016": "1.5",
+"No_migration_background_2016": "63.2",
+"Other_non_western_2016": "8.7",
+"Surinamese_2016": "4.4",
+"Turks_2016": "1.5",
+"Western_2016": "17.3"
+}],
 "points":[
 {"x":52.32416444478825, "y":4.91129096315801},
 {"x":52.324101635570756, "y":4.911107487511798},
@@ -30421,6 +30934,15 @@
 "surface_green_2016": "23.5",
 "surface_sports_2016": "3.5",
 "WOZ_value_2016": "223651.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "6.8",
+"No_migration_background_2016": "59.1",
+"Other_non_western_2016": "8.9",
+"Surinamese_2016": "5.6",
+"Turks_2016": "2.0",
+"Western_2016": "16.3"
+}],
 "points":[
 {"x":52.343665068903796, "y":4.919577568408275},
 {"x":52.34364658216517, "y":4.919545128478465},
@@ -30545,6 +31067,15 @@
 "surface_green_2016": "32.1",
 "surface_sports_2016": "19.5",
 "WOZ_value_2016": "293880.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "2.1",
+"No_migration_background_2016": "67.0",
+"Other_non_western_2016": "6.7",
+"Surinamese_2016": "2.6",
+"Turks_2016": "1.0",
+"Western_2016": "19.8"
+}],
 "points":[
 {"x":52.343588963547965, "y":4.956270582603025},
 {"x":52.34313181170317, "y":4.955815207929487},
@@ -30755,6 +31286,15 @@
 "surface_green_2016": "25.1",
 "surface_sports_2016": "16.6",
 "WOZ_value_2016": "190501.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "6.0",
+"No_migration_background_2016": "63.3",
+"Other_non_western_2016": "9.4",
+"Surinamese_2016": "6.4",
+"Turks_2016": "1.6",
+"Western_2016": "12.3"
+}],
 "points":[
 {"x":52.336523314028256, "y":4.942599155624177},
 {"x":52.336523555597104, "y":4.942597829346361},
@@ -30897,6 +31437,15 @@
 "surface_green_2016": "40.4",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "534055.0",
+"ethinicities":[{
+"Antillean_2016": "0.3",
+"Moroccan_2016": "0.5",
+"No_migration_background_2016": "59.5",
+"Other_non_western_2016": "8.2",
+"Surinamese_2016": "1.2",
+"Turks_2016": "0.2",
+"Western_2016": "30.0"
+}],
 "points":[
 {"x":52.34461865765475, "y":4.8765988774428255},
 {"x":52.344669966667176, "y":4.878133766046125},
@@ -31122,6 +31671,15 @@
 "surface_green_2016": "10.6",
 "surface_sports_2016": "0.3",
 "WOZ_value_2016": "154881.0",
+"ethinicities":[{
+"Antillean_2016": "1.7",
+"Moroccan_2016": "9.0",
+"No_migration_background_2016": "42.9",
+"Other_non_western_2016": "18.1",
+"Surinamese_2016": "8.7",
+"Turks_2016": "7.1",
+"Western_2016": "12.5"
+}],
 "points":[
 {"x":52.39580914361588, "y":4.9423686707482375},
 {"x":52.39446952176839, "y":4.940935251862712},
@@ -31991,6 +32549,15 @@
 "surface_green_2016": "39.4",
 "surface_sports_2016": "1.4",
 "WOZ_value_2016": "170429.0",
+"ethinicities":[{
+"Antillean_2016": "1.8",
+"Moroccan_2016": "14.9",
+"No_migration_background_2016": "41.3",
+"Other_non_western_2016": "15.5",
+"Surinamese_2016": "8.8",
+"Turks_2016": "4.6",
+"Western_2016": "13.0"
+}],
 "points":[
 {"x":52.380813153476, "y":4.919855366164952},
 {"x":52.38054797748121, "y":4.917499546359583},
@@ -32740,6 +33307,15 @@
 "surface_green_2016": "8.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "184874.0",
+"ethinicities":[{
+"Antillean_2016": "0.5",
+"Moroccan_2016": "2.3",
+"No_migration_background_2016": "76.3",
+"Other_non_western_2016": "5.4",
+"Surinamese_2016": "3.5",
+"Turks_2016": "0.9",
+"Western_2016": "11.2"
+}],
 "points":[
 {"x":52.39308336698498, "y":4.935018103502238},
 {"x":52.39309468166726, "y":4.935086992031962},
@@ -36090,6 +36666,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "174477.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "3.5",
+"No_migration_background_2016": "72.6",
+"Other_non_western_2016": "6.8",
+"Surinamese_2016": "5.1",
+"Turks_2016": "1.7",
+"Western_2016": "9.6"
+}],
 "points":[
 {"x":52.39484212212946, "y":4.9242094007506605},
 {"x":52.395266066702725, "y":4.924541030640428},
@@ -36176,6 +36761,15 @@
 "surface_green_2016": "94.3",
 "surface_sports_2016": "3.4",
 "WOZ_value_2016": "442458.0",
+"ethinicities":[{
+"Antillean_2016": "0.5",
+"Moroccan_2016": "0.1",
+"No_migration_background_2016": "86.2",
+"Other_non_western_2016": "2.2",
+"Surinamese_2016": "1.2",
+"Turks_2016": "0.5",
+"Western_2016": "9.4"
+}],
 "points":[
 {"x":52.374261543852576, "y":4.974087841803467},
 {"x":52.3762620639542, "y":4.970325300754774},
@@ -37342,6 +37936,15 @@
 "surface_green_2016": "19.8",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "170282.0",
+"ethinicities":[{
+"Antillean_2016": "1.6",
+"Moroccan_2016": "17.1",
+"No_migration_background_2016": "30.9",
+"Other_non_western_2016": "17.0",
+"Surinamese_2016": "10.3",
+"Turks_2016": "12.6",
+"Western_2016": "10.5"
+}],
 "points":[
 {"x":52.39863247158479, "y":4.947335860436747},
 {"x":52.40134461282901, "y":4.950241353375904},
@@ -37490,6 +38093,15 @@
 "surface_green_2016": "43.8",
 "surface_sports_2016": "13.0",
 "WOZ_value_2016": "274674.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "3.3",
+"No_migration_background_2016": "72.6",
+"Other_non_western_2016": "6.1",
+"Surinamese_2016": "4.3",
+"Turks_2016": "1.8",
+"Western_2016": "11.1"
+}],
 "points":[
 {"x":52.4205702183646, "y":4.898576894444598},
 {"x":52.420570405085954, "y":4.898567291151648},
@@ -37900,6 +38512,15 @@
 "surface_green_2016": "32.2",
 "surface_sports_2016": "8.5",
 "WOZ_value_2016": "195629.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "6.3",
+"No_migration_background_2016": "60.1",
+"Other_non_western_2016": "9.1",
+"Surinamese_2016": "7.3",
+"Turks_2016": "5.5",
+"Western_2016": "10.6"
+}],
 "points":[
 {"x":52.416837183360414, "y":4.898229446603561},
 {"x":52.41676245076422, "y":4.8982572348090185},
@@ -38670,6 +39291,15 @@
 "surface_green_2016": "12.8",
 "surface_sports_2016": "5.6",
 "WOZ_value_2016": "179297.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "6.8",
+"No_migration_background_2016": "64.3",
+"Other_non_western_2016": "8.4",
+"Surinamese_2016": "6.2",
+"Turks_2016": "3.3",
+"Western_2016": "9.9"
+}],
 "points":[
 {"x":52.40405392052994, "y":4.902406658093293},
 {"x":52.40402182101018, "y":4.902367723642094},
@@ -39144,6 +39774,15 @@
 "surface_green_2016": "42.6",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "395063.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "0.5",
+"No_migration_background_2016": "80.0",
+"Other_non_western_2016": "2.2",
+"Surinamese_2016": "0.4",
+"Turks_2016": "0.2",
+"Western_2016": "15.9"
+}],
 "points":[
 {"x":52.400901535781955, "y":4.914833828094571},
 {"x":52.4010691942085, "y":4.914809128702633},
@@ -46053,6 +46692,15 @@
 "surface_green_2016": "23.7",
 "surface_sports_2016": "3.8",
 "WOZ_value_2016": "177314.0",
+"ethinicities":[{
+"Antillean_2016": "1.4",
+"Moroccan_2016": "13.6",
+"No_migration_background_2016": "39.6",
+"Other_non_western_2016": "15.2",
+"Surinamese_2016": "9.1",
+"Turks_2016": "11.0",
+"Western_2016": "10.1"
+}],
 "points":[
 {"x":52.40560189354105, "y":4.905226565676182},
 {"x":52.40593748095802, "y":4.905863634658602},
@@ -46398,6 +47046,15 @@
 "surface_green_2016": "33.5",
 "surface_sports_2016": "22.2",
 "WOZ_value_2016": "287122.0",
+"ethinicities":[{
+"Antillean_2016": "1.5",
+"Moroccan_2016": "5.1",
+"No_migration_background_2016": "56.4",
+"Other_non_western_2016": "10.2",
+"Surinamese_2016": "8.5",
+"Turks_2016": "4.6",
+"Western_2016": "13.6"
+}],
 "points":[
 {"x":52.39743870420943, "y":4.926611734408973},
 {"x":52.397438047024046, "y":4.926611003852798},
@@ -46514,6 +47171,15 @@
 "surface_green_2016": "0.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "241390.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "13.2",
+"No_migration_background_2016": "48.4",
+"Other_non_western_2016": "9.0",
+"Surinamese_2016": "4.5",
+"Turks_2016": "7.7",
+"Western_2016": "16.1"
+}],
 "points":[
 {"x":52.36712273742365, "y":4.862255791107922},
 {"x":52.36608030411789, "y":4.861298985039795},
@@ -46600,6 +47266,15 @@
 "surface_green_2016": "82.9",
 "surface_sports_2016": "2.3",
 "WOZ_value_2016": "234728.0",
+"ethinicities":[{
+"Antillean_2016": "1.1",
+"Moroccan_2016": "1.1",
+"No_migration_background_2016": "82.8",
+"Other_non_western_2016": "1.2",
+"Surinamese_2016": "4.3",
+"Turks_2016": "0.4",
+"Western_2016": "9.1"
+}],
 "points":[
 {"x":52.30827337617311, "y":5.009938784937735},
 {"x":52.308290166079125, "y":5.009926737637217},
@@ -47317,6 +47992,15 @@
 "surface_green_2016": "32.2",
 "surface_sports_2016": "3.7",
 "WOZ_value_2016": "143594.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "28.1",
+"No_migration_background_2016": "27.9",
+"Other_non_western_2016": "10.6",
+"Surinamese_2016": "5.7",
+"Turks_2016": "16.3",
+"Western_2016": "10.5"
+}],
 "points":[
 {"x":52.379393594577756, "y":4.809402529606912},
 {"x":52.37951908823139, "y":4.809423178897221},
@@ -48393,6 +49077,15 @@
 "surface_green_2016": "6.2",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "226124.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "1.4",
+"No_migration_background_2016": "67.0",
+"Other_non_western_2016": "8.5",
+"Surinamese_2016": "4.7",
+"Turks_2016": "1.5",
+"Western_2016": "15.8"
+}],
 "points":[
 {"x":52.41393105862861, "y":4.879347675624073},
 {"x":52.413835854655936, "y":4.879547219890394},
@@ -49569,6 +50262,15 @@
 "surface_green_2016": "3.8",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "223900.0",
+"ethinicities":[{
+"Antillean_2016": "0.6",
+"Moroccan_2016": "1.2",
+"No_migration_background_2016": "56.1",
+"Other_non_western_2016": "9.1",
+"Surinamese_2016": "3.0",
+"Turks_2016": "0.6",
+"Western_2016": "29.3"
+}],
 "points":[
 {"x":52.380813153476, "y":4.919855366164952},
 {"x":52.38186653996106, "y":4.9195241413541435},
@@ -52229,6 +52931,15 @@
 "surface_green_2016": "74.4",
 "surface_sports_2016": "11.0",
 "WOZ_value_2016": "388125.0",
+"ethinicities":[{
+"Antillean_2016": "0.2",
+"Moroccan_2016": "3.2",
+"No_migration_background_2016": "75.9",
+"Other_non_western_2016": "2.7",
+"Surinamese_2016": "2.8",
+"Turks_2016": "2.7",
+"Western_2016": "12.5"
+}],
 "points":[
 {"x":52.362719527426314, "y":4.786653992608647},
 {"x":52.36260145646373, "y":4.786047792260366},
@@ -52501,6 +53212,15 @@
 "surface_green_2016": "14.4",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "136278.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "26.6",
+"No_migration_background_2016": "24.3",
+"Other_non_western_2016": "12.3",
+"Surinamese_2016": "5.9",
+"Turks_2016": "18.2",
+"Western_2016": "11.7"
+}],
 "points":[
 {"x":52.38137758854788, "y":4.8214071163052825},
 {"x":52.381670140695604, "y":4.819860231619201},
@@ -52665,6 +53385,15 @@
 "surface_green_2016": "14.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "171125.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "25.8",
+"No_migration_background_2016": "24.2",
+"Other_non_western_2016": "9.3",
+"Surinamese_2016": "5.5",
+"Turks_2016": "23.3",
+"Western_2016": "11.0"
+}],
 "points":[
 {"x":52.37672540132458, "y":4.808712125455579},
 {"x":52.376473152383184, "y":4.808645508203826},
@@ -52748,6 +53477,15 @@
 "surface_green_2016": "42.7",
 "surface_sports_2016": "10.1",
 "WOZ_value_2016": "266544.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "6.0",
+"No_migration_background_2016": "57.5",
+"Other_non_western_2016": "8.1",
+"Surinamese_2016": "6.9",
+"Turks_2016": "4.8",
+"Western_2016": "16.0"
+}],
 "points":[
 {"x":52.327076033987986, "y":4.817328242904338},
 {"x":52.326927222843025, "y":4.8171242223702375},
@@ -53060,6 +53798,15 @@
 "surface_green_2016": "38.5",
 "surface_sports_2016": "0.9",
 "WOZ_value_2016": "241877.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "2.0",
+"No_migration_background_2016": "52.6",
+"Other_non_western_2016": "13.7",
+"Surinamese_2016": "3.3",
+"Turks_2016": "2.0",
+"Western_2016": "25.5"
+}],
 "points":[
 {"x":52.32237162212196, "y":4.893011083880401},
 {"x":52.322343932653894, "y":4.8914883319154425},
@@ -53326,6 +54073,15 @@
 "surface_green_2016": "11.2",
 "surface_sports_2016": "0.8",
 "WOZ_value_2016": "167658.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "20.0",
+"No_migration_background_2016": "38.6",
+"Other_non_western_2016": "10.0",
+"Surinamese_2016": "6.7",
+"Turks_2016": "9.9",
+"Western_2016": "13.8"
+}],
 "points":[
 {"x":52.36148756841879, "y":4.796912953537756},
 {"x":52.36444190511765, "y":4.795321316953083},
@@ -53464,6 +54220,15 @@
 "surface_green_2016": "83.9",
 "surface_sports_2016": "12.6",
 "WOZ_value_2016": "240299.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "11.0",
+"No_migration_background_2016": "44.6",
+"Other_non_western_2016": "8.2",
+"Surinamese_2016": "7.7",
+"Turks_2016": "13.1",
+"Western_2016": "14.4"
+}],
 "points":[
 {"x":52.38411966593559, "y":4.75895529734097},
 {"x":52.3843784132074, "y":4.78734697153406},
@@ -53593,6 +54358,15 @@
 "surface_green_2016": "34.8",
 "surface_sports_2016": "0.1",
 "WOZ_value_2016": "165247.0",
+"ethinicities":[{
+"Antillean_2016": "3.9",
+"Moroccan_2016": "1.6",
+"No_migration_background_2016": "37.7",
+"Other_non_western_2016": "19.3",
+"Surinamese_2016": "26.4",
+"Turks_2016": "0.5",
+"Western_2016": "10.7"
+}],
 "points":[
 {"x":52.30151609036597, "y":4.979897572792378},
 {"x":52.30151580582108, "y":4.980201546221999},
@@ -54975,6 +55749,15 @@
 "surface_green_2016": "4.8",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "155555.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "17.8",
+"No_migration_background_2016": "34.3",
+"Other_non_western_2016": "12.5",
+"Surinamese_2016": "8.1",
+"Turks_2016": "13.2",
+"Western_2016": "12.9"
+}],
 "points":[
 {"x":52.352640264688105, "y":4.787973795702955},
 {"x":52.35264360042433, "y":4.7878748759263114},
@@ -55084,6 +55867,15 @@
 "surface_green_2016": "10.7",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "279607.0",
+"ethinicities":[{
+"Antillean_2016": "0.8",
+"Moroccan_2016": "12.4",
+"No_migration_background_2016": "46.9",
+"Other_non_western_2016": "8.8",
+"Surinamese_2016": "9.8",
+"Turks_2016": "9.3",
+"Western_2016": "12.0"
+}],
 "points":[
 {"x":52.35482590244062, "y":4.772485702862187},
 {"x":52.35484276400748, "y":4.772536014346433},
@@ -55233,6 +56025,15 @@
 "surface_green_2016": "27.0",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "180229.0",
+"ethinicities":[{
+"Antillean_2016": "0.6",
+"Moroccan_2016": "28.8",
+"No_migration_background_2016": "27.5",
+"Other_non_western_2016": "11.7",
+"Surinamese_2016": "4.3",
+"Turks_2016": "11.8",
+"Western_2016": "15.3"
+}],
 "points":[
 {"x":52.37010672764602, "y":4.83435600830479},
 {"x":52.37013387846815, "y":4.834361719501008},
@@ -55448,6 +56249,15 @@
 "surface_green_2016": "24.7",
 "surface_sports_2016": "0.2",
 "WOZ_value_2016": "191417.0",
+"ethinicities":[{
+"Antillean_2016": "0.7",
+"Moroccan_2016": "17.6",
+"No_migration_background_2016": "39.9",
+"Other_non_western_2016": "9.1",
+"Surinamese_2016": "6.1",
+"Turks_2016": "11.5",
+"Western_2016": "15.2"
+}],
 "points":[
 {"x":52.36405707186785, "y":4.833876447745329},
 {"x":52.36367037012912, "y":4.833887423460773},
@@ -56395,6 +57205,15 @@
 "surface_green_2016": "12.2",
 "surface_sports_2016": "7.3",
 "WOZ_value_2016": "207142.0",
+"ethinicities":[{
+"Antillean_2016": "1.2",
+"Moroccan_2016": "12.9",
+"No_migration_background_2016": "40.9",
+"Other_non_western_2016": "12.8",
+"Surinamese_2016": "4.7",
+"Turks_2016": "6.6",
+"Western_2016": "20.8"
+}],
 "points":[
 {"x":52.35209434501859, "y":4.8447904648169375},
 {"x":52.35210002077752, "y":4.845544032776555},
@@ -57059,6 +57878,15 @@
 "surface_green_2016": "3.3",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "186771.0",
+"ethinicities":[{
+"Antillean_2016": "0.9",
+"Moroccan_2016": "24.3",
+"No_migration_background_2016": "34.9",
+"Other_non_western_2016": "10.6",
+"Surinamese_2016": "6.8",
+"Turks_2016": "9.2",
+"Western_2016": "13.3"
+}],
 "points":[
 {"x":52.35174593886427, "y":4.8204347957188025},
 {"x":52.35617375907395, "y":4.818063116494174},
@@ -57215,6 +58043,15 @@
 "surface_green_2016": "36.0",
 "surface_sports_2016": "2.6",
 "WOZ_value_2016": "261972.0",
+"ethinicities":[{
+"Antillean_2016": "1.0",
+"Moroccan_2016": "1.8",
+"No_migration_background_2016": "54.2",
+"Other_non_western_2016": "12.9",
+"Surinamese_2016": "3.5",
+"Turks_2016": "1.3",
+"Western_2016": "25.2"
+}],
 "points":[
 {"x":52.33769256851691, "y":4.847029841717791},
 {"x":52.338080644618266, "y":4.84697762846716},
@@ -57458,6 +58295,15 @@
 "surface_green_2016": "13.9",
 "surface_sports_2016": "0.0",
 "WOZ_value_2016": "183694.0",
+"ethinicities":[{
+"Antillean_2016": "1.3",
+"Moroccan_2016": "28.3",
+"No_migration_background_2016": "24.3",
+"Other_non_western_2016": "10.5",
+"Surinamese_2016": "7.9",
+"Turks_2016": "16.1",
+"Western_2016": "11.7"
+}],
 "points":[
 {"x":52.36444190511765, "y":4.795321316953083},
 {"x":52.36148756841879, "y":4.796912953537756},
@@ -57539,6 +58385,15 @@
 "surface_green_2016": "29.5",
 "surface_sports_2016": "17.3",
 "WOZ_value_2016": "85785.0",
+"ethinicities":[{
+"Antillean_2016": "4.1",
+"Moroccan_2016": "3.7",
+"No_migration_background_2016": "34.2",
+"Other_non_western_2016": "22.6",
+"Surinamese_2016": "9.4",
+"Turks_2016": "1.6",
+"Western_2016": "24.4"
+}],
 "points":[
 {"x":52.312582827596884, "y":4.936114961217346},
 {"x":52.31266490628292, "y":4.93635429479342},
@@ -58403,6 +59258,15 @@
 "surface_green_2016": "27.3",
 "surface_sports_2016": "1.1",
 "WOZ_value_2016": "148336.0",
+"ethinicities":[{
+"Antillean_2016": "5.6",
+"Moroccan_2016": "2.1",
+"No_migration_background_2016": "21.5",
+"Other_non_western_2016": "28.1",
+"Surinamese_2016": "32.2",
+"Turks_2016": "1.0",
+"Western_2016": "9.6"
+}],
 "points":[
 {"x":52.32660664900016, "y":4.990515089182621},
 {"x":52.326541816393096, "y":4.990576116265209},
@@ -58799,6 +59663,15 @@
 "surface_green_2016": "56.7",
 "surface_sports_2016": "0.8",
 "WOZ_value_2016": "134903.0",
+"ethinicities":[{
+"Antillean_2016": "2.4",
+"Moroccan_2016": "0.7",
+"No_migration_background_2016": "51.3",
+"Other_non_western_2016": "13.5",
+"Surinamese_2016": "13.7",
+"Turks_2016": "0.8",
+"Western_2016": "17.6"
+}],
 "points":[
 {"x":52.303602314883285, "y":5.013877426955757},
 {"x":52.303607100115286, "y":5.013726267169365},
@@ -60120,6 +60993,15 @@
 "surface_green_2016": "19.7",
 "surface_sports_2016": "0.2",
 "WOZ_value_2016": "147751.0",
+"ethinicities":[{
+"Antillean_2016": "5.2",
+"Moroccan_2016": "2.1",
+"No_migration_background_2016": "29.5",
+"Other_non_western_2016": "20.9",
+"Surinamese_2016": "33.0",
+"Turks_2016": "0.8",
+"Western_2016": "8.6"
+}],
 "points":[
 {"x":52.296321667298976, "y":4.9820450066073585},
 {"x":52.29590326724469, "y":4.982048801657298},
@@ -60927,6 +61809,15 @@
 "surface_green_2016": "20.6",
 "surface_sports_2016": "2.1",
 "WOZ_value_2016": "121273.0",
+"ethinicities":[{
+"Antillean_2016": "6.1",
+"Moroccan_2016": "2.6",
+"No_migration_background_2016": "17.3",
+"Other_non_western_2016": "30.6",
+"Surinamese_2016": "31.8",
+"Turks_2016": "1.8",
+"Western_2016": "9.9"
+}],
 "points":[
 {"x":52.3261549896604, "y":4.941877649063856},
 {"x":52.32622897946919, "y":4.9420954618634525},
