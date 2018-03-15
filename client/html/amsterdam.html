@@ -15,7 +15,7 @@ body {
 <body>
  <svg width="960" height="600"></svg>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.v4.min.js"></script>
 <script>
  
 const width = 960,
@@ -25,24 +25,29 @@ let svg = d3.select("svg")
 		.attr("width", width)
 		.attr("height", height);
 
-const scaleLat = d3.scale.linear()
+const scaleLat = d3.scaleLinear()
 				.domain([52.278176301670996,52.43106593201049])
 				.range([height,0]);
 
-const scaleLong = d3.scale.linear()
+const scaleLong = d3.scaleLinear()
 				.domain([4.7287615953970095,5.079164906443845])
 				.range([0,width]);
 
 
-const scaleColor = d3.scale.linear() //Scale for Population density
-				.domain([1.0,36860.0])
+const scaleColor = d3.scaleLinear() //Scale for Population density
+				.domain([10.0,28312.0])
 				.range([0,255]);
 
-const color = d3.scale.category20(); //used for the random coloring
+const redBlueScaleColor = d3.scaleLinear()
+	.domain([10.0,14156.0,28312.0])
+	.range(["cornflowerblue", "white", "red"]);
+
+const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
 
 d3.json("names_coordinates_data/districts.json", function(shapes) {			//district level
 // d3.json("names_coordinates_data/neigbhourhoods.json", function(shapes) {	//neighbourhoods level
-	svg.selectAll("polygon")
+    var padding = 10;
+	var areas = svg.selectAll("polygon")
 		.data(shapes.Areas)
 		.enter().append("polygon")
 		.attr("points",function(d) { 
@@ -54,12 +59,12 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {			//district
 		// .attr("fill",function(d,i){return color(i);}) //fillRandom
 		.attr("fill", function(d,i) { // heatmap
 			if (d.Population_density_2016 != ""){
-				return "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
+				return redBlueScaleColor(+d.Population_density_2016)
+				//return "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
 			}else{
 				return "rgb(169,169,169)"; //gray when the value is empty
 			}
-		})
-		;
+		});
 
 });
  
