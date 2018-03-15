@@ -95,11 +95,20 @@
                         </li>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <input type="checkbox" onclick="populationDensity('districts')">
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Energy
+                                Population density (Districts)
+                            </label>
+                        </li>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="populationDensity('neighbouhoods')">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Population density (Neighbouhoods)
                             </label>
                         </li>
                         <li>
@@ -108,7 +117,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Population density
+                                Energy
                             </label>
                         </li>
                         <li>
@@ -146,6 +155,7 @@
             <button id="showstats" onclick="showStats()">SHOW STATS</button>
         </div>
         <script src="../js/scatter.js"></script>
+        <script src="../js/chloropleth.js"></script>
         <script src="../js/overviewChart.js"></script>
         <script src="../js/map.js"></script>
         <!--Use your own api key here-->
