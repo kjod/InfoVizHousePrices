@@ -87,3 +87,10 @@ setTimeout(function(){
 		side_stats.style.display = "none";
 	},300);
 },500);
+
+
+
+function underline(thisThing, howMuch){
+	var lines = thisThing.getElementsByTagName('line');
+	lines[0].style.width=howMuch;
+}

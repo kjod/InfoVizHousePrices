@@ -25,6 +25,29 @@ body{
   font-size:18px;
   margin:20px 0;
 }
+#header #topmenu{
+  display:flex;
+  position:absolute;
+  top:0;
+  right:0;
+  padding:8px 15px 0 0;
+}
+#header #topmenu a{
+  margin-left:5px
+}
+#header #topmenu h3{
+  margin:0;
+  font-size:17px;
+  cursor:pointer;
+}
+#header #topmenu line{
+  height:3px;
+  width:0%;
+  float:left;
+  background-color:black;
+  -webkit-transition:.25s width ease-out;
+  transition:.25s width ease-out;
+}
 #questions{
   float:left;
   background-color:#000;
