@@ -135,7 +135,7 @@ function checkAnswers(preferences, i){
 
 var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
 var answeredQuestions = 0;
-var previousValue = 0;
+var previousValue = "meh";
 function checkValue(thisShit){
 	previousValue = thisShit.value;
 }
@@ -144,6 +144,7 @@ function updateAnswers(){
 	if (previousValue==""){
 		answeredQuestions++;
 		document.getElementById('completedLine').style.width = (answeredQuestions/totalQuestions)*100+"%"
+		previousValue = "meh";
 	}
 	if (POPDENSITYSWITCH && POPDEPTH == "districts"){
 		areaPolygons = districtPolygons;

@@ -59,7 +59,7 @@ function nextQuestion(){
 	setTimeout(function(){
 		questions[nextQuestion].style.transition =".5s all ease-out";
 		questions[nextQuestion].style.left = "50%";
-	},1)
+	},10)
 	shownQuestion = nextQuestion;
 }
 function prevQuestion(){
@@ -74,7 +74,7 @@ function prevQuestion(){
 	setTimeout(function(){
 		questions[nextQuestion].style.transition =".5s all ease-out";
 		questions[nextQuestion].style.left = "50%";
-	},1)
+	},10)
 	shownQuestion = nextQuestion;
 }
 
