@@ -1,5 +1,5 @@
 :root{
-  --filter-min-width:30px;
+  --filter-min-width:40px;
   --filter-max-width:200px;
   --header-height:70px;
   --questions-height:110px;
@@ -109,11 +109,15 @@ body{
   float:left;
 }
 #filters{
-  width:5%;
+  width:var(--filter-min-width);
   max-width:var(--filter-min-width);
   float:left;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
+}
+#auxfilter{
+  float:left;
+  width:var(--filter-min-width);
 }
 #filter_bar{
   width:0%;
@@ -138,14 +142,13 @@ body{
 }
 #filters #openclose{
   float:right;
-  width:20px;
-  margin-right:5px;
+  width:26px;
   cursor:pointer;
   margin:7px;
 }
 #content{
   display:inline-flex;
-  width:95%;
+  width:calc(100% - 2*var(--filter-min-width));
   min-width:calc(100% - 2*var(--filter-min-width));
   height:100%;
   float:left;
@@ -169,9 +172,8 @@ body{
   overflow:hidden;
 	width:50%;
   opacity:0;
-  height:var(--map-min-height);
+  height:100%;
   box-sizing:border-box;
-  border:1px solid black;
 	border-top:none;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
@@ -179,6 +181,15 @@ body{
 #overviewChart{
   text-align:center;
   height:calc(100% - 60px);
+}
+#openclose-radar{
+  position:relative;
+  float:right;
+  width:26px;
+  top:0;
+  right:0;
+  margin:7px;
+  cursor:pointer;
 }
 h2, h3{
 	text-align:center;	
