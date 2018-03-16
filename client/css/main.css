@@ -1,5 +1,5 @@
 :root{
-  --filter-min-width:30px;
+  --filter-min-width:40px;
   --filter-max-width:200px;
   --header-height:70px;
   --questions-height:110px;
@@ -24,6 +24,29 @@ body{
   letter-spacing:18px;
   font-size:18px;
   margin:20px 0;
+}
+#header #topmenu{
+  display:flex;
+  position:absolute;
+  top:0;
+  right:0;
+  padding:8px 15px 0 0;
+}
+#header #topmenu a{
+  margin-left:5px
+}
+#header #topmenu h3{
+  margin:0;
+  font-size:17px;
+  cursor:pointer;
+}
+#header #topmenu line{
+  height:3px;
+  width:0%;
+  float:left;
+  background-color:black;
+  -webkit-transition:.25s width ease-out;
+  transition:.25s width ease-out;
 }
 #questions{
   float:left;
@@ -52,8 +75,8 @@ body{
   position:absolute;
   height:56px;
   width:56px;
-  -webkit-transition:.15s background ease-out;
-  transition:.15s background ease-out;
+  -webkit-transition:.15s all ease-out;
+  transition:.15s all ease-out;
 }
 #questions .leftarrow:hover,#questions .rightarrow:hover{
   background:rgba(66,66,66,0.75);
@@ -66,6 +89,34 @@ body{
 }
 #questions .arrowsvg{
   fill:white;
+}
+@media screen and (max-width:1300px){
+  #questions .leftarrow{
+    left:12%;
+  }
+  #questions .rightarrow{
+    right:12%;
+  }
+}
+@media screen and (max-width:1000px){
+  #questions .leftarrow{
+    left:6%;
+  }
+  #questions .rightarrow{
+    right:6%;
+  }
+}
+@media screen and (max-width:650px){
+  #questions .leftarrow{
+    left:0%;
+  }
+  #questions .rightarrow{
+    right:0%;
+  }
+  #questions .leftarrow,#questions .rightarrow{
+    border-radius:0px;
+    height:100%;
+  }
 }
 #questions path{
   fill:white;
@@ -109,11 +160,15 @@ body{
   float:left;
 }
 #filters{
-  width:5%;
+  width:var(--filter-min-width);
   max-width:var(--filter-min-width);
   float:left;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
+}
+#auxfilter{
+  float:left;
+  width:var(--filter-min-width);
 }
 #filter_bar{
   width:0%;
@@ -138,14 +193,13 @@ body{
 }
 #filters #openclose{
   float:right;
-  width:20px;
-  margin-right:5px;
+  width:26px;
   cursor:pointer;
   margin:7px;
 }
 #content{
   display:inline-flex;
-  width:95%;
+  width:calc(100% - 2*var(--filter-min-width));
   min-width:calc(100% - 2*var(--filter-min-width));
   height:100%;
   float:left;
@@ -169,9 +223,8 @@ body{
   overflow:hidden;
 	width:50%;
   opacity:0;
-  height:var(--map-min-height);
+  height:100%;
   box-sizing:border-box;
-  border:1px solid black;
 	border-top:none;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
@@ -179,6 +232,15 @@ body{
 #overviewChart{
   text-align:center;
   height:calc(100% - 60px);
+}
+#openclose-radar{
+  position:relative;
+  float:right;
+  width:26px;
+  top:0;
+  right:0;
+  margin:7px;
+  cursor:pointer;
 }
 h2, h3{
 	text-align:center;	

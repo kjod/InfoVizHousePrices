@@ -14,6 +14,16 @@
     <body onload="initGraph()">
         <div id="header" class="defaultdiv flexcentered">
             <h2>FIND A HOUSE</h2>
+            <div id="topmenu">
+                <a id="about" onmouseover="underline(this, '100%')" onmouseout="underline(this, '0%')">
+                    <h3>About</h3>
+                    <line></line>
+                </a>
+                <a id="about">
+                    <h3>Map</h3>
+                    <line style="width:100%"></line>
+                </a>
+            </div>
         </div>
         <div id="questions" class="flexcentered">
             <div id="completedLine"></div>
@@ -151,12 +161,14 @@
             <div id="content">
                 <div id="map"></div>
                 <div id="side_stats">
+                    <img src="../img/close.svg" id="openclose-radar" onclick="showStats()">
                     <div id="charts_overview">
                         <h3>Stats: Avg housing price</h3>
                         <div id="overviewChart"></div>
                     </div>
                 </div>
-            </div>   
+            </div>
+            <div id="auxfilter"></div>
         </div>
         <!--div class="flexcentered defaultdiv">
             <button id="showstats" onclick="showStats()">SHOW STATS</button>
