@@ -1,153 +1,90 @@
 function createMap() {
   var mapProp= {
-      center:new google.maps.LatLng(52.3702, 4.8952),
-      zoom:11,
+      center:new google.maps.LatLng(52.3572, 4.8952),
+      zoom:12,
       minZoom: 11, 
       maxZoom: 15,
       disableDefaultUI: true,
       styles:[
-      {
-        "featureType": "all",
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
         "stylers": [
-          { "lightness": "-20" }
+            {
+                "color": "#444444"
+            }
         ]
-      },
-        {
-          "featureType": "landscape.man_made",
-          "elementType": "all",
-          "stylers": [
-                {
-                  "color": "#444444"
-                },
-                {
-                    "saturation": "-100"
-                }
-            ]
-        },
-        {
-          "featureType": "administrative.neighborhood",
-          "elementType": "all",
-          "stylers": [
-                {
-                    "saturation": "-100"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "saturation": "-100"
-                },
-                {
-                    "lightness": "65"
-                },
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "saturation": "-100"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "lightness": "30"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "lightness": "40"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "saturation": -100
-                },
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "hue": "#ffff00"
-                },
-                {
-                    "lightness": -25
-                },
-                {
-                    "saturation": -97
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        }
-      ],
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#46bcec"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+],
   };
 
   /*var allowedBounds = new google.maps.LatLngBounds(

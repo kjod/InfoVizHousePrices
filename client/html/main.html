@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="UTF-8"> 
 <html>
     <head>
         <title>House Hunt!</title>
@@ -11,10 +12,11 @@
         <script src="https://d3js.org/d3.v4.min.js"></script>
     </head>
     <body onload="initGraph()">
-        <div id="header" class="defaultdiv">
+        <div id="header" class="defaultdiv flexcentered">
             <h2>FIND A HOUSE</h2>
         </div>
         <div id="questions" class="flexcentered">
+            <div id="completedLine"></div>
             <div class="leftarrow flexcentered" id="questionleftarrow" onclick="prevQuestion()">
                 <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
                     <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"></path>
@@ -24,7 +26,8 @@
                     <div class="subsection">
                         What's your budget?<br>
                         <!-- Use javascript to render this -->
-                        <select id="budgetselect">
+                        <select id="budgetselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="" selected disabled>Choose an option</option>
                             <option value="3">> 300.000</option>
                             <option value="2">100.000 - 300.000</option>
                             <option value="1">> 100.000</option>
@@ -34,7 +37,8 @@
                 <section id="greenfilter" class="transit">
                     <div class="subsection">
                         How important is it to you to have nature close?<br>
-                        <select id="greenselect"><!--  onchange="updateAnswers();"> -->
+                        <select id="greenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="" selected disabled>Choose an option</option>
                             <option value="3">Very important.</option>
                             <option value="2">I don't mind.</option>
                             <option value="1">Not important.</option>
@@ -44,7 +48,8 @@
                 <section id="childrenfilter" class="transit">
                     <div class="subsection">
                         Do you have children?<br>
-                        <select id="childrenselect">
+                        <select id="childrenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="" selected disabled>Choose an option</option>
                             <option value="y">Yes.</option>
                             <option value="n">No.</option>
                         </select>
@@ -54,7 +59,8 @@
                     <div class="subsection">
                         <!--Do you want a house you can get old in?<br-->
                         Are you looking for senior homes?<br>
-                        <select id="seniorselect">
+                        <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="" selected disabled>Choose an option</option>
                             <option value="y">Yes.</option>
                             <option value="n">No.</option>
                         </select>
@@ -63,7 +69,8 @@
                 <section id="partyfilter" class="transit">
                     <div class="subsection">
                         How often do you go out?<br>
-                        <select id="partyselect">
+                        <select id="partyselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="" selected disabled>Choose an option</option>
                             <option value="3">Nearly every day.</option>
                             <option value="2">Once a week.</option>
                             <option value="1">Not much.</option>
@@ -151,9 +158,9 @@
                 </div>
             </div>   
         </div>
-        <div class="flexcentered defaultdiv">
+        <!--div class="flexcentered defaultdiv">
             <button id="showstats" onclick="showStats()">SHOW STATS</button>
-        </div>
+        </div-->
         <script src="../js/scatter.js"></script>
         <script src="../js/chloropleth.js"></script>
         <!--script src="../js/overviewChart.js"></script-->
