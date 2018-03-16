@@ -8,9 +8,13 @@ const redBlueScaleColor = d3.scaleLinear()
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
 
+const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
+
 var POPDENSITYSWITCH = false;
 var POPDEPTH = "";
 var districtPolygons = [];
+let districtData = [];
+let neighbourhoodData = [];
 var neighbourhoodsPolygons = [];
 
 d3.json("names_coordinates_data/districts.json", function(shapes) {
@@ -18,7 +22,8 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 	shapes.Areas.forEach(function(d){
 		var thisColor = "rgb(169,169,169)"; //gray when the value is empty
 		if (d.Population_density_2016 != ""){
-			thisColor = redBlueScaleColor(+d.Population_density_2016)
+			thisColor = redBlueScaleColor(+d.Population_density_2016);
+			districtData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 			//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
 		}
 		//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
@@ -30,9 +35,18 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 			strokeOpacity: 1,
 			strokeWeight: 2,
 			fillColor: thisColor,
-			fillOpacity: 0.7
+			fillOpacity: 0.3
 		});
 		districtPolygons.push(polygon);
+		google.maps.event.addListener(polygon,"mouseover",function(){
+			polygon.setOptions({fillOpacity: '0.9'});
+		}); 
+		google.maps.event.addListener(polygon,"mouseout",function(){
+			polygon.setOptions({fillOpacity: '0.3'});
+		});
+		google.maps.event.addListener(polygon,"click",function(){
+			showStats();
+		});
 	});
 	/*var areas = svg.selectAll("polygon")
 		.data(shapes.Areas)
@@ -61,6 +75,7 @@ d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
 		if (d.Population_density_2016 != ""){
 			thisColor = redBlueScaleColor(+d.Population_density_2016)
 			//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
+			neighbourhoodData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 		}
 		//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
 		var polygon = new google.maps.Polygon({
@@ -68,16 +83,76 @@ d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
 				return {lat:d.x,lng:d.y}
 			}),
 			strokeColor: thisColor,
-			strokeOpacity: 1,
+			strokeOpacity: 0.3,
+			// strokeOpacity: 1,
 			strokeWeight: 2,
 			fillColor: thisColor,
-			fillOpacity: 0.7
+			fillOpacity: 0.3
 		});
 		neighbourhoodsPolygons.push(polygon);
+		google.maps.event.addListener(polygon,"mouseover",function(){
+			polygon.setOptions({fillOpacity: '0.9'});
+		}); 
+		google.maps.event.addListener(polygon,"mouseout",function(){
+			polygon.setOptions({fillOpacity: '0.3'});
+		});
+		google.maps.event.addListener(polygon,"click",function(){
+			showStats();
+		});
 	});
 });
 
+function applyAnswers(){
+	let preferences = [0, 0, 0, 0, 0];
+	let i = 0;
+	preference_ids.forEach(function(d){
+		let e = document.getElementById(d);	
+		preferences[i] = e.options[e.selectedIndex].value;
+		i++;
+	})
+	return preferences;
+}
 
+function checkAnswers(preferences, i){
+	if (POPDEPTH == "districts"){
+		areaData = districtData;
+	}else if (POPDEPTH == "neighbourhoods"){
+		areaData = neighbourhoodData;
+	}else{
+		return false;
+	}
+	//THESE SHOULD BE CHANGED WHEN THE QUESTIONS/ANSWERS ARE CHANGED!!
+	if ((areaData[i] == null) ||
+		((areaData[i][0] >= ((preferences[0] - 1) * 33.3)) || (preferences[0] === "1")) && //green
+		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n")) && //children
+		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1")) && //budget
+		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1")) && //senior, doesn't work, no data
+		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1"))){ //party
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function updateAnswers(){
+	if (POPDENSITYSWITCH && POPDEPTH == "districts"){
+		areaPolygons = districtPolygons;
+	}else if (POPDENSITYSWITCH && POPDEPTH == "neighbourhoods"){
+		areaPolygons = neighbourhoodsPolygons;
+	}else{
+		return false;
+	}
+	const pref = applyAnswers();
+	let i = 0;
+	areaPolygons.forEach(function(polygon){
+		if(checkAnswers(pref, i)){
+			polygon.setMap(map);
+		}else{
+			polygon.setMap(null);
+		}
+		i++;
+	});
+}
 
 function populationDensity(filename="districts"){
 	POPDENSITYSWITCH = !POPDENSITYSWITCH;
@@ -89,8 +164,8 @@ function populationDensity(filename="districts"){
 			polygon.setMap(null);
 		});
 	}else if(filename == "neighbourhoods" && POPDEPTH == "districts"){
-		POPDEPTH = "neighbourhoods"
-		POPDENSITYSWITCH = true
+		POPDEPTH = "neighbourhoods";
+		POPDENSITYSWITCH = true;
 		document.getElementById("districtCheck").checked = false;
 		districtPolygons.forEach(function(polygon){
 			polygon.setMap(null);
@@ -98,15 +173,7 @@ function populationDensity(filename="districts"){
 	}
 	if(POPDENSITYSWITCH){
 		POPDEPTH = filename
-		if(filename=="districts"){
-			districtPolygons.forEach(function(polygon){
-				polygon.setMap(map);
-			});
-		}else if(filename == "neighbourhoods"){
-			neighbourhoodsPolygons.forEach(function(polygon){
-				polygon.setMap(map);
-			});
-		}
+		updateAnswers()
 	}else{
 		if(filename=="districts"){
 			districtPolygons.forEach(function(polygon){
