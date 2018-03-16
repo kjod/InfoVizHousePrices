@@ -92,7 +92,7 @@ function populationDensity(filename="districts"){
 		POPDEPTH = "neighbourhoods"
 		POPDENSITYSWITCH = true
 		document.getElementById("districtCheck").checked = false;
-		districtPolygons.forEach(function(polygon){
+			districtsPolygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
 	}

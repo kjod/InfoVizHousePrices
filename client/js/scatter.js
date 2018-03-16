@@ -21,47 +21,26 @@ function scatterPlot(datasetDict) {
           var marker = layer.selectAll("svg")
               .data(d3.entries(data))
               .each(transform) // update existing markers
-            .enter().append("svg")
+              .enter().append("svg")
               .each(transform)
-              .attr("class", "marker");
+              .attr("class", "marker")
 
           // Add a circle.
           marker.append("circle")
               .attr("r", 4.5)
               .attr("cx", padding)
-              .attr("cy", padding);
+              .attr("cy", padding)
+              .attr("class", "scatterCircle")
+               .on("mouseover", function(d) {   
+                  console.log("outside I'm in");
+              }); 
+              // /.attr('pointer-events', 'all')
+              
+              //.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+              //.on("mouseout", function(){return tooltip.style("visibility", "hidden");});;
                     
               //add color
               
-          //add tool tip
-          var tooltip = d3.select("#scatter").append("div")
-                  .attr("class", "tooltip")
-                  .style("opacity", 0);
-          // tooltip mouseover event handler
-          var tipMouseover = function(d) {
-             //var color = colorScale(d.manufacturer);
-              var html  = d.value.postcode + "<ul>" + //add rooms, woza
-                          "<li>House price: " + d.value.house_price + "</li>" + 
-                          "<li>Purchase price: " + d.value.purchase_price + "</li>" +
-                          "<li>Size: " + d.value.area + "</li>" + 
-                          "</ul>";
-
-              tooltip.html(html)
-                  .style("left", (d3.event.pageX + 15) + "px")
-                  .style("top", (d3.event.pageY - 28) + "px")
-                .transition()
-                  .duration(200) // ms
-                  .style("opacity", .9) // started as 0!
-          };
-          // tooltip mouseout event handler
-          var tipMouseout = function(d) {
-              tooltip.transition()
-                  .duration(300) // ms
-                  .style("opacity", 0); // don't care about position!
-          };
-
-                // Add a label.
-     
 
           function transform(d) {
             //console.log(d)
