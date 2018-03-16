@@ -133,7 +133,18 @@ function checkAnswers(preferences, i){
 	}
 }
 
+var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+var answeredQuestions = 0;
+var previousValue = 0;
+function checkValue(thisShit){
+	previousValue = thisShit.value;
+}
+
 function updateAnswers(){
+	if (previousValue==""){
+		answeredQuestions++;
+		document.getElementById('completedLine').style.width = (answeredQuestions/totalQuestions)*100+"%"
+	}
 	if (POPDENSITYSWITCH && POPDEPTH == "districts"){
 		areaPolygons = districtPolygons;
 	}else if (POPDENSITYSWITCH && POPDEPTH == "neighbourhoods"){
