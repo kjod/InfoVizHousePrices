@@ -3,8 +3,8 @@ const scaleColor = d3.scaleLinear() //Scale for Population density
 				.range([0,255]);
 
 const redBlueScaleColor = d3.scaleLinear()
-	.domain([10.0,14156.0,28312.0])
-	.range(["cornflowerblue", "white", "red"]);
+	.domain([10.0,28312.0])
+	.range(["cornflowerblue", "red"]);
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
 
