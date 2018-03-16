@@ -33,7 +33,9 @@ body{
   padding:8px 15px 0 0;
 }
 #header #topmenu a{
-  margin-left:5px
+  margin-left:5px;
+  text-decoration:none;
+  color:inherit;
 }
 #header #topmenu h3{
   margin:0;
