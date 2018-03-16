@@ -1,13 +1,21 @@
 :root{
   --filter-min-width:30px;
   --filter-max-width:200px;
-  --header-height:9.4%;
-  --questions-height:14.5%;
+  --header-height:70px;
+  --questions-height:110px;
   --map-height:calc(100% - var(--header-height) - var(--questions-height));
   --map-min-height:500px;
 }
+html{
+  height:100%
+}
 body{
   font-family:Helvetica;
+  margin:0;
+  overflow:auto;
+  float:left;
+  width:100%;
+  height:100%;
 }
 #header{
   height:var(--header-height);
@@ -24,8 +32,7 @@ body{
   color:#FFF;
   overflow:hidden;
   position:relative;
-  min-height:var(--questions-height);
-  min-height:94px;
+  height:var(--questions-height);
 }
 #questions .leftarrow,#questions .rightarrow{
   background:rgba(66,66,66,0.54);
@@ -88,7 +95,7 @@ body{
 
 #container{
   width:100%;
-  height:calc(100% - );
+  height:var(--map-height);
   float:left;
 }
 #filters{
@@ -130,14 +137,15 @@ body{
   display:inline-flex;
   width:95%;
   min-width:calc(100% - 2*var(--filter-min-width));
-  min-height:var(--map-height);
+  height:100%;
   float:left;
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
 }
 #map{ 
 	width:100%;
-	min-height:var(--map-min-height);
+  min-height:var(--map-min-height);
+	height:100%;
 	float:left;
   -webkit-transition:.3s all ease-out;
   transition:.3s all ease-out;
