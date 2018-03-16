@@ -363,14 +363,45 @@ path {
 .marker, .marker svg,.scatter, .scatter svg {
   position:absolute;
 }
+
+.scatter {
+	z-index: 300;
+}
+
 .scatter svg, .marker svg{
   width:60px;
   height:20px;
   padding-right:100px;
   font:10px sans-serif;
+  z-index: 400;
 }
-.scatter circle, .marker circle{
+
+/*.marker circle{
   fill:brown;
   stroke:black;
   stroke-width:1.5px;
+}*/
+
+.marker circle{
+	stroke:black;
+  	stroke-width:1.5px;
+	z-index: 500;
+	pointer-events: all;
+	cursor: pointer;
+	position: absolute;	
+}
+
+#circle1:hover {
+  	stroke:yellow;
+  	stroke-width:3px;
+}
+
+#map{
+	z-index: -21;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;#
 }
