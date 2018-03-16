@@ -37,7 +37,7 @@
                 <section id="greenfilter" class="transit">
                     <div class="subsection">
                         How important is it to you to have nature close?<br>
-                        <select id="greenselect" onchange="updateAnswers();">
+                        <select id="greenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="" selected disabled>Choose an option</option>
                             <option value="3">Very important.</option>
                             <option value="2">I don't mind.</option>
@@ -48,7 +48,7 @@
                 <section id="childrenfilter" class="transit">
                     <div class="subsection">
                         Do you have children?<br>
-                        <select id="childrenselect" onchange="updateAnswers();">
+                        <select id="childrenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="" selected disabled>Choose an option</option>
                             <option value="y">Yes.</option>
                             <option value="n">No.</option>
@@ -59,7 +59,7 @@
                     <div class="subsection">
                         <!--Do you want a house you can get old in?<br-->
                         Are you looking for senior homes?<br>
-                        <select id="seniorselect" onchange="updateAnswers();">
+                        <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="" selected disabled>Choose an option</option>
                             <option value="y">Yes.</option>
                             <option value="n">No.</option>
@@ -69,7 +69,7 @@
                 <section id="partyfilter" class="transit">
                     <div class="subsection">
                         How often do you go out?<br>
-                        <select id="partyselect" onchange="updateAnswers();">
+                        <select id="partyselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="" selected disabled>Choose an option</option>
                             <option value="3">Nearly every day.</option>
                             <option value="2">Once a week.</option>
