@@ -7,7 +7,7 @@ function openCloseFilters(){
 		filters.style.width = "20%";
 		filters.style.maxWidth = "200px";
 		filter_bar.style.width = "100%";
-		content.style.width = "calc(100% - 200px - 2*var(--filter-min-width))";
+		content.style.width = "80%";
 		content.style.minWidth = "calc(100% - 200px)";
 		openclose.classList.add('rotate-right');
 		setTimeout(function(){
