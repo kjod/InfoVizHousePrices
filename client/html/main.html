@@ -20,11 +20,11 @@
                     <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"></path>
                 </svg>
             </div>
-                <section id="poorfilter" class="transit">
+                <section id="budgetfilter" class="transit">
                     <div class="subsection">
                         What's your budget?<br>
                         <!-- Use javascript to render this -->
-                        <select>
+                        <select id="budgetselect">
                             <option value="3">> 300.000</option>
                             <option value="2">100.000 - 300.000</option>
                             <option value="1">> 100.000</option>
@@ -34,7 +34,7 @@
                 <section id="greenfilter" class="transit">
                     <div class="subsection">
                         How important is it to you to have nature close?<br>
-                        <select>
+                        <select id="greenselect"><!--  onchange="updateAnswers();"> -->
                             <option value="3">Very important.</option>
                             <option value="2">I don't mind.</option>
                             <option value="1">Not important.</option>
@@ -44,7 +44,7 @@
                 <section id="childrenfilter" class="transit">
                     <div class="subsection">
                         Do you have children?<br>
-                        <select>
+                        <select id="childrenselect">
                             <option value="y">Yes.</option>
                             <option value="n">No.</option>
                         </select>
@@ -54,7 +54,7 @@
                     <div class="subsection">
                         <!--Do you want a house you can get old in?<br-->
                         Are you looking for senior homes?<br>
-                        <select>
+                        <select id="seniorselect">
                             <option value="y">Yes.</option>
                             <option value="n">No.</option>
                         </select>
@@ -63,7 +63,7 @@
                 <section id="partyfilter" class="transit">
                     <div class="subsection">
                         How often do you go out?<br>
-                        <select>
+                        <select id="partyselect">
                             <option value="3">Nearly every day.</option>
                             <option value="2">Once a week.</option>
                             <option value="1">Not much.</option>
