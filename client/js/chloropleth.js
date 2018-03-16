@@ -26,9 +26,9 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 			paths: d.points.map(function(d){
 				return {lat:d.x,lng:d.y}
 			}),
-			strokeColor: thisColor,
+			strokeColor: '#FF0000',
 			strokeOpacity: 1,
-			strokeWeight: 2,
+			strokeWeight: 1,
 			fillColor: thisColor,
 			fillOpacity: 0.7
 		});
@@ -67,9 +67,9 @@ d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
 			paths: d.points.map(function(d){
 				return {lat:d.x,lng:d.y}
 			}),
-			strokeColor: thisColor,
+			strokeColor: '#FF0000',
 			strokeOpacity: 1,
-			strokeWeight: 2,
+			strokeWeight: 0.5,
 			fillColor: thisColor,
 			fillOpacity: 0.7
 		});
