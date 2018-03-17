@@ -19,9 +19,9 @@ function scatterPlot(datasetDict, key) {
 
       const colorScale = d3.scaleLinear()
         .domain([minValue, minValue + 500000, (minValue + maxValue)/2, maxValue])
-        .range([ "yellow", "orange", "red" ,"green"]);
+        .range([ "yellow", "orange", "red" ,"maroon"]);
 
-      legendFormatter(colorScale, "top", key, "scatter", maxValue, minValue)
+      legendFormatter(colorScale, key, "scatter", maxValue, minValue)
 
       var overlay = new google.maps.OverlayView();    
       overlay.onAdd = function() {
@@ -91,7 +91,7 @@ function drawLayers(layer){
     if(layer === "house_price"){
       if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"], layer) }
       else {  
-        document.getElementsByClassName("scatter")[0].remove(); 
+        document.getElementById("scatter").remove(); 
         document.getElementsByClassName("scatterpoints")[0].remove();
       }
       houseProcesSwitch = !houseProcesSwitch;

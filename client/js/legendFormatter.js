@@ -1,4 +1,4 @@
-function legendFormatter(colorScale, position, key, id, maxValue, minValue){	
+function legendFormatter(colorScale, key, id, maxValue, minValue){	
 	  
       let divideValue = 8
       var color_domain = [];
@@ -18,12 +18,13 @@ function legendFormatter(colorScale, position, key, id, maxValue, minValue){
      
       var scatterDiv = d3.select("#content")
         .append("div")
-        .attr("class", "#"+id)
+        .attr("id", id)
 
       let xWidth = 50
       var legend = scatterDiv
         .append("div")
-          .attr("class", id+"Legend")
+          .attr("class", "legend")
+          .attr("id", id + "Legend")
           .html("<div><b>"+ toTitleCase(key.replace("_", " ")) +"</b></div>")
         .append("svg:svg")
           .attr("width", xWidth * divideValue)

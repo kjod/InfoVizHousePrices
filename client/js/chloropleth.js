@@ -10,11 +10,18 @@ const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random colori
 
 var POPDENSITYSWITCH = false;
 var POPDEPTH = "";
+var ID_USED = ""
 var districtPolygons = [];
 var neighbourhoodsPolygons = [];
+var maxValue = 0;
+var minValue = 0;
 
 d3.json("names_coordinates_data/districts.json", function(shapes) {
 	//console.log(shapes)
+	var arr = shapes.Areas.map(o => o.Population_density_2016);
+    maxValue = Math.max(...arr)
+    minValue = Math.min(...arr)
+
 	shapes.Areas.forEach(function(d){
 		var thisColor = "rgb(169,169,169)"; //gray when the value is empty
 		if (d.Population_density_2016 != ""){
@@ -55,7 +62,10 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 });
 
 d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
-	console.log(shapes)
+	var arr = shapes.Areas.map(o => o.Population_density_2016);
+    maxValue = Math.max(...arr)
+    minValue = Math.min(...arr)
+	
 	shapes.Areas.forEach(function(d){
 		var thisColor = "rgb(169,169,169)"; //gray when the value is empty
 		if (d.Population_density_2016 != ""){
@@ -83,21 +93,25 @@ function populationDensity(filename="districts"){
 	POPDENSITYSWITCH = !POPDENSITYSWITCH;
 	if(filename == "districts" && POPDEPTH == "neighbourhoods"){
 		POPDEPTH = "districts"
+		ID_USED = "neighbourCheck"
 		POPDENSITYSWITCH = true
-		document.getElementById("neighbourCheck").checked = false;
+		document.getElementById(ID_USED).checked = false;
 		neighbourhoodsPolygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
 	}else if(filename == "neighbourhoods" && POPDEPTH == "districts"){
 		POPDEPTH = "neighbourhoods"
 		POPDENSITYSWITCH = true
-		document.getElementById("districtCheck").checked = false;
+		ID_USED = "districtCheck"
+		document.getElementById(ID_USED).checked = false;
 			districtsPolygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
 	}
 	if(POPDENSITYSWITCH){
 		POPDEPTH = filename
+		
+		legendFormatter(redBlueScaleColor, "Population Density", POPDEPTH, maxValue, minValue)
 		if(filename=="districts"){
 			districtPolygons.forEach(function(polygon){
 				polygon.setMap(map);
@@ -108,11 +122,13 @@ function populationDensity(filename="districts"){
 			});
 		}
 	}else{
+		document.getElementById(POPDEPTH + "Legend").remove(); 
 		if(filename=="districts"){
 			districtPolygons.forEach(function(polygon){
 				polygon.setMap(null);
 			});
 		}else if(filename == "neighbourhoods"){
+			
 			neighbourhoodsPolygons.forEach(function(polygon){
 				polygon.setMap(null);
 			});

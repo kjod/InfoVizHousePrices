@@ -364,22 +364,24 @@ path {
   position:absolute;
 }
 
-/*.scatter {
-	z-index: 300;
-}*/
+.scatter, .scatterpoints {
+	z-index: 400;
+}
 
 .marker svg{
   width:60px;
   height:20px;
   padding-right:100px;
   font:10px sans-serif;
-  /*z-index: 400;*/
+  /*z-index: 40;*/
+  z-index: 400;
 }
 
 .marker circle{
 	stroke:black;
   stroke-width:1.5px;
-	/*z-index: 500;*/
+	/*z-index: 40*/
+  z-index: 400;
 	pointer-events: all;
 	cursor: pointer;
 	position: absolute;	
@@ -390,7 +392,7 @@ path {
   	stroke-width:3px;
 }
 
-.scatterLegend{
+.legend{
   background-color: #F0F8FF;
   -moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
   -webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
@@ -400,17 +402,22 @@ path {
   left: 200px;
 }
 
-.scatterLegend .axis text {
+.legend .axis text {
   font: 10px sans-serif;
 }
 
-.scatterLegend .axis line, .scatterLegend .axis path {
+
+.legend .axis line, .legend .axis path {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-.scatterLegend svg{
+.legend svg{
   padding-left: 5px;
   padding-right: 5px;
+}
+
+#neighbourhoodsLegend, #districtsLegend {
+  bottom: 0px;
 }
