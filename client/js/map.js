@@ -55,6 +55,15 @@ function createMap() {
         ]
     },
     {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
         "featureType": "road.arterial",
         "elementType": "labels.icon",
         "stylers": [

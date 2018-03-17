@@ -396,12 +396,14 @@ path {
   	stroke-width:3px;
 }
 
-#map{
-	z-index: -21;
-}
+/*#map{
+	z-index: -1;
+}*/
 
 .legend rect {
   fill:white;
   stroke:black;
-  opacity:0.8;#
+  opacity:0.8;
+  z-index: 5;
+  position: absolute;
 }
