@@ -2,47 +2,27 @@ var EMPLOYMENTSWITCH = false;
 
 const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
 
-const colorScale = d3.scaleLinear()
-  .domain([200000,2000000])
-  .range(["yellow", "green"]);
 
-var color_domain = [500000, 1000000, 1500000, 2000000]
-var ext_color_domain = [0, 500000, 1000000, 1500000, 2000000]
-var legend_labels = ["0", "< 500000", "500000+", "1500000+", "2000000+"]    
 
-//Need filterSet??
-function scatterPlot(datasetDict) {
+/**
+Plots scatter onto google map
+datasetDict: indlcued incase scatter is used for different data sets.
+key: used to determine which value in dataset will be used for colouring.
+*/
+function scatterPlot(datasetDict, key) {
     var width = 960, height = 500;
-
-    var scatterDiv = d3.select("#content")
-      .append("div")
-      .attr("class", "scatter")
-
-    var legend = scatterDiv
-      .append("div")
-        .attr("class", "scatterLegend")
-        .html("<div><b>House Prices</b></div>")
-      .append("svg:svg")
-        .attr("width", 250)
-        .attr("height", 40)
-
-    for (var i = 0; i < ext_color_domain.length; i++) {   
-      legend.append("svg:rect").
-        attr("x", i*50).
-        attr("y", 0).
-        attr("height", 20).
-        attr("width", 50).
-        attr("fill", colorScale(ext_color_domain[i]));//color
-
-      legend.append("text").
-        attr("x", i*50).
-        attr("y", 30).
-        attr("height", 20).
-        attr("width", 50).
-        text(legend_labels[i]);//color
-    };
-
     d3.json("funda_data.json", function(data) {
+      
+      var arr = data.map(o => o[key]);
+      let maxValue = Math.max(...arr)
+      let minValue = Math.min(...arr)
+
+      const colorScale = d3.scaleLinear()
+        .domain([minValue, minValue + 500000, (minValue + maxValue)/2, maxValue])
+        .range([ "yellow", "orange", "red" ,"green"]);
+
+      legendFormatter(colorScale, "top", key, "scatter", maxValue, minValue)
+
       var overlay = new google.maps.OverlayView();    
       overlay.onAdd = function() {
         var layer = d3.select(this.getPanes().overlayLayer).append("div")
@@ -108,8 +88,8 @@ function drawLayers(layer){
     console.log("Layer ", layer)
     //remove div if it exists
     //add div
-    if(layer === "house_prices"){
-      if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"]) }
+    if(layer === "house_price"){
+      if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"], layer) }
       else {  
         document.getElementsByClassName("scatter")[0].remove(); 
         document.getElementsByClassName("scatterpoints")[0].remove();
@@ -117,7 +97,7 @@ function drawLayers(layer){
       houseProcesSwitch = !houseProcesSwitch;
     }
 
-     dd everything
+    //add everything
     
     //draw scatter layer last, doesn't matter
 }
