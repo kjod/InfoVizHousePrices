@@ -1,7 +1,7 @@
 function createMap() {
   var mapProp= {
       center:new google.maps.LatLng(52.3572, 4.8952),
-      zoom:12,
+      zoom:11,
       minZoom: 11, 
       maxZoom: 15,
       disableDefaultUI: true,
@@ -153,5 +153,4 @@ function createMap() {
         });
         polygon.setMap(map)
     });
-
 }

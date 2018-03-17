@@ -6,25 +6,52 @@ const colorScale = d3.scaleLinear()
   .domain([200000,2000000])
   .range(["yellow", "green"]);
 
+var color_domain = [500000, 1000000, 1500000, 2000000]
+var ext_color_domain = [0, 500000, 1000000, 1500000, 2000000]
+var legend_labels = ["0", "< 500000", "500000+", "1500000+", "2000000+"]    
+
 //Need filterSet??
 function scatterPlot(datasetDict) {
+    var width = 960, height = 500;
+
+    var scatterDiv = d3.select("#content")
+      .append("div")
+      .attr("class", "scatter")
+
+    var legend = scatterDiv
+      .append("div")
+        .attr("class", "scatterLegend")
+        .html("<div><b>House Prices</b></div>")
+      .append("svg:svg")
+        .attr("width", 250)
+        .attr("height", 40)
+
+    for (var i = 0; i < ext_color_domain.length; i++) {   
+      legend.append("svg:rect").
+        attr("x", i*50).
+        attr("y", 0).
+        attr("height", 20).
+        attr("width", 50).
+        attr("fill", colorScale(ext_color_domain[i]));//color
+
+      legend.append("text").
+        attr("x", i*50).
+        attr("y", 30).
+        attr("height", 20).
+        attr("width", 50).
+        text(legend_labels[i]);//color
+    };
+
     d3.json("funda_data.json", function(data) {
       var overlay = new google.maps.OverlayView();    
       overlay.onAdd = function() {
         var layer = d3.select(this.getPanes().overlayLayer).append("div")
-        .attr("class", "scatter")//change to only use id
-        .attr("id", "scatter");
-      
-
+        .attr("class", "scatterpoints")//change to only use id
+        .attr("id", "scatterpoints");
 
         overlay.draw = function() {
           var projection = this.getProjection();
-          var padding = 10;
-
-          legend = d3.select("#scatter").append("g")
-              .attr("class","legend")
-              .attr("transform","translate(50,30)")
-              .style("font-size","12px")
+          var padding = 10; 
 
           var marker = layer.selectAll("svg")
               .data(d3.entries(data))
@@ -83,11 +110,14 @@ function drawLayers(layer){
     //add div
     if(layer === "house_prices"){
       if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"]) }
-      else {  document.getElementsByClassName("scatter")[0].remove(); }
+      else {  
+        document.getElementsByClassName("scatter")[0].remove(); 
+        document.getElementsByClassName("scatterpoints")[0].remove();
+      }
       houseProcesSwitch = !houseProcesSwitch;
     }
 
-    //add everything
+     dd everything
     
-    //draw scatter layer last
+    //draw scatter layer last, doesn't matter
 }
