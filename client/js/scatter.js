@@ -1,7 +1,7 @@
 var EMPLOYMENTSWITCH = false;
 
 const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
-
+const SCATTERPOINTID = "scatterPoint";
 
 
 /**
@@ -25,7 +25,9 @@ function scatterPlot(datasetDict, key) {
 
       var overlay = new google.maps.OverlayView();    
       overlay.onAdd = function() {
-        var layer = d3.select(this.getPanes().overlayLayer).append("div")
+        //var layer = d3.select(this.getPanes().overlayMouseTarget).append("div").attr("class", "stations");
+        var layer = d3.select(this.getPanes().overlayMouseTarget).append("div").attr("class", "targetCircles")
+        //var layer = d3.select(this.getPanes().overlayLayer).append("div")
         .attr("class", "scatterpoints")//change to only use id
         .attr("id", "scatterpoints");
 
@@ -33,17 +35,16 @@ function scatterPlot(datasetDict, key) {
           var projection = this.getProjection();
           var padding = 10; 
 
+
           var marker = layer.selectAll("svg")
+              .attr("height", "10px")
+              .attr("width", "10px")
               .data(d3.entries(data))
               .each(transform) // update existing markers
               .enter().append("svg")
               .each(transform)
-              .style('fill', function(d) {
-                  //console.log("redBlueScaleColor ", d.value.house_price);
-                  return colorScale(d.value.house_price);
-              })
-              .attr("class", "marker")
-              .on("click", function(d) { console.log(d); });
+              .style('fill', d => colorScale(d.value.house_price))
+              .attr("class", "marker");
 
           // Add a circle.
           marker.append("circle")
@@ -51,13 +52,45 @@ function scatterPlot(datasetDict, key) {
               .attr("cx", padding)
               .attr("cy", padding)
               .attr("class", "scatterCircle")
-               .on("mouseover", function(d) {   
-                  console.log("outside I'm in");
-              }); 
+              .attr("id", o => SCATTERPOINTID + o.value.postcode)
+              .on("mouseover", function(event,){
+                                  let elem = document.getElementById(SCATTERPOINTID + event.value.postcode)
+                                  let node = document.createElement("div");
+                                  node.id = "tooltip" + SCATTERPOINTID + event.value.postcode
+                                  node.className = "tooltip"                            /*This is stupid!*/
+                                  node.innerHTML =  "<span class='scatterHeadingText'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>" 
+                                                    + event.value.postcode + "</b><span>"+
+                                                    "<span><br> House Price: "+ event.value.house_price.toFixed(2) + 
+                                                    "<br>Avg Purchase Price: " + event.value.purchase_price.toFixed(2) + "</span>"
+                                                    /*"<br>Avg Size: " + event.value.size +
+                                                    "<br>Avg Area: " + event.value.area*/
+                                  //node.style = elem.style
+                                  node.style.top = (elem.parentElement.style.top.slice(0, -2) - 60) + "px"
+                                  node.style.left = elem.parentElement.style.left
+                                  node.style.backgroundColor = "black"
+                                  node.style.borderBottom = "1px dotted black";
+                                  node.style.width = "200px";
+                                  node.style.color = "#fff";
+                                  node.style.padding = "5px 0";
+                                  node.style.borderRadius = "6px";
+                                  node.style.position = "absolute";
+                                  node.style.zIndex = "1000";
+                                  elem.parentElement.parentElement.appendChild(node);
+                                })
+              /*.on("mousemove", function(event){
+                                  //console.log("Hover ", event)
+                                  //console.log(event)
+                                  //return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
+              })*/
+              .on("mouseout", function(event){
+                                  document.getElementById("tooltip" + SCATTERPOINTID + event.value.postcode).remove()
+              });
+
               // /.attr('pointer-events', 'all')
-          google.maps.event.addListener(marker , 'click', function(ev) {
+         
+          /*google.maps.event.addListener(marker , 'click', function(ev) {
             console.log("clicked bitch")
-          });
+          });*/
 
               //.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
               //.on("mouseout", function(){return tooltip.style("visibility", "hidden");});;

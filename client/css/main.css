@@ -368,10 +368,10 @@ path {
 	z-index: 400;
 }
 
-.marker svg{
-  width:60px;
+.marker svg, .marker{
+  width:20px;
   height:20px;
-  padding-right:100px;
+  /*padding-right:100px;*/
   font:10px sans-serif;
   /*z-index: 40;*/
   z-index: 400;
@@ -381,15 +381,15 @@ path {
 	stroke:black;
   stroke-width:1.5px;
 	/*z-index: 40*/
-  z-index: 400;
-	pointer-events: all;
-	cursor: pointer;
+  z-index: 500;
 	position: absolute;	
 }
 
-#circle1:hover {
-  	stroke:yellow;
-  	stroke-width:3px;
+.marker circle:hover{
+  stroke:blue;
+  stroke-width:3px;
+  cursor: pointer;
+  pointer-events: all;
 }
 
 .legend{
@@ -421,3 +421,32 @@ path {
 #neighbourhoodsLegend, #districtsLegend {
   bottom: 0px;
 }
+
+.targetCircles circle {
+  fill: red;
+  stroke: black;
+  stroke-width: 1px;
+  -webkit-animation-name: redPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite; 
+}
+        
+.targetCircles circle:hover {
+  fill: blue;
+  cursor: pointer; 
+}
+
+/*.scatterHeadingText{
+  text-align: center;
+}*/
+
+/*.tooltip{ /* Only seems to work when applied through javascript *//*
+  background-color: "black"
+  border-bottom: "1px dotted black";
+  width: "200px";
+  color: "#fff";
+  padding: "5px 0";
+  border-radius: "6px";
+  position: "absolute";
+  z-index: "1000";
+}*/
