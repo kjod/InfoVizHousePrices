@@ -55,7 +55,30 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 		});
 		google.maps.event.addListener(polygon,"click",function(){
 			initGraph(d.area_code, d.area_name);
-			showStats();
+			//showStats();
+			
+			//zooming
+			var bounds = new google.maps.LatLngBounds();
+			for(var i = 0; i < d.points.length;i++) {
+				bounds.extend(new google.maps.LatLng(d.points[i].x, d.points[i].y));
+			}
+			var center = bounds.getCenter();
+			
+			//console.log(bounds.toSpan().lat());
+			console.log(bounds.toSpan().toString());
+			var areaSpanLat = bounds.toSpan().lat();
+			
+			var zoomLevel;
+			if(areaSpanLat > 0.02) {
+				zoomLevel = 13;
+			} else {
+				zoomLevel = 14;
+			}
+			
+			//console.log(center.toString());
+			map.setZoom(zoomLevel);
+			map.panTo(center);
+
 		});
 	});
 });
