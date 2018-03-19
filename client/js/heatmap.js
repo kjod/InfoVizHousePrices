@@ -1,6 +1,6 @@
 var EMPLOYMENTSWITCH = false;
 const HEATMAPPOINTID = "scatterPoint";
-
+var heatmap = null;
 
 /**
 Plots scatter onto google map
@@ -46,7 +46,7 @@ function heatMap(datasetDict, key) {
                                                                         } 
                                                                 }));
       console.log("about to create heat map, ", colorScale)
-      var heatmap = new google.maps.visualization.HeatmapLayer({
+      heatmap = new google.maps.visualization.HeatmapLayer({
         data: pointArray,
         radius: 25,
         map: map,
@@ -55,80 +55,6 @@ function heatMap(datasetDict, key) {
       console.log("created HeatMap")
       heatmap.setMap(pointArray);
       console.log("HeatMap")
-      /*var overlay = new google.maps.OverlayView();    
-      overlay.onAdd = function() {
-        var layer = d3.select(this.getPanes().overlayMouseTarget).append("div").attr("class", "targetCircles")
-        .attr("class", "scatterpoints")//change to only use id
-        .attr("id", "scatterpoints");
-
-        overlay.draw = function() {
-          var projection = this.getProjection();
-          var padding = 10; 
-
-
-          var marker = layer.selectAll("svg")
-              .attr("height", "10px")
-              .attr("width", "10px")
-              .data(d3.entries(data))
-              .each(transform) // update existing markers
-              .enter().append("svg")
-              .each(transform)
-              .style('fill', d => colorScale(d.value.house_price))
-              .attr("class", "marker");
-
-          // Add a circle.
-          marker.append("circle")
-              .attr("r", 4.5)
-              .attr("cx", padding)
-              .attr("cy", padding)
-              .attr("class", "scatterCircle")
-              .attr("id", o => SCATTERPOINTID + o.value.postcode)
-              .on("mouseover", function(event,){
-                                  let elem = document.getElementById(SCATTERPOINTID + event.value.postcode)
-                                  let node = document.createElement("div");
-                                  node.id = "tooltip" + SCATTERPOINTID + event.value.postcode
-                                  node.className = "tooltip"                            /*This is stupid!*/
-                                  /*node.innerHTML =  "<span class='scatterHeadingText'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>" 
-                                                    + event.value.postcode + "</b><span>"+
-                                                    "<span><br> House Price: "+ event.value.house_price.toFixed(2) + 
-                                                    "<br>Avg Purchase Price: " + event.value.purchase_price.toFixed(2) + "</span>"
-                                                    /*"<br>Avg Size: " + event.value.size +
-                                                    "<br>Avg Area: " + event.value.area*/
-                                  //node.style = elem.style
-                                  /*node.style.top = (elem.parentElement.style.top.slice(0, -2) - 60) + "px"
-                                  node.style.left = elem.parentElement.style.left
-                                  node.style.backgroundColor = "black"
-                                  node.style.borderBottom = "1px dotted black";
-                                  node.style.width = "200px";
-                                  node.style.color = "#fff";
-                                  node.style.padding = "5px 0";
-                                  node.style.borderRadius = "6px";
-                                  node.style.position = "absolute";
-                                  node.style.zIndex = "1000";
-                                  elem.parentElement.parentElement.appendChild(node);
-                                })
-              /*.on("mousemove", function(event){
-                                  //console.log("Hover ", event)
-                                  //console.log(event)
-                                  //return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
-              })*/
-              /*.on("mouseout", function(event){
-                                  document.getElementById("tooltip" + SCATTERPOINTID + event.value.postcode).remove()
-              });
-              
-          function transform(d) {
-            //console.log(d)
-            //g.h;
-            d = new google.maps.LatLng(d.value.lat, d.value.lon);
-            d = projection.fromLatLngToDivPixel(d);
-            return d3.select(this)
-                .style("left", (d.x - padding) + "px")
-                .style("top", (d.y - padding) + "px");
-          }
-        };
-      };
-          // Bind our overlay to the map…
-      overlay.setMap(map);*/
   });
 
 }
@@ -142,8 +68,9 @@ function drawHeatMap(layer){
     if(layer === "house_price"){
       if(!houseProcesSwitch) { heatMap(DATASETS["funda"], layer) }
       else {  
-        document.getElementById("heatmap").remove(); 
-        document.getElementsByClassName("heatmappoints")[0].remove();
+        heatmap.setMap(null);
+        //document.getElementById("heatmap").remove(); 
+        //document.getElementsByClassName("heatmappoints")[0].remove();
       }
       houseProcesSwitch = !houseProcesSwitch;
     }
