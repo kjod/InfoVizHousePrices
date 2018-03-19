@@ -179,7 +179,7 @@ function drawChoropleth(layer){
 		polygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
-		document.getElementById(layer + "Legend").remove(); 
+		document.getElementById("choroplethLegend").remove(); 
 	}
 	filterSwitch[layer] = !filterSwitch[layer]
 	//document.getElementById(ID_USED).checked = false;
