@@ -117,11 +117,11 @@ function checkAnswers(preferences, i){
 	}
 	//THESE SHOULD BE CHANGED WHEN THE QUESTIONS/ANSWERS ARE CHANGED!!
 	if ((areaData[i] == null) ||
-		((areaData[i][0] >= ((preferences[0] - 1) * 33.3)) || (preferences[0] === "1")) && //green
-		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n")) && //children
-		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1")) && //budget
-		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1")) && //senior, doesn't work, no data
-		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1"))){ //party
+		((areaData[i][0] >= ((preferences[0] - 1) * 33.3)) || (preferences[0] === "1") || (preferences[0] === "")) && //green
+		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n") || (preferences[1] === "")) && //children
+		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1") || (preferences[2] === "")) && //budget
+		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1") || (preferences[3] === "")) && //senior, doesn't work, no data
+		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1") || (preferences[4] === ""))){ //party
 		return true;
 	}else{
 		return false;
@@ -129,6 +129,11 @@ function checkAnswers(preferences, i){
 }
 
 function updateAnswers(){
+	if (previousValue==""){
+		answeredQuestions++;
+		document.getElementById('completedLine').style.width = (answeredQuestions/totalQuestions)*100+"%"
+		previousValue = "meh";
+	}
 	if (POPDENSITYSWITCH && POPDEPTH == "districts"){
 		areaPolygons = districtPolygons;
 	}else if (POPDENSITYSWITCH && POPDEPTH == "neighbourhoods"){
