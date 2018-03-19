@@ -45,7 +45,7 @@
                             </option>
                             <option value="1">
                                 > €500.000</option>
-                            <option value="0" selected disabled hidden>
+                            <option value="1" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -58,7 +58,7 @@
                             <option value="3">Very important</option>
                             <option value="2">It is preferable</option>
                             <option value="1">Not important</option>
-                            <option value="0" selected disabled hidden>
+                            <option value="1" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -70,7 +70,7 @@
                         <select id="childrenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="y">Yes</option>
                             <option value="n">No</option>
-                            <option value="0" selected disabled hidden>
+                            <option value="n" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -83,9 +83,9 @@
                         <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="y">Yes</option>
                             <option value="n">No</option>
-                            <option value="0" selected disabled hidden>
+                            <option value="n" selected disabled hidden>
                                 Choose an option
-                            </option>                   
+                            </option>
                         </select>
                     </div>
                 </section>
@@ -103,12 +103,12 @@
                                 I don't care
                             </option>
                             <option value="1">Preferably not</option>
-                            <option value="0" selected disabled hidden>
+                            <option value="1" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
                     </div>
-                </section>
+                </section> 
             <div class="rightarrow flexcentered" id="questionrightarrow" onclick="nextQuestion()">
                 <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
                     <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
