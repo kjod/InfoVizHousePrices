@@ -19,7 +19,7 @@ let districtData = [];
 let neighbourhoodData = [];
 var maxValue = 0;
 var minValue = 0;
-let fillOpacityDefault = 0.5;
+let fillOpacityDefault = 0.4;
 let highlightedFillOpacityDefault = 0.7;
 
 d3.json("names_coordinates_data/districts.json", function(shapes) {

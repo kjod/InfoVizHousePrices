@@ -121,6 +121,11 @@
                     <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
                 </div>
                 <div id="filter_bar">
+                    <div id="upperFilter" class="flexcentered">
+                        <div class="districtOrNeighbourhoodFilter flexcentered" id="districtFilter" onclick="changeLeftRight('selector', '2%', '50%')" ondrop="drop(event)" ondragover="allowDrop(event)">DISTRICT</div>
+                        <div class="districtOrNeighbourhoodFilter flexcentered" id="ngbFilter" onclick="changeLeftRight('selector', '50%', '0%')" ondrop="drop(event)" ondragover="allowDrop(event)">NEIGHBOURHOOD</div>
+                        <span id="selector" draggable="true" ondragstart="drag(event)"></span>
+                    </div>
                     <ul>
                         <!--Temp-->
                         <li>

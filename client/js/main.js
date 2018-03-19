@@ -98,6 +98,25 @@ function underline(thisThing, howMuch){
 var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
 var answeredQuestions = 0;
 var previousValue = "meh";
-function checkValue(thisShit){
-	previousValue = thisShit.value;
+function checkValue(thisThing){
+	previousValue = thisThing.value;
+}
+
+function changeLeftRight(thing, howMuchLeft, howMuchRight){
+	document.getElementById(thing).style.left=howMuchLeft;
+	document.getElementById(thing).style.right=howMuchRight;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }
