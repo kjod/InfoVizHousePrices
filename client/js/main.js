@@ -94,3 +94,10 @@ function underline(thisThing, howMuch){
 	var lines = thisThing.getElementsByTagName('line');
 	lines[0].style.width=howMuch;
 }
+
+var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+var answeredQuestions = 0;
+var previousValue = "meh";
+function checkValue(thisShit){
+	previousValue = thisShit.value;
+}

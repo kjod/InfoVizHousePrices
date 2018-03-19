@@ -37,15 +37,16 @@
                         What is your budget to spend on a house?<br>
                         <!-- Use javascript to render this -->
                         <select id="budgetselect" onchange="updateAnswers();" onfocus="checkValue(this);"> 
-                            <option value="3">
+                            <option value="4">
                                 < €200.000
                             </option>
-                            <option value="2">
+                            <option value="3">
                               €200.000 - €500.000
                             </option>
-                            <option value="1">
+                            <option value="2">
                                 > €500.000</option>
-                            <option value="1" selected disabled hidden>
+                            <option value="1">I don't mind</option>
+                            <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -57,8 +58,8 @@
                         <select id="greenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="3">Very important</option>
                             <option value="2">It is preferable</option>
-                            <option value="1">Not important</option>
-                            <option value="1" selected disabled hidden>
+                            <option value="1">I don't mind</option>
+                            <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -70,7 +71,8 @@
                         <select id="childrenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="y">Yes</option>
                             <option value="n">No</option>
-                            <option value="n" selected disabled hidden>
+                            <option value="1">I don't mind</option>
+                            <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -83,7 +85,8 @@
                         <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="y">Yes</option>
                             <option value="n">No</option>
-                            <option value="n" selected disabled hidden>
+                            <option value="1">I don't mind</option>
+                            <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -100,10 +103,10 @@
                                 Preferably
                             </option>
                             <option value="2">
-                                I don't care
+                                I don't mind
                             </option>
                             <option value="1">Preferably not</option>
-                            <option value="1" selected disabled hidden>
+                            <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
                         </select>
@@ -147,7 +150,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Population density (Neighbouhoods)
+                                Population density (Neighbourhoods)
                             </label>
                         </li>
                         <li>
@@ -186,7 +189,6 @@
                 <div id="side_stats">
                     <img src="../img/close.svg" id="openclose-radar">
                     <div id="charts_overview">
-                        <h3>Region Statistics</h3>
                         <div id="overviewChart"></div>
                     </div>
                 </div>
