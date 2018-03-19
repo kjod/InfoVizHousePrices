@@ -49,7 +49,7 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 		districtPolygons.push(polygon);
 		google.maps.event.addListener(polygon,"mouseover",function(){
 			polygon.setOptions({fillOpacity: '0.9'});
-		}); 
+		});
 		google.maps.event.addListener(polygon,"mouseout",function(){
 			polygon.setOptions({fillOpacity: fillOpacityDefault});
 		});
@@ -57,6 +57,7 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 			initGraph(d.area_code, d.area_name);
 			showStats();
 		});
+		attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d.Population_density_2016));
 	});
 });
 
@@ -94,9 +95,29 @@ d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
 			initGraph(d.area_code, d.area_name);
 			showStats();
 		});
+		attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d.Population_density_2016));
 	});
 });
 
+
+function infoWindowText(areaName, information){
+	return '<strong>' + areaName + '</strong><br />' + information;
+}
+
+//based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
+function attachPolygonInfoWindow(polygon, html)
+{
+	polygon.infoWindow = new google.maps.InfoWindow({
+		content: html,
+	});
+	google.maps.event.addListener(polygon, 'mouseover', function(e) {
+		polygon.infoWindow.setPosition(e.latLng);
+		polygon.infoWindow.open(map);
+	});
+	google.maps.event.addListener(polygon, 'mouseout', function() {
+		polygon.infoWindow.close();
+	});
+}
 
 function applyAnswers(){
 	let preferences = [0, 0, 0, 0, 0];
@@ -119,11 +140,11 @@ function checkAnswers(preferences, i){
 	}
 	//THESE SHOULD BE CHANGED WHEN THE QUESTIONS/ANSWERS ARE CHANGED!!
 	if ((areaData[i] == null) ||
-		((areaData[i][0] >= ((preferences[0] - 1) * 33.3)) || (preferences[0] === "1")) && //green
-		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n")) && //children
-		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1")) && //budget
-		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1")) && //senior, doesn't work, no data
-		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1"))){ //party
+		((areaData[i][0] >= ((preferences[0] - 1) * 33.3)) || (preferences[0] === "1") || (preferences[0] === "")) && //green
+		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n") || (preferences[1] === "")) && //children
+		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1") || (preferences[2] === "")) && //budget
+		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1") || (preferences[3] === "")) && //senior, doesn't work, no data
+		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1") || (preferences[4] === ""))){ //party
 		return true;
 	}else{
 		return false;
@@ -131,6 +152,11 @@ function checkAnswers(preferences, i){
 }
 
 function updateAnswers(){
+	if (previousValue==""){
+		answeredQuestions++;
+		document.getElementById('completedLine').style.width = (answeredQuestions/totalQuestions)*100+"%"
+		previousValue = "meh";
+	}
 	if (POPDENSITYSWITCH && POPDEPTH == "districts"){
 		areaPolygons = districtPolygons;
 	}else if (POPDENSITYSWITCH && POPDEPTH == "neighbourhoods"){
