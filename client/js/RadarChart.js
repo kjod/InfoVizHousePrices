@@ -21,8 +21,8 @@ var RadarChart = {
      radians: 2 * Math.PI,
      opacityArea: 0.5,
      ToRight: 5,
-     TranslateX: 20,
-     TranslateY: 50,
+     TranslateX: 60,
+     TranslateY: 30,
      ExtraWidthX: 100,
      ExtraWidthY: 100,
      color: d3.scaleOrdinal(d3.schemeCategory10)
@@ -46,9 +46,9 @@ var RadarChart = {
             .append("svg")
             .attr("width", "100%")
             .attr("height", "100%")
-            .attr("style", "margin-left:25%;")
+            .attr("style", "margin-left:5%;")
             .append("g")
-            //.attr("height", "100%")
+            .attr("height", "100%")
             .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
             ;
 

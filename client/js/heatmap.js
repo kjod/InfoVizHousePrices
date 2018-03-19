@@ -38,7 +38,7 @@ function heatMap(datasetDict, key) {
           'rgba(255, 0, 0, 1)'
       ]
 
-      legendFormatter(colorScale, key, "scatter", maxValue, minValue)
+      legendFormatter(colorScale, key, "heatmap", maxValue, minValue)
 
       var pointArray = new google.maps.MVCArray(data.map( o => { return { 
                                                                           location: new google.maps.LatLng(o.lat, o.lon), 
@@ -52,9 +52,7 @@ function heatMap(datasetDict, key) {
         map: map,
         //gradient: colorScale
       });
-      console.log("created HeatMap")
       heatmap.setMap(pointArray);
-      console.log("HeatMap")
   });
 
 }
@@ -69,7 +67,7 @@ function drawHeatMap(layer){
       if(!houseProcesSwitch) { heatMap(DATASETS["funda"], layer) }
       else {  
         heatmap.setMap(null);
-        //document.getElementById("heatmap").remove(); 
+        document.getElementById("heatmap").remove(); 
         //document.getElementsByClassName("heatmappoints")[0].remove();
       }
       houseProcesSwitch = !houseProcesSwitch;
