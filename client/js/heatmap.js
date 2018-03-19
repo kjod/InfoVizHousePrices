@@ -1,7 +1,5 @@
 var EMPLOYMENTSWITCH = false;
-
-//const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
-const SCATTERPOINTID = "scatterPoint";
+const HEATMAPPOINTID = "scatterPoint";
 
 
 /**
@@ -9,7 +7,7 @@ Plots scatter onto google map
 datasetDict: indlcued incase scatter is used for different data sets.
 key: used to determine which value in dataset will be used for colouring.
 */
-function scatterPlot(datasetDict, key) {
+function heatMap(datasetDict, key) {
     var width = 960, height = 500;
     d3.json("funda_data.json", function(data) {
       
@@ -20,14 +18,46 @@ function scatterPlot(datasetDict, key) {
       const colorScale = d3.scaleLinear()
         .domain([minValue, minValue + 500000, (minValue + maxValue)/2, maxValue])
         .range([ "yellow", "orange", "red" ,"maroon"]);
+      /*for(let i = 0 ; i < data; i++){
+
+      }*/
+      var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+      ]
 
       legendFormatter(colorScale, key, "scatter", maxValue, minValue)
 
-      var overlay = new google.maps.OverlayView();    
+      var pointArray = new google.maps.MVCArray(data.map( o => { return { 
+                                                                          location: new google.maps.LatLng(o.lat, o.lon), 
+                                                                          weight: o[key]
+                                                                        } 
+                                                                }));
+      console.log("about to create heat map, ", colorScale)
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray,
+        radius: 25,
+        map: map,
+        //gradient: colorScale
+      });
+      console.log("created HeatMap")
+      heatmap.setMap(pointArray);
+      console.log("HeatMap")
+      /*var overlay = new google.maps.OverlayView();    
       overlay.onAdd = function() {
-        //var layer = d3.select(this.getPanes().overlayMouseTarget).append("div").attr("class", "stations");
         var layer = d3.select(this.getPanes().overlayMouseTarget).append("div").attr("class", "targetCircles")
-        //var layer = d3.select(this.getPanes().overlayLayer).append("div")
         .attr("class", "scatterpoints")//change to only use id
         .attr("id", "scatterpoints");
 
@@ -58,14 +88,14 @@ function scatterPlot(datasetDict, key) {
                                   let node = document.createElement("div");
                                   node.id = "tooltip" + SCATTERPOINTID + event.value.postcode
                                   node.className = "tooltip"                            /*This is stupid!*/
-                                  node.innerHTML =  "<span class='scatterHeadingText'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>" 
+                                  /*node.innerHTML =  "<span class='scatterHeadingText'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>" 
                                                     + event.value.postcode + "</b><span>"+
                                                     "<span><br> House Price: "+ event.value.house_price.toFixed(2) + 
                                                     "<br>Avg Purchase Price: " + event.value.purchase_price.toFixed(2) + "</span>"
                                                     /*"<br>Avg Size: " + event.value.size +
                                                     "<br>Avg Area: " + event.value.area*/
                                   //node.style = elem.style
-                                  node.style.top = (elem.parentElement.style.top.slice(0, -2) - 60) + "px"
+                                  /*node.style.top = (elem.parentElement.style.top.slice(0, -2) - 60) + "px"
                                   node.style.left = elem.parentElement.style.left
                                   node.style.backgroundColor = "black"
                                   node.style.borderBottom = "1px dotted black";
@@ -82,22 +112,10 @@ function scatterPlot(datasetDict, key) {
                                   //console.log(event)
                                   //return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
               })*/
-              .on("mouseout", function(event){
+              /*.on("mouseout", function(event){
                                   document.getElementById("tooltip" + SCATTERPOINTID + event.value.postcode).remove()
               });
-
-              // /.attr('pointer-events', 'all')
-         
-          /*google.maps.event.addListener(marker , 'click', function(ev) {
-            console.log("clicked bitch")
-          });*/
-
-              //.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-              //.on("mouseout", function(){return tooltip.style("visibility", "hidden");});;
-                    
-              //add color
               
-
           function transform(d) {
             //console.log(d)
             //g.h;
@@ -110,22 +128,22 @@ function scatterPlot(datasetDict, key) {
         };
       };
           // Bind our overlay to the map…
-      overlay.setMap(map);
+      overlay.setMap(map);*/
   });
 
 }
 
 var houseProcesSwitch = false;
 
-function drawScatter(layer){
+function drawHeatMap(layer){
     console.log("Layer ", layer)
     //remove div if it exists
     //add div
     if(layer === "house_price"){
-      if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"], layer) }
+      if(!houseProcesSwitch) { heatMap(DATASETS["funda"], layer) }
       else {  
-        document.getElementById("scatter").remove(); 
-        document.getElementsByClassName("scatterpoints")[0].remove();
+        document.getElementById("heatmap").remove(); 
+        document.getElementsByClassName("heatmappoints")[0].remove();
       }
       houseProcesSwitch = !houseProcesSwitch;
     }

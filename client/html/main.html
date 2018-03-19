@@ -7,6 +7,7 @@
         <script type="text/javascript">
             //global variables
             var map = null;
+            const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
         </script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -103,7 +104,7 @@
                         <!--Temp-->
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawLayers('house_price')">
+                              <input type="checkbox" onclick="drawHeatMap('house_price')">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -121,7 +122,7 @@
                         </li>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawChoropleth('populationDensity','neighbourhoods')" id="neighbourCheck">
+                              <input type="checkbox" onclick="populationDensity('populationDensity','neighbourhoods')" id="neighbourCheck">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -175,13 +176,14 @@
         </div-->
         <script src="../js/legendFormatter.js"></script>
         <script src="../js/scatter.js"></script>
+        <script src="../js/heatmap.js"></script>
         <script src="../js/chloropleth.js"></script>
         <!--script src="../js/overviewChart.js"></script-->
         <script src="../js/RadarChart.js"></script>
         <script src="../js/radarscript.js"></script>
         <script src="../js/map.js"></script>
         <!--Use your own api key here-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap"></script>
         <script src="../js/employment.js"></script>
         <script src="../js/main.js"></script>
     </body>

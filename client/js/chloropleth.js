@@ -16,117 +16,79 @@ var neighbourhoodsPolygons = [];
 var maxValue = 0;
 var minValue = 0;
 
+d3.json("names_coordinates_data/districts.json", function(shapes) {
+	//console.log(shapes)
+	var arr = shapes.Areas.map(o => o.Population_density_2016);
+    maxValue = Math.max(...arr)
+    minValue = Math.min(...arr)
 
-function extractDistricts(field){
-	d3.json("names_coordinates_data/districts.json", function(shapes) {
-		//console.log(shapes)
-		var arr = shapes.Areas.map(o => o.);
-	    maxValue = Math.max(...arr)
-	    minValue = Math.min(...arr)
-
-		shapes.Areas.forEach(function(d){
-			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
-			if (d[field] != ""){
-				thisColor = redBlueScaleColor(+d[field])
-				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
-			}
-			//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
-			var polygon = new google.maps.Polygon({
-				paths: d.points.map(function(d){
-					return {lat:d.x,lng:d.y}
-				}),
-				strokeColor: thisColor,
-				strokeOpacity: 1,
-				strokeWeight: 2,
-				fillColor: thisColor,
-				fillOpacity: 0.7
-			});
-			districtPolygons.push(polygon);
+	shapes.Areas.forEach(function(d){
+		var thisColor = "rgb(169,169,169)"; //gray when the value is empty
+		if (d.Population_density_2016 != ""){
+			thisColor = redBlueScaleColor(+d.Population_density_2016)
+			//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
+		}
+		//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
+		var polygon = new google.maps.Polygon({
+			paths: d.points.map(function(d){
+				return {lat:d.x,lng:d.y}
+			}),
+			strokeColor: thisColor,
+			strokeOpacity: 1,
+			strokeWeight: 2,
+			fillColor: thisColor,
+			fillOpacity: 0.7
 		});
-		/*var areas = svg.selectAll("polygon")
-			.data(shapes.Areas)
-			.enter().append("polygon")
-			.attr("points",function(d) { 
-				return d.points.map(function(d) {
-					return [scaleLong(d.y),scaleLat(d.x)].join(","); 
-				}).join(" ");
-			})
-			// .attr("stroke","white").attr("stroke-width",1) //stroke
-			// .attr("fill",function(d,i){return color(i);}) //fillRandom
-			.attr("fill", function(d,i) { // heatmap
-				if (d.Population_density_2016 != ""){
-					return redBlueScaleColor(+d.Population_density_2016)
-					//return "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
-				}else{
-					return "rgb(169,169,169)"; //gray when the value is empty
-				}
-			});*/
+		districtPolygons.push(polygon);
 	});
-}
-
-function extractNeighbourhood(field){
-	d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
-		var arr = shapes.Areas.map(o => o[field]);
-	    maxValue = Math.max(...arr)
-	    minValue = Math.min(...arr)
-		
-		shapes.Areas.forEach(function(d){
-			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
+	/*var areas = svg.selectAll("polygon")
+		.data(shapes.Areas)
+		.enter().append("polygon")
+		.attr("points",function(d) { 
+			return d.points.map(function(d) {
+				return [scaleLong(d.y),scaleLat(d.x)].join(","); 
+			}).join(" ");
+		})
+		// .attr("stroke","white").attr("stroke-width",1) //stroke
+		// .attr("fill",function(d,i){return color(i);}) //fillRandom
+		.attr("fill", function(d,i) { // heatmap
 			if (d.Population_density_2016 != ""){
-				thisColor = redBlueScaleColor(+d[field])
-				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
+				return redBlueScaleColor(+d.Population_density_2016)
+				//return "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
+			}else{
+				return "rgb(169,169,169)"; //gray when the value is empty
 			}
-			//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
-			var polygon = new google.maps.Polygon({
-				paths: d.points.map(function(d){
-					return {lat:d.x,lng:d.y}
-				}),
-				strokeColor: thisColor,
-				strokeOpacity: 1,
-				strokeWeight: 2,
-				fillColor: thisColor,
-				fillOpacity: 0.7
-			});
-			neighbourhoodsPolygons.push(polygon);
-		});
-	});
-}
+		});*/
+});
 
-
-//add year here
-function drawChoropleth(layer, zoomLevel){
-	if(layer === populationDensity){
-		POPDENSITYSWITCH = !POPDENSITYSWITCH;
-		choropleth("Population_density_2016",zoomLevel, [])
-	} else {
-		removeChoropleth
-	}
-}
-
-/*filters for questions*/
-function choropleth(field, zoomLevel, filters){
-	legendFormatter(redBlueScaleColor, "Population Density", POPDEPTH, maxValue, minValue)
-		if(filename=="districts"){
-			districtPolygons.forEach(function(polygon){
-				polygon.setMap(map);
-			});
-		}else if(filename == "neighbourhoods"){
-			neighbourhoodsPolygons.forEach(function(polygon){
-				polygon.setMap(map);
-			});
-}
-
-function removeChoropleth(zoomLevel){
-	if(zoomLevel == "neighbourhoods"){
-		neighbourhoodsPolygons.forEach(function(polygon){
-			polygon.setMap(null);
-		});
-	} else {
-		
-	}
-}
-function populationDensity(filename="districts"){
+d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
+	var arr = shapes.Areas.map(o => o.Population_density_2016);
+    maxValue = Math.max(...arr)
+    minValue = Math.min(...arr)
 	
+	shapes.Areas.forEach(function(d){
+		var thisColor = "rgb(169,169,169)"; //gray when the value is empty
+		if (d.Population_density_2016 != ""){
+			thisColor = redBlueScaleColor(+d.Population_density_2016)
+			//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
+		}
+		//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
+		var polygon = new google.maps.Polygon({
+			paths: d.points.map(function(d){
+				return {lat:d.x,lng:d.y}
+			}),
+			strokeColor: thisColor,
+			strokeOpacity: 1,
+			strokeWeight: 2,
+			fillColor: thisColor,
+			fillOpacity: 0.7
+		});
+		neighbourhoodsPolygons.push(polygon);
+	});
+});
+
+function populationDensity(filename="districts"){
+	POPDENSITYSWITCH = !POPDENSITYSWITCH;
 	if(filename == "districts" && POPDEPTH == "neighbourhoods"){
 		POPDEPTH = "districts"
 		ID_USED = "neighbourCheck"
