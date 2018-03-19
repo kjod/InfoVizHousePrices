@@ -6,8 +6,29 @@ var colorscale = d3.scaleOrdinal(d3.schemeCategory10);
 //Legend titles
 var LegendOptions = ['Average over all regions','Selected region'];
 
+
+
 //Data
-var d = [
+var crimeIndex = 0.0
+var populationDensity 0.0
+var energy = 0.0
+var housePrices = 0.0
+var nationalities = 0.0
+var d = 0
+
+//Options for the Radar chart, other than default
+var mycfg = {
+  w: w,
+  h: h,
+  maxValue: 1,
+  levels: 10,
+  ExtraWidthX: 300
+}
+
+//Call function to draw the Radar chart
+//Will expect that data is in %'s
+function initGraph(){
+  d = [
       [
       {axis:"Crimerate",value:0.59},
       {axis:"Parking spaces",value:0.56},
@@ -23,18 +44,6 @@ var d = [
       ]
     ];
 
-//Options for the Radar chart, other than default
-var mycfg = {
-  w: w,
-  h: h,
-  maxValue: 1,
-  levels: 10,
-  ExtraWidthX: 300
-}
-
-//Call function to draw the Radar chart
-//Will expect that data is in %'s
-function initGraph(){
   RadarChart.draw("#overviewChart", d, mycfg);
   var svg = d3.select('#overviewChart')
   .selectAll('svg')
