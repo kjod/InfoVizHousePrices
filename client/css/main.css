@@ -201,6 +201,7 @@ body{
 }
 #content{
   display:inline-flex;
+  position:relative;
   width:calc(100% - 2*var(--filter-min-width));
   min-width:calc(100% - 2*var(--filter-min-width));
   height:100%;
@@ -258,7 +259,7 @@ button#showstats{
 
 
 /* The switch - the box around the slider */
-.switch {
+.switch{
   position:relative;
   display:inline-block;
   width:30px;
@@ -269,10 +270,10 @@ button#showstats{
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input{display:none;}
 
 /* The slider */
-.slider {
+.slider{
   position:absolute;
   cursor:pointer;
   top:0;
@@ -284,7 +285,7 @@ button#showstats{
   transition:.4s;
 }
 
-.slider:before {
+.slider:before{
   position:absolute;
   content:"";
   height:12px;
@@ -298,47 +299,47 @@ button#showstats{
   transition:.4s;
 }
 
-input:checked + .slider {
+input:checked + .slider{
   background-color:#2196F3;
 }
 
-input:focus + .slider {
+input:focus + .slider{
   box-shadow:0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked + .slider:before{
   -webkit-transform:translateX(11px);
   -ms-transform:translateX(11px);
   transform:translateX(11px);
 }
 
 /* Rounded sliders */
-.slider.round {
+.slider.round{
   border-radius:20px;
 }
 
-.slider.round:before {
+.slider.round:before{
   border-radius:50%;
 }
 /* tell the SVG path to be a thin blue line without any area fill */
-path {
+path{
 	stroke:steelblue;
 	stroke-width:1;
 	fill:none;
 }
-.axis {
+.axis{
   shape-rendering:crispEdges;
 }
-.x.axis line {
+.x.axis line{
   stroke:lightgrey;
 }
-.x.axis .minor {
+.x.axis .minor{
   stroke-opacity:.5;
 }
-.x.axis path {
+.x.axis path{
   display:none;
 }
-.y.axis line, .y.axis path {
+.y.axis line, .y.axis path{
   fill:none;
   stroke:#000;
 }
@@ -360,12 +361,12 @@ path {
   float:left;
 }
 
-.marker, .marker svg {
+.marker, .marker svg{
   position:absolute;
 }
 
-.scatter, .scatterpoints {
-	z-index: 400;
+.scatter, .scatterpoints{
+	z-index:400;
 }
 
 .marker svg, .marker{
@@ -373,80 +374,75 @@ path {
   height:20px;
   /*padding-right:100px;*/
   font:10px sans-serif;
-  /*z-index: 40;*/
-  z-index: 400;
+  /*z-index:40;*/
+  z-index:400;
 }
 
 .marker circle{
 	stroke:black;
   stroke-width:1.5px;
-	/*z-index: 40*/
-  z-index: 500;
-	position: absolute;	
+	/*z-index:40*/
+  z-index:500;
+	position:absolute;	
 }
 
 .marker circle:hover{
   stroke:blue;
   stroke-width:3px;
-  cursor: pointer;
-  pointer-events: all;
+  cursor:pointer;
+  pointer-events:all;
 }
 
+#legendContainer{
+  position:absolute;
+  left:0px;
+  bottom:0px;
+  -moz-box-shadow:5px -5px 5px rgba(68,68,68,0.6);
+  -webkit-box-shadow:5px -5px 5px rgba(68,68,68,0.6);
+  box-shadow:5px -5px 5px rgba(68,68,68,0.6);
+}
 .legend{
-  background-color: #F0F8FF;
-  -moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
-  -webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
-  box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
-  font-size: 10px;
-  position: absolute;
-  left: 200px;
+  background-color:#F0F8FF;
+  font-size:10px;
 }
-
-.legend .axis text {
-  font: 10px sans-serif;
+.legend .axis text{
+  font:10px sans-serif;
 }
-
-
-.legend .axis line, .legend .axis path {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+.legend .axis line, .legend .axis path{
+  fill:none;
+  stroke:#000;
+  shape-rendering:crispEdges;
 }
-
 .legend svg{
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left:5px;
+  padding-right:5px;
 }
 
-#neighbourhoodsLegend, #districtsLegend {
-  bottom: 0px;
-}
-
-.targetCircles circle {
-  fill: red;
-  stroke: black;
-  stroke-width: 1px;
-  -webkit-animation-name: redPulse;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite; 
+.targetCircles circle{
+  fill:red;
+  stroke:black;
+  stroke-width:1px;
+  -webkit-animation-name:redPulse;
+  -webkit-animation-duration:2s;
+  -webkit-animation-iteration-count:infinite; 
 }
         
-.targetCircles circle:hover {
-  fill: blue;
-  cursor: pointer; 
+.targetCircles circle:hover{
+  fill:blue;
+  cursor:pointer; 
 }
 
 /*.scatterHeadingText{
-  text-align: center;
+  text-align:center;
 }*/
 
 /*.tooltip{ /* Only seems to work when applied through javascript *//*
-  background-color: "black"
-  border-bottom: "1px dotted black";
-  width: "200px";
-  color: "#fff";
-  padding: "5px 0";
-  border-radius: "6px";
-  position: "absolute";
-  z-index: "1000";
+  background-color:"black"
+  border-bottom:"1px dotted black";
+  width:"200px";
+  color:"#fff";
+  padding:"5px 0";
+  border-radius:"6px";
+  position:"absolute";
+  z-index:"1000";
 }*/

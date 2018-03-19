@@ -122,10 +122,11 @@ function drawLayers(layer){
     //remove div if it exists
     //add div
     if(layer === "house_price"){
-      if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"], layer) }
-      else {  
-        document.getElementById("scatter").remove(); 
+      if(!houseProcesSwitch){ scatterPlot(DATASETS["funda"], layer) }
+      else{  
+        //document.getElementById("scatter").remove(); 
         document.getElementsByClassName("scatterpoints")[0].remove();
+        document.getElementById("scatterLegend").remove();
       }
       houseProcesSwitch = !houseProcesSwitch;
     }

@@ -160,21 +160,23 @@ function updateAnswers(){
 function populationDensity(filename="districts"){
 	POPDENSITYSWITCH = !POPDENSITYSWITCH;
 	if(filename == "districts" && POPDEPTH == "neighbourhoods"){
-		POPDEPTH = "districts";
 		ID_USED = "neighbourCheck";
-		POPDENSITYSWITCH = true;
 		document.getElementById(ID_USED).checked = false;
+		document.getElementById(POPDEPTH + "Legend").remove(); 
 		neighbourhoodsPolygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
-	}else if(filename == "neighbourhoods" && POPDEPTH == "districts"){
-		POPDEPTH = "neighbourhoods";
+		POPDEPTH = "districts";
 		POPDENSITYSWITCH = true;
+	}else if(filename == "neighbourhoods" && POPDEPTH == "districts"){
 		ID_USED = "districtCheck";
 		document.getElementById(ID_USED).checked = false;
+		document.getElementById(POPDEPTH + "Legend").remove(); 
 		districtPolygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
+		POPDEPTH = "neighbourhoods";
+		POPDENSITYSWITCH = true;
 	}
 	if(POPDENSITYSWITCH){
 		POPDEPTH = filename;
