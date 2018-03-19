@@ -11,7 +11,7 @@
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
     </head>
-    <body onload="initGraph()">
+    <body>
         <div id="header" class="defaultdiv flexcentered">
             <h2>FIND A HOUSE</h2>
             <div id="topmenu">
@@ -184,9 +184,9 @@
                 <div id="map"></div>
                 <div id="legendContainer"></div>
                 <div id="side_stats">
-                    <img src="../img/close.svg" id="openclose-radar" onclick="showStats()">
+                    <img src="../img/close.svg" id="openclose-radar">
                     <div id="charts_overview">
-                        <h3>Stats: Avg housing price</h3>
+                        <h3>Region Statistics</h3>
                         <div id="overviewChart"></div>
                     </div>
                 </div>
