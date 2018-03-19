@@ -34,7 +34,7 @@
             </div>
                 <section id="budgetfilter" class="transit">
                     <div class="subsection">
-                        What's your budget?<br>
+                        What is your budget to spend on your house?<br>
                         <!-- Use javascript to render this -->
                         <select id="budgetselect" onchange="updateAnswers();" onfocus="checkValue(this);"> 
                             <option value="3">
@@ -53,11 +53,11 @@
                 </section>
                 <section id="greenfilter" class="transit">
                     <div class="subsection">
-                        How important is it to you to have nature close?<br>
+                        Is it important for you to live in a green area?<br>
                         <select id="greenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
-                            <option value="3">Very important.</option>
-                            <option value="2">I don't mind.</option>
-                            <option value="1">Not important.</option>
+                            <option value="3">Very important</option>
+                            <option value="2">It is preferable</option>
+                            <option value="1">Not important</option>
                             <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
@@ -66,10 +66,10 @@
                 </section>
                 <section id="childrenfilter" class="transit">
                     <div class="subsection">
-                        Do you have children?<br>
+                        Would you like to live in a childfriendly environment?<br>
                         <select id="childrenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
-                            <option value="y">Yes.</option>
-                            <option value="n">No.</option>
+                            <option value="y">Yes</option>
+                            <option value="n">No</option>
                             <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
@@ -79,10 +79,10 @@
                 <section id="seniorfilter" class="transit">
                     <div class="subsection">
                         <!--Do you want a house you can get old in?<br-->
-                        Are you looking for senior homes?<br>
+                        Are you looking for a senior home?<br>
                         <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
-                            <option value="y">Yes.</option>
-                            <option value="n">No.</option>
+                            <option value="y">Yes</option>
+                            <option value="n">No</option>
                             <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>                   
@@ -91,12 +91,18 @@
                 </section>
                 <section id="partyfilter" class="transit">
                     <div class="subsection">
-                        How often do you go out?<br>
+                        Is it important for you to live in an area that has restaurants and nightlife facilities?<br>
                         <select id="partyselect" onchange="updateAnswers();" onfocus="checkValue(this);">
-                            <option value="" selected disabled>Choose an option</option>
-                            <option value="3">Nearly every day.</option>
-                            <option value="2">Once a week.</option>
-                            <option value="1">Not much.</option>
+                            <option value="4">
+                                Yes
+                            </option>
+                            <option value="3">
+                                Preferably
+                            </option>
+                            <option value="2">
+                                I don't care
+                            </option>
+                            <option value="1">Preferably not</option>
                             <option value="0" selected disabled hidden>
                                 Choose an option
                             </option>
