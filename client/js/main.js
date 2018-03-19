@@ -3,7 +3,7 @@ function openCloseFilters(){
 	var filter_bar = document.getElementById('filter_bar');
 	var content = document.getElementById('content');
 	var openclose = document.getElementById('openclose');
-	if(filters.style.width == "5%" || filters.style.width == ""){
+	if(filters.style.width == "var(--filter-min-width)" || filters.style.width == ""){
 		filters.style.width = "20%";
 		filters.style.maxWidth = "200px";
 		filter_bar.style.width = "100%";
@@ -15,9 +15,9 @@ function openCloseFilters(){
 			openclose.classList.remove('rotate-right');
 		},300);
 	}else{
-		filters.style.width = "5%";
+		filters.style.width = "var(--filter-min-width)";
 		filter_bar.style.width = "0%";
-		content.style.width = "95%";
+		content.style.width = "calc(100% - 2*var(--filter-min-width))";
 		openclose.classList.add('rotate-left');
 		setTimeout(function(){
 			filters.style.maxWidth = "var(--filter-min-width)";
@@ -59,7 +59,7 @@ function nextQuestion(){
 	setTimeout(function(){
 		questions[nextQuestion].style.transition =".5s all ease-out";
 		questions[nextQuestion].style.left = "50%";
-	},1)
+	},10)
 	shownQuestion = nextQuestion;
 }
 function prevQuestion(){
@@ -74,7 +74,7 @@ function prevQuestion(){
 	setTimeout(function(){
 		questions[nextQuestion].style.transition =".5s all ease-out";
 		questions[nextQuestion].style.left = "50%";
-	},1)
+	},10)
 	shownQuestion = nextQuestion;
 }
 
@@ -87,3 +87,10 @@ setTimeout(function(){
 		side_stats.style.display = "none";
 	},300);
 },500);
+
+
+
+function underline(thisThing, howMuch){
+	var lines = thisThing.getElementsByTagName('line');
+	lines[0].style.width=howMuch;
+}
