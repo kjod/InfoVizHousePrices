@@ -49,7 +49,7 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 		districtPolygons.push(polygon);
 		google.maps.event.addListener(polygon,"mouseover",function(){
 			polygon.setOptions({fillOpacity: '0.9'});
-		}); 
+		});
 		google.maps.event.addListener(polygon,"mouseout",function(){
 			polygon.setOptions({fillOpacity: fillOpacityDefault});
 		});
@@ -57,6 +57,7 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 			initGraph(d.area_code, d.area_name);
 			showStats();
 		});
+		attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d.Population_density_2016));
 	});
 });
 
@@ -94,9 +95,29 @@ d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
 			initGraph(d.area_code, d.area_name);
 			showStats();
 		});
+		attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d.Population_density_2016));
 	});
 });
 
+
+function infoWindowText(areaName, information){
+	return '<strong>' + areaName + '</strong><br />' + information;
+}
+
+//based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
+function attachPolygonInfoWindow(polygon, html)
+{
+	polygon.infoWindow = new google.maps.InfoWindow({
+		content: html,
+	});
+	google.maps.event.addListener(polygon, 'mouseover', function(e) {
+		polygon.infoWindow.setPosition(e.latLng);
+		polygon.infoWindow.open(map);
+	});
+	google.maps.event.addListener(polygon, 'mouseout', function() {
+		polygon.infoWindow.close();
+	});
+}
 
 function applyAnswers(){
 	let preferences = [0, 0, 0, 0, 0];
