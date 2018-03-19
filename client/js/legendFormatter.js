@@ -16,11 +16,11 @@ function legendFormatter(colorScale, key, id, maxValue, minValue){
         legend_labels.push(sum + "+")
       }
      
-      var scatterDiv = d3.select("#legendContainer");
+      var legendContainer = d3.select("#legendContainer");
 
       let xWidth = 50
-      var legend = scatterDiv
-        .append("div")
+      var legend = legendContainer
+        .insert("div",":first-child")
           .attr("class", "legend")
           .attr("id", id + "Legend")
           .html("<div><b>"+ toTitleCase(key.replace("_", " ")) +"</b></div>")
