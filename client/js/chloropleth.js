@@ -193,5 +193,6 @@ function populationDensity(filename="districts"){
 				polygon.setMap(null);
 			});
 		}
+		POPDEPTH = "";
 	}
 }
