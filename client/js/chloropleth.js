@@ -60,7 +60,7 @@ function getDistricts(field){
 				showStats();
 			});
 		});
-		legendFormatter(redBlueScaleColor, currentField, maxValue, minValue);
+		legendFormatter(redBlueScaleColor, currentField, "choropleth", maxValue, minValue);
 		updateAnswers();
 	});
 }
@@ -101,7 +101,7 @@ function getNeighbourhoods(field){
 				showStats();
 			});
 		});
-		legendFormatter(redBlueScaleColor, currentField, maxValue, minValue);
+		legendFormatter(redBlueScaleColor, currentField, "choropleth", maxValue, minValue);
 		updateAnswers();
 	});
 }

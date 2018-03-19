@@ -6,6 +6,7 @@ function legendFormatter(colorScale, key, id, maxValue, minValue){
   var legend_labels = [];
   let sum = 0;
     
+  console.log(id)
   console.log("maxValue ", maxValue)
   console.log("minValue ", minValue)
 

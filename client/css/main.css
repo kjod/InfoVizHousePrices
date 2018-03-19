@@ -418,7 +418,7 @@ path {
   padding-right: 5px;
 }
 
-#neighbourhoodsLegend, #districtsLegend {
+#choroplethLegend {
   bottom: 0px;
 }
 
