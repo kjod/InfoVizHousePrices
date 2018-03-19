@@ -91,6 +91,7 @@ d3.json("names_coordinates_data/neighbourhoods.json", function(shapes) {
 			polygon.setOptions({fillOpacity: fillOpacityDefault});
 		});
 		google.maps.event.addListener(polygon,"click",function(){
+			initGraph(d.area_code, d.area_name);
 			showStats();
 		});
 	});
