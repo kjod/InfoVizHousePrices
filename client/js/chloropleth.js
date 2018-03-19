@@ -15,12 +15,17 @@ var polygons = [];
 var mapData = [];
 var maxValue = 0;
 var minValue = 0;
-var currentField = ""
+var currentField = ""//use as default
 
-function switchDistricts(){
-	zoomLevel = (zoomLevel === "districts") ? "neighbourhoods" : "districts";
+function changeZoomLevel(value){
+	zoomLevel = value//(zoomLevel === "districts") ? "neighbourhoods" : "districts";
+	if(currentField !== ""){
+		if(filterSwitch[currentField]){removeChoroplethLayers()};
+		filterSwitch[currentField] = !filterSwitch[currentField]// want opposite effect
+		drawChoropleth(currentField)
+	}
 	//remove old layers and legend 
-	get_data[zoomLevel](currentField)
+	//get_data[zoomLevel](currentField)
 }
 
 
@@ -60,7 +65,7 @@ function getDistricts(field){
 				showStats();
 			});
 		});
-		legendFormatter(redBlueScaleColor, currentField, "choropleth", maxValue, minValue);
+		legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		updateAnswers();
 	});
 }
@@ -71,13 +76,13 @@ function getNeighbourhoods(field){
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr)
 	    minValue = Math.min(...arr)
-		
+
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
 			if (d[field] != ""){
 				thisColor = redBlueScaleColor(+d[field])
 				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
-				neighbourhoodData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
+				mapData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 			}
 			//https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
 			var polygon = new google.maps.Polygon({
@@ -90,7 +95,7 @@ function getNeighbourhoods(field){
 				fillColor: thisColor,
 				fillOpacity: 0.7
 			});
-			neighbourhoodsPolygons.push(polygon);
+			polygons.push(polygon);
 			google.maps.event.addListener(polygon,"mouseover",function(){
 				polygon.setOptions({fillOpacity: '0.9'});
 			}); 
@@ -101,7 +106,7 @@ function getNeighbourhoods(field){
 				showStats();
 			});
 		});
-		legendFormatter(redBlueScaleColor, currentField, "choropleth", maxValue, minValue);
+		legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		updateAnswers();
 	});
 }
@@ -160,29 +165,23 @@ function drawChoropleth(layer){
 		//f = zoomLevel === "districts" ? getDistricts : getNeighbourhoods; //get_data[zoomLevel](); doesn't work?  
 		if(zoomLevel === "districts"){
 			//firstFunction(() => console.log('huzzah, I\'m done!'))
-			getDistricts(layers[layer])
-			/*.then(function(){ then doesn't work
-				console.log(layer)
-				legendFormatter(redBlueScaleColor, layer, maxValue, minValue);
-				updateAnswers();
-				/*indlcude year here*/
-			//});//add error
+			getDistricts(layers[layer])//implment call back here
 		} else {
-			getNeighbourhoods(layers[layer]).then(function(){
-				//console.log(layer)
-				//legendFormatter(redBlueScaleColor, layer, maxValue, minValue);
-				/*indlcude year here*/
-				//updateAnswers();
-			});//add error
+			getNeighbourhoods(layers[layer])
 		}
 	} else {
-		polygons.forEach(function(polygon){
-			polygon.setMap(null);
-		});
-		document.getElementById("choroplethLegend").remove(); 
+		removeChoroplethLayers();
 	}
 	filterSwitch[layer] = !filterSwitch[layer]
 	//document.getElementById(ID_USED).checked = false;
+}
+
+function removeChoroplethLayers(){
+	polygons.forEach(function(polygon){
+			polygon.setMap(null);
+		});
+	document.getElementById("choroplethLegend").remove();
+	mapData = []
 }
 
 //doesn;t work don't know why

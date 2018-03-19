@@ -123,8 +123,11 @@
                     <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
                 </div>
                 <div id="filter_bar">
+                    <select id="zoomLeveSselect" onchange="changeZoomLevel(value);">
+                        <option value="districts">Districts</option>
+                        <option value="neighbourhoods">Neighbourhoods</option>
+                    </select>
                     <ul>
-                        <!--Temp-->
                         <li>
                             <label class="switch">
                               <input type="checkbox" onclick="drawHeatMap('house_price')">
