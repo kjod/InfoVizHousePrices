@@ -52,6 +52,7 @@ d3.json("names_coordinates_data/districts.json", function(shapes) {
 			polygon.setOptions({fillOpacity: '0.3'});
 		});
 		google.maps.event.addListener(polygon,"click",function(){
+			initGraph(d.area_code, d.area_name);
 			showStats();
 		});
 	});
