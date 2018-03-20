@@ -1,13 +1,15 @@
 const scaleColor = d3.scaleLinear() //Scale for Population density
 				.domain([10.0,28312.0])
 				.range([0,255]);
-const redBlueScaleColor = d3.scaleLinear()
-	.domain([10.0,14156.0,28312.0])
+const redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
+	.domain([0,14156.0,28312.0])
 	.range(["cornflowerblue", "white", "red"]);
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
+
 const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
-const layers = {population_density: "Population_density_2016"}
-const filterSwitch = {populationDensity: false} 
+const layers = {population_density: "Population_density_2016", crime_rate: "Crime_index_2016", energy: "energy_label_2016"}
+const filterSwitch = {population_density: false, crime_rate: false, energy:false} 
+
 var POPDENSITYSWITCH = false;
 var POPDEPTH = "";
 var ID_USED = ""
@@ -20,7 +22,8 @@ var currentField = ""//use as default
 function changeZoomLevel(value){
 	zoomLevel = value//(zoomLevel === "districts") ? "neighbourhoods" : "districts";
 	if(currentField !== ""){
-		if(filterSwitch[currentField]){removeChoroplethLayers()};
+		//if(filterSwitch[currentField]){removeChoroplethLayers()};
+		removeChoroplethLayers()
 		filterSwitch[currentField] = !filterSwitch[currentField]// want opposite effect
 		drawChoropleth(currentField)
 	}
@@ -31,10 +34,11 @@ function changeZoomLevel(value){
 
 function getDistricts(field){
 	d3.json("names_coordinates_data/districts.json", function(shapes) {
-		//console.log(shapes)
+		console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr)
 	    minValue = Math.min(...arr)
+	    console.log("shapes ", shapes)
 
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
