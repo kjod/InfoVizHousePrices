@@ -1,15 +1,10 @@
 function legendFormatter(colorScale, key, id, maxValue, minValue){	
-	console.log("Formatting legend")
-  let divideValue = 8
+	let divideValue = 8
   var color_domain = [];
   var ext_color_domain = [];
   var legend_labels = [];
   let sum = 0;
     
-  console.log(id)
-  console.log("maxValue ", maxValue)
-  console.log("minValue ", minValue)
-
   ext_color_domain.push(minValue)
   legend_labels.push("<" + minValue)
 

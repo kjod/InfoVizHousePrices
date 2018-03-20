@@ -8,6 +8,8 @@
             //global variables
             var map = null;
             var zoomLevel = "districts"
+            var houseViz = "heatmap"
+            var houseProcesSwitch = false;
             const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
         </script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -123,23 +125,27 @@
                     <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
                 </div>
                 <div id="filter_bar">
-                    <select id="zoomLeveSselect" onchange="changeZoomLevel(value);">
-                        <option value="districts">Districts</option>
-                        <option value="neighbourhoods">Neighbourhoods</option>
-                    </select>
                     <ul>
+                        <select id="zoomLeveSselect" onchange="changeHousePriceViz(value);">
+                            <option value="heatmap">Heat Map</option>
+                            <option value="scatter">Scatter Plot</option>
+                        </select>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawHeatMap('house_price')">
+                              <input type="checkbox" onclick="drawHouseViz('house_price')" id="house_priceSwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
                                 House Prices
                             </label>
                         </li>
+                        <select id="zoomLeveSselect" onchange="changeZoomLevel(value);">
+                            <option value="districts">Districts</option>
+                            <option value="neighbourhoods">Neighbourhoods</option>
+                        </select>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawChoropleth('population_density')" id="districtCheck">
+                              <input type="checkbox" onclick="drawChoropleth('population_density')" id="population_densitySwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -157,7 +163,7 @@
                         </li>-->
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawChoropleth('energy')">
+                              <input type="checkbox" onclick="drawChoropleth('energy')" id="energySwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -166,7 +172,7 @@
                         </li>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawChoropleth('crime_rate')">
+                              <input type="checkbox" onclick="drawChoropleth('crime_rate')" id="crime_rateSwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>

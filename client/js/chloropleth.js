@@ -1,15 +1,15 @@
 const scaleColor = d3.scaleLinear() //Scale for Population density
 				.domain([10.0,28312.0])
 				.range([0,255]);
-const redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
-	.domain([0,14156.0,28312.0])
-	.range(["cornflowerblue", "white", "red"]);
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
 
 const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
 const layers = {population_density: "Population_density_2016", crime_rate: "Crime_index_2016", energy: "energy_label_2016"}
 const filterSwitch = {population_density: false, crime_rate: false, energy:false} 
 
+var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
+	.domain([0,14156.0,28312.0])
+	.range(["cornflowerblue", "white", "red"]);
 var POPDENSITYSWITCH = false;
 var POPDEPTH = "";
 var ID_USED = ""
@@ -34,12 +34,14 @@ function changeZoomLevel(value){
 
 function getDistricts(field){
 	d3.json("names_coordinates_data/districts.json", function(shapes) {
-		console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr)
 	    minValue = Math.min(...arr)
-	    console.log("shapes ", shapes)
-
+	    polygons = []
+	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
+			.domain([minValue,(minValue + maxValue)/2,maxValue])
+			.range(["cornflowerblue", "white", "red"]);
+	    
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
 			if (d[field] != ""){
@@ -69,6 +71,7 @@ function getDistricts(field){
 				showStats();
 			});
 		});
+
 		legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		updateAnswers();
 	});
@@ -80,6 +83,10 @@ function getNeighbourhoods(field){
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr)
 	    minValue = Math.min(...arr)
+	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
+			.domain([minValue,(minValue + maxValue)/2,maxValue])
+			.range(["cornflowerblue", "white", "red"]);
+	    polygons = []
 
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
@@ -159,13 +166,22 @@ function updateAnswers(){
 }
 
 
+function switchLayers(layer){
+	for(i in filterSwitch){
+		if(i !== layer && i !== "house_price"){
+			document.getElementById(i + "Switch").checked = false;
+			filterSwitch[i] = false;//double check
+		}
+	}
+}
+
 function drawChoropleth(layer){
 	//if(layer == "populationDensity"){
-	console.log(layer)
+	removeChoroplethLayers()
+	//console.log(layer)
+	switchLayers(layer);
 	if(!filterSwitch[layer]){
-		console.log("In");
 		currentField = layer;
-		console.log(zoomLevel)
 		//f = zoomLevel === "districts" ? getDistricts : getNeighbourhoods; //get_data[zoomLevel](); doesn't work?  
 		if(zoomLevel === "districts"){
 			//firstFunction(() => console.log('huzzah, I\'m done!'))
@@ -173,10 +189,8 @@ function drawChoropleth(layer){
 		} else {
 			getNeighbourhoods(layers[layer])
 		}
-	} else {
-		removeChoroplethLayers();
 	}
-	filterSwitch[layer] = !filterSwitch[layer]
+	filterSwitch[layer] = !filterSwitch[layer]	
 	//document.getElementById(ID_USED).checked = false;
 }
 
@@ -184,8 +198,11 @@ function removeChoroplethLayers(){
 	polygons.forEach(function(polygon){
 			polygon.setMap(null);
 		});
-	document.getElementById("choroplethLegend").remove();
+	if(document.getElementById("choroplethLegend")){
+		document.getElementById("choroplethLegend").remove();
+	}
 	mapData = []
+	//polygons = null
 }
 
 //doesn;t work don't know why

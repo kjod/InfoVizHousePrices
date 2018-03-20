@@ -77,26 +77,9 @@ function scatterPlot(datasetDict, key) {
                                   node.style.zIndex = "1000";
                                   elem.parentElement.parentElement.appendChild(node);
                                 })
-              /*.on("mousemove", function(event){
-                                  //console.log("Hover ", event)
-                                  //console.log(event)
-                                  //return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");
-              })*/
               .on("mouseout", function(event){
                                   document.getElementById("tooltip" + SCATTERPOINTID + event.value.postcode).remove()
               });
-
-              // /.attr('pointer-events', 'all')
-         
-          /*google.maps.event.addListener(marker , 'click', function(ev) {
-            console.log("clicked bitch")
-          });*/
-
-              //.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-              //.on("mouseout", function(){return tooltip.style("visibility", "hidden");});;
-                    
-              //add color
-              
 
           function transform(d) {
             //console.log(d)
@@ -115,17 +98,13 @@ function scatterPlot(datasetDict, key) {
 
 }
 
-var houseProcesSwitch = false;
-
 function drawScatter(layer){
-    console.log("Layer ", layer)
-    //remove div if it exists
+   //remove div if it exists
     //add div
     if(layer === "house_price"){
       if(!houseProcesSwitch) { scatterPlot(DATASETS["funda"], layer) }
       else {  
-        document.getElementById("scatter").remove(); 
-        document.getElementsByClassName("scatterpoints")[0].remove();
+        removeScatter()
       }
       houseProcesSwitch = !houseProcesSwitch;
     }
@@ -133,4 +112,9 @@ function drawScatter(layer){
     //add everything
     
     //draw scatter layer last, doesn't matter
+}
+
+function removeScatter(){
+  document.getElementById("scatter").remove(); 
+  document.getElementsByClassName("scatterpoints")[0].remove();
 }
