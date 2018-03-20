@@ -7,6 +7,10 @@
         <script type="text/javascript">
             //global variables
             var map = null;
+            var zoomLevel = "districts"
+            var houseViz = "heatmap"
+            var houseProcesSwitch = false;
+            const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
         </script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -125,37 +129,44 @@
                 </div>
                 <div id="filter_bar">
                     <ul>
-                        <!--Temp-->
+                        <select id="zoomLeveSselect" onchange="changeHousePriceViz(value);">
+                            <option value="heatmap">Heat Map</option>
+                            <option value="scatter">Scatter Plot</option>
+                        </select>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawLayers('house_price')">
+                              <input type="checkbox" onclick="drawHouseViz('house_price')" id="house_priceSwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
                                 House Prices
                             </label>
                         </li>
+                        <select id="zoomLeveSselect" onchange="changeZoomLevel(value);">
+                            <option value="districts">Districts</option>
+                            <option value="neighbourhoods">Neighbourhoods</option>
+                        </select>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="populationDensity('districts')" id="districtCheck">
+                              <input type="checkbox" onclick="drawChoropleth('population_density')" id="population_densitySwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Population density (Districts)
+                                Population density <!--(Districts)-->
                             </label>
                         </li>
-                        <li>
+                        <!--<li>
                             <label class="switch">
-                              <input type="checkbox" onclick="populationDensity('neighbourhoods')" id="neighbourCheck">
+                              <input type="checkbox" onclick="drawChoropleth('populationDensity')" id="neighbourCheck">
                               <span class="slider round"></span>
                             </label>
                             <label>
                                 Population density (Neighbourhoods)
                             </label>
-                        </li>
+                        </li>-->
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <input type="checkbox" onclick="drawChoropleth('energy')" id="energySwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -164,7 +175,7 @@
                         </li>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <input type="checkbox" onclick="drawChoropleth('crime_rate')" id="crime_rateSwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -200,13 +211,14 @@
         </div-->
         <script src="../js/legendFormatter.js"></script>
         <script src="../js/scatter.js"></script>
+        <script src="../js/heatmap.js"></script>
         <script src="../js/chloropleth.js"></script>
         <!--script src="../js/overviewChart.js"></script-->
         <script src="../js/RadarChart.js"></script>
         <script src="../js/radarscript.js"></script>
         <script src="../js/map.js"></script>
         <!--Use your own api key here-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap"></script>
         <script src="../js/employment.js"></script>
         <script src="../js/main.js"></script>
     </body>

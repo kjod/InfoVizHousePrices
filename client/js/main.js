@@ -1,3 +1,7 @@
+var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+var answeredQuestions = 0;
+var previousValue = "meh";
+
 function openCloseFilters(){
 	var filters = document.getElementById('filters');
 	var filter_bar = document.getElementById('filter_bar');
@@ -95,9 +99,32 @@ function underline(thisThing, howMuch){
 	lines[0].style.width=howMuch;
 }
 
-var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
-var answeredQuestions = 0;
-var previousValue = "meh";
+function changeHousePriceViz(value){
+	if(document.getElementById("house_priceSwitch").checked){
+		if(houseViz === "heatmap"){
+			removeHeatMap()
+			houseProcesSwitch = false;//temp
+			drawScatter("house_price");
+		} else {
+			removeScatter()
+			houseProcesSwitch = false;//temp
+			//check here if choropleth map being used
+			drawHeatMap("house_price")
+		}
+	}
+	houseViz = value;
+}
+
+
+function drawHouseViz(value){
+
+	if(houseViz === "heatmap"){
+		drawHeatMap(value);
+	} else {
+		drawScatter(value);
+	}
+}
+
 function checkValue(thisShit){
 	previousValue = thisShit.value;
 }
