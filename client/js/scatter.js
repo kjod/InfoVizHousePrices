@@ -115,6 +115,7 @@ function drawScatter(layer){
 }
 
 function removeScatter(){
-  document.getElementById("scatter").remove(); 
+  document.getElementById("scatter").remove();
+  document.getElementById("scatterLegend").remove();
   document.getElementsByClassName("scatterpoints")[0].remove();
 }

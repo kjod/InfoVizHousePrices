@@ -1,3 +1,7 @@
+var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+var answeredQuestions = 0;
+var previousValue = "meh";
+
 function openCloseFilters(){
 	var filters = document.getElementById('filters');
 	var filter_bar = document.getElementById('filter_bar');
@@ -111,6 +115,7 @@ function changeHousePriceViz(value){
 	houseViz = value;
 }
 
+
 function drawHouseViz(value){
 
 	if(houseViz === "heatmap"){
@@ -118,4 +123,8 @@ function drawHouseViz(value){
 	} else {
 		drawScatter(value);
 	}
+}
+
+function checkValue(thisShit){
+	previousValue = thisShit.value;
 }

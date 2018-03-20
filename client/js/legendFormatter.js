@@ -20,8 +20,9 @@ function legendFormatter(colorScale, key, id, maxValue, minValue){
     .attr("id", id)
 
   let xWidth = 50
-  var legend = scatterDiv
-    .append("div")
+  var legendContainer = d3.select("#legendContainer");//need to check this
+  var legend = legendContainer
+    .insert("div",":first-child")
       .attr("class", "legend")
       .attr("id", id + "Legend")
       .html("<div><b>"+ toTitleCase(key.replace("_", " ")) +"</b></div>")
@@ -46,7 +47,6 @@ function legendFormatter(colorScale, key, id, maxValue, minValue){
   };
 }
 
-function toTitleCase(str)
-{
+function toTitleCase(str){
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }

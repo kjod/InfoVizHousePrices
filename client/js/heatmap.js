@@ -37,7 +37,6 @@ function heatMap(datasetDict, key) {
                                                                           weight: o[key]
                                                                         } 
                                                                 }));
-      console.log("about to create heat map, ", colorScale)
       heatmap = new google.maps.visualization.HeatmapLayer({
         data: pointArray,
         radius: 25,
@@ -50,9 +49,6 @@ function heatMap(datasetDict, key) {
 }
 
 function drawHeatMap(layer){
-    console.log("Layer ", layer)
-    //remove div if it exists
-    //add div
     if(layer === "house_price"){
       if(!houseProcesSwitch) { heatMap(DATASETS["funda"], layer) }
       else {  
@@ -65,5 +61,6 @@ function drawHeatMap(layer){
 
 function removeHeatMap(){
     heatmap.setMap(null);
+    document.getElementById("heatmapLegend").remove();
     document.getElementById("heatmap").remove(); 
 }
