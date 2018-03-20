@@ -59,7 +59,7 @@ function initGraph(area_code, area_name){
       }
       // collect data for all regions
       for(var i=0; i<variableValues.length; i++){
-        if (isNumeric(variableValues[i]) && variableValues[i] != 0){
+        if (isNumeric(variableValues[i]) && variableValues[i] > 0){
           data[i].push(variableValues[i])
         }
       }
@@ -84,9 +84,13 @@ function initGraph(area_code, area_name){
     // create the different axes
     var d = [[],[]]
     for(var i=0; i<variableNames.length; i++){
-      if(selected_region[i] > 0.01){
-        d[0].push({axis:variableNames[i],value:applyNormalization(data[i],selected_region[i])})
-        d[1].push({axis:variableNames[i],value:applyNormalization(data[i],average_all_regions[i])})
+      // normalize the datapoints
+      var normalized_selected = applyNormalization(data[i],selected_region[i])
+      var normalized_all = applyNormalization(data[i],average_all_regions[i])
+      // check if bigger than zero
+      if(normalized_selected > 0.0){
+        d[0].push({axis:variableNames[i],value:normalized_selected})
+        d[1].push({axis:variableNames[i],value:normalized_all})
       }
     }
 

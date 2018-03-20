@@ -21,7 +21,7 @@ var RadarChart = {
      radians: 2 * Math.PI,
      opacityArea: 0.5,
      ToRight: 5,
-     TranslateX: 60,
+     TranslateX: 110,
      TranslateY: 30,
      ExtraWidthX: 100,
      ExtraWidthY: 100,
@@ -46,7 +46,7 @@ var RadarChart = {
             .append("svg")
             .attr("width", "100%")
             .attr("height", "100%")
-            .attr("style", "margin-left:10%;")
+            .attr("style", "margin-left:5%;")
             .append("g")
             .attr("height", "100%")
             .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
