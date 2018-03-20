@@ -35,62 +35,58 @@ function initGraph(area_code, area_name){
   var area_clicked = null
 
   d3.json("names_coordinates_data/districts.json", function(shapes) {
-      var counter = 0
-      shapes.Areas.forEach(function(d){
-        counter += 1
+    var counter = 0
+    shapes.Areas.forEach(function(d){
+      counter += 1
 
-        // variables
-        var crimeIndex = Number(d.Crime_index_2016)
-        var popDensity = Number(d.Population_density_2016)
-        var energy = Number(d.energy_label_2016)
-        var woz = Number(d.WOZ_value_2016)
-        var green = Number(d.surface_green_2016)
+      // variables
+      var crimeIndex = Number(d.Crime_index_2016)
+      var popDensity = Number(d.Population_density_2016)
+      var energy = Number(d.energy_label_2016)
+      var woz = Number(d.WOZ_value_2016)
+      var green = Number(d.surface_green_2016)
 
-        var variableValues = [crimeIndex, popDensity, energy, woz, green]
+      var variableValues = [crimeIndex, popDensity, energy, woz, green]
 
-        // if this region is selected collect data
-        if (d.area_code === area_code){
-          for (var i=0; i<variableValues.length; i++){
-            selected_region[i] = variableValues[i]
-          }
+      // if this region is selected collect data
+      if (d.area_code === area_code){
+        for (var i=0; i<variableValues.length; i++){
+          selected_region[i] = variableValues[i]
         }
-        // collect data for all regions
-        for(var i=0; i<variableValues.length; i++){
-          if (isNumeric(variableValues[i]) && variableValues[i] != 0){
-            data[i].push(variableValues[i])
-          }
-        }
-      })
-      var average_all_regions = []
-      for (var i=0; i<data.length; i++){
-        var sum = 0
-        for (var j=0; j<data[i].length; j++){
-          if (!isNaN(data[i][j])){
-            sum += data[i][j]
-          }
-        }
-        average_all_regions.push(sum/data[i].length)
       }
+      // collect data for all regions
+      for(var i=0; i<variableValues.length; i++){
+        if (isNumeric(variableValues[i]) && variableValues[i] != 0){
+          data[i].push(variableValues[i])
+        }
+      }
+    })
+
+    // calculate the averages of the variables for all regions
+    var average_all_regions = []
+    for (var i=0; i<data.length; i++){
+      var sum = 0
+      for (var j=0; j<data[i].length; j++){
+        if (!isNaN(data[i][j])){
+          sum += data[i][j]
+        }
+      }
+      average_all_regions.push(sum/data[i].length)
+    }
 
     //Legend titles
     var LegendOptions = [area_name, 'Average of all regions'];
 
-    var d = [
-        [
-        {axis:variableNames[0],value:applyNormalization(data[0],selected_region[0])},
-        {axis:variableNames[1],value:applyNormalization(data[1],selected_region[1])},
-        {axis:variableNames[2],value:applyNormalization(data[2],selected_region[2])},
-        {axis:variableNames[3],value:applyNormalization(data[3],selected_region[3])},
-        {axis:variableNames[4],value:applyNormalization(data[4],selected_region[4])},
-        ],[
-        {axis:variableNames[0],value:applyNormalization(data[0], average_all_regions[0])},
-        {axis:variableNames[1],value:applyNormalization(data[1],average_all_regions[1])},
-        {axis:variableNames[2],value:applyNormalization(data[2],average_all_regions[2])},
-        {axis:variableNames[3],value:applyNormalization(data[3],average_all_regions[3])},
-        {axis:variableNames[4],value:applyNormalization(data[4],average_all_regions[4])},
-        ]
-      ];
 
+    // create the different axes
+    var d = [[],[]]
+    for(var i=0; i<variableNames.length; i++){
+      if(selected_region[i] > 0.00001){
+        d[0].push({axis:variableNames[i],value:applyNormalization(data[i],selected_region[i])})
+        d[1].push({axis:variableNames[i],value:applyNormalization(data[i],average_all_regions[i])})
+      }
+    }
+    
     RadarChart.draw("#overviewChart", d, mycfg);
     var svg = d3.select('#overviewChart')
     .selectAll('svg')
