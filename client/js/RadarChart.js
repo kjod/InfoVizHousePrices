@@ -46,7 +46,7 @@ var RadarChart = {
             .append("svg")
             .attr("width", "100%")
             .attr("height", "100%")
-            .attr("style", "margin-left:5%;")
+            .attr("style", "margin-left:10%;")
             .append("g")
             .attr("height", "100%")
             .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");

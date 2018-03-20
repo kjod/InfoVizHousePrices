@@ -20,7 +20,7 @@ var mycfg = {
 //Will expect that data is in %'s
 function initGraph(area_code, area_name){
   // variables:
-  var variableNames = ["Crime index", "Pop. density", "Energy label", "WOZ value", "Green areas"]
+  var variableNames = ["Crime index", "Population density", "Energy label", "WOZ value", "Green areas", "Households with children", "Nightlife facilities", "Sport facilities"]
   //  
 
   // initialize list for the selected region variables
@@ -45,8 +45,11 @@ function initGraph(area_code, area_name){
       var energy = Number(d.energy_label_2016)
       var woz = Number(d.WOZ_value_2016)
       var green = Number(d.surface_green_2016)
+      var children = Number(d.Households_with_children_2016)
+      var nightlife = Number(d.horeca_2016)
+      var sport = Number(d.surface_sports_2016)
 
-      var variableValues = [crimeIndex, popDensity, energy, woz, green]
+      var variableValues = [crimeIndex, popDensity, energy, woz, green, children, nightlife, sport]
 
       // if this region is selected collect data
       if (d.area_code === area_code){
@@ -81,12 +84,12 @@ function initGraph(area_code, area_name){
     // create the different axes
     var d = [[],[]]
     for(var i=0; i<variableNames.length; i++){
-      if(selected_region[i] > 0.00001){
+      if(selected_region[i] > 0.01){
         d[0].push({axis:variableNames[i],value:applyNormalization(data[i],selected_region[i])})
         d[1].push({axis:variableNames[i],value:applyNormalization(data[i],average_all_regions[i])})
       }
     }
-    
+
     RadarChart.draw("#overviewChart", d, mycfg);
     var svg = d3.select('#overviewChart')
     .selectAll('svg')
@@ -145,13 +148,13 @@ function applyNormalization(data, point){
   //   console.log("value",data[i])
   // }
 
-  console.log("data",data)
-  console.log("point", point)
-  console.log("max", maxValue)
-  console.log("min", minValue)
+  // console.log("data",data)
+  // console.log("point", point)
+  // console.log("max", maxValue)
+  // console.log("min", minValue)
 
   var normalized_point = (point - minValue) / (maxValue - minValue)
-  console.log("norm", normalized_point)
+  // console.log("norm", normalized_point)
   return normalized_point
 }
 

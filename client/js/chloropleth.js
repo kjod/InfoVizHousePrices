@@ -68,7 +68,7 @@ function getData(field){
 			});
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
-				//showStats();
+				showStats();
 				
 				//zooming
 				var bounds = new google.maps.LatLngBounds();
