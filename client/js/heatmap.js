@@ -52,7 +52,7 @@ function drawHeatMap(layer){
     if(layer === "house_price"){
       if(!houseProcesSwitch) { heatMap(DATASETS["funda"], layer) }
       else {  
-        removeHeatMap
+        removeHeatMap()
         //document.getElementsByClassName("heatmappoints")[0].remove();
       }
       houseProcesSwitch = !houseProcesSwitch;
