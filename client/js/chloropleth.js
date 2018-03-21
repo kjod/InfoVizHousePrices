@@ -107,8 +107,10 @@ function infoWindowText(areaName, information){
 //based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
 function attachPolygonInfoWindow(polygon, html)
 {
-	//polygon.infoWindow = new google.maps.InfoWindow({
-	polygon.infoWindow = new InfoBubble({
+	polygon.infoWindow = new google.maps.InfoWindow({
+		content:html,
+	});
+	/*polygon.infoWindow = new InfoBubble({
 		content:html,
 		shadowStyle:0,
 		padding:0,
@@ -124,13 +126,17 @@ function attachPolygonInfoWindow(polygon, html)
 		tabClassName:'tabby',
 		arrowStyle:2,
 		maxHeight:50,
-	});
+	});*/
 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
 		polygon.infoWindow.setPosition(e.latLng);
+		setTimeout(function(){
 		polygon.infoWindow.open(map);
+		},10);
 	});
 	google.maps.event.addListener(polygon, 'mouseout', function() {
+		setTimeout(function(){
 		polygon.infoWindow.close();
+		},20);
 	});
 }
 
