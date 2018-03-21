@@ -120,3 +120,29 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
 }
+
+function changeHousePriceViz(value){
+	if(document.getElementById("house_priceSwitch").checked){
+		if(houseViz === "heatmap"){
+			removeHeatMap()
+			houseProcesSwitch = false;//temp
+			drawScatter("house_price");
+		} else {
+			removeScatter()
+			houseProcesSwitch = false;//temp
+			//check here if choropleth map being used
+			drawHeatMap("house_price")
+		}
+	}
+	houseViz = value;
+}
+
+
+function drawHouseViz(value){
+
+	if(houseViz === "heatmap"){
+		drawHeatMap(value);
+	} else {
+		drawScatter(value);
+	}
+}

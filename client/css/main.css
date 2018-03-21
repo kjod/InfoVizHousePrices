@@ -446,6 +446,18 @@ path{
   padding-right:5px;
 }
 
+#choroplethLegend {
+  bottom: 0px;
+}
+
+/*.targetCircles circle {
+  fill: red;
+  stroke: black;
+  stroke-width: 1px;
+  -webkit-animation-name: redPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;}*/ 
+
 .targetCircles circle{
   fill:red;
   stroke:black;
