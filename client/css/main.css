@@ -452,6 +452,20 @@ path{
   pointer-events:all;
 }
 
+#tooltipContainer{
+  position:absolute;
+  top:0px;
+  right:0px;
+  width:155px;
+  height:33px;
+  padding:10px;
+  font-size:11px;
+  border:3px solid;
+  background-color:#FFF;
+  opacity:0;
+  -webkit-transition:.1s opacity ease-out;
+  transition:.1s opacity ease-out;
+}
 #legendContainer{
   position:absolute;
   left:0px;

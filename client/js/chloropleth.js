@@ -107,7 +107,8 @@ function getData(field){
 				map.panTo(center);
 
 			});
-			attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
+			showInfoTooltip(polygon, d.area_name, +d[field]);
+			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
 		console.log("mapData ", mapData)
 		console.log("Polygon ", polygons)
@@ -119,6 +120,17 @@ function getData(field){
 
 function infoWindowText(areaName, information){
 	return '<strong>' + areaName + '</strong><br>' + information;
+}
+
+function showInfoTooltip(polygon, areaName, information){
+	tooltipContainer = document.getElementById('tooltipContainer');
+	google.maps.event.addListener(polygon, 'mouseover', function(e) {
+		tooltipContainer.innerHTML = '<strong>' + areaName + '</strong><br>' + information;
+		tooltipContainer.style.opacity = 1;
+	});
+	google.maps.event.addListener(polygon, 'mouseout', function() {
+		tooltipContainer.style.opacity = 0;
+	});
 }
 
 //based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
