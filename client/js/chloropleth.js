@@ -34,8 +34,8 @@ function changeZoomLevel(value){
 function getData(field){
 	d3.json(datasets[zoomLevel], function(shapes) {
 		var arr = shapes.Areas.map(o => o[field]);
-	    maxValue = Math.max(...arr)
-	    minValue = Math.min(...arr)
+	    maxValue = Math.max(...arr);
+	    minValue = Math.min(...arr.filter(value => value > 0));
 	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
 			.domain([minValue, maxValue])
 			.range(["cornflowerblue", "red"]);
