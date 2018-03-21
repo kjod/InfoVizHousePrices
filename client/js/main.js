@@ -137,6 +137,15 @@ function changeHousePriceViz(value){
 	houseViz = value;
 }
 
+function changeHousePriceViz(value){
+	console.log(value)
+	if(document.getElementById("nationalitySwitch").checked){
+		removeChoropleth()
+		//houseProcesSwitch = false;//temp
+		drawChorolpleth(value)
+	}
+	nationality = value
+}
 
 function drawHouseViz(value){
 

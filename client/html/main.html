@@ -8,8 +8,10 @@
             //global variables
             var map = null;
             var zoomLevel = "districts"
+            var nationality = "Antillean"
             var houseViz = "heatmap"
             var houseProcesSwitch = false;
+            var year = 2016;
             const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
         </script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -186,12 +188,24 @@
                         </li>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="getEmploymentLayer()">
+                              <input type="checkbox" onclick="getEmploymentLayer(nationality)" id="nationalitySwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
                                 Nationalities
                             </label>
+                            <div>
+                                <select onclick="changeNationality('ethinicities.'+value + '_' + year)";>
+                                  <option value="Antillean">Antillean</option>
+                                  <option value="Moroccan">Moroccan</option>
+                                  <option value="No_migration_background">No migration background</option>
+                                  <option value="Other_non_western">Other non western</option>
+                                   <option value="Surinamese">Surinamese</option>
+                                  <option value="No_migration_background">No migration background</option>
+                                  <option value="Turks">Turks</option>
+                                  <option value="Western">Western</option>
+                                </select>
+                            </div>
                         </li>
                     </ul>
                 </div>
