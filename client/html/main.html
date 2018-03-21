@@ -128,29 +128,26 @@
                     <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
                 </div>
                 <div id="filter_bar">
-                    <div id="upperFilter" class="flexcentered">
-                        <div class="districtOrNeighbourhoodFilter flexcentered" id="districtFilter" onclick="changeLeftRight('selector', '2%', '50%')" ondrop="drop(event)" ondragover="allowDrop(event)">DISTRICT</div>
-                        <div class="districtOrNeighbourhoodFilter flexcentered" id="ngbFilter" onclick="changeLeftRight('selector', '50%', '0%')" ondrop="drop(event)" ondragover="allowDrop(event)">NEIGHBOURHOOD</div>
-                        <span id="selector" draggable="true" ondragstart="drag(event)"></span>
+                    <div id="zoom_filter" class="filter flexcentered">
+                        <div class="districtOrNeighbourhoodFilter flexcentered" id="districtFilter" onclick="changeZoomLevel('districts');changeLeftRight('zoomSelector', '2%', '50%');">DISTRICT</div>
+                        <div class="districtOrNeighbourhoodFilter flexcentered" id="ngbFilter" onclick="changeZoomLevel('neighbourhoods');changeLeftRight('zoomSelector', '50%', '0%');">NEIGHBOURHOOD</div>
+                        <span id="zoomSelector" class="selector"></span>
                     </div>
                     <ul>
-                        <select id="zoomLeveSselect" onchange="changeHousePriceViz(value);">
-                            <option value="heatmap">Heat Map</option>
-                            <option value="scatter">Scatter Plot</option>
-                        </select>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="drawHouseViz('house_price')" id="house_priceSwitch">
+                              <input type="checkbox" onclick="drawHouseViz('house_price');showFilter('house_price_filter')" id="house_priceSwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
                                 House Prices
                             </label>
                         </li>
-                        <select id="zoomLeveSselect" onchange="changeZoomLevel(value);">
-                            <option value="districts">Districts</option>
-                            <option value="neighbourhoods">Neighbourhoods</option>
-                        </select>
+                        <div id="house_price_filter" class="filter flexcentered">
+                            <div class="districtOrNeighbourhoodFilter flexcentered" id="districtFilter" onclick="changeHousePriceViz('heatmap');changeLeftRight('houseVizSelector', '2%', '50%');" ondrop="drop(event)" ondragover="allowDrop(event)">HEAT MAP</div>
+                            <div class="districtOrNeighbourhoodFilter flexcentered" id="ngbFilter" onclick="changeHousePriceViz('scatter');changeLeftRight('houseVizSelector', '50%', '0%');" ondrop="drop(event)" ondragover="allowDrop(event)">SCATTERPLOT</div>
+                            <span id="houseVizSelector" class="selector" draggable="true" ondragstart="drag(event)"></span>
+                        </div>
                         <li>
                             <label class="switch">
                               <input type="checkbox" onclick="drawChoropleth('population_density')" id="population_densitySwitch">

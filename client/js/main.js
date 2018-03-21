@@ -146,3 +146,9 @@ function drawHouseViz(value){
 		drawScatter(value);
 	}
 }
+
+function showFilter(filterID){
+	filter = document.getElementById(filterID);
+	if(filter.style.maxHeight == "" || filter.style.maxHeight=="0px") filter.style.maxHeight = "40px";
+	else filter.style.maxHeight = "0px";
+}
