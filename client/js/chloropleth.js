@@ -101,14 +101,29 @@ function getData(field){
 
 
 function infoWindowText(areaName, information){
-	return '<strong>' + areaName + '</strong><br />' + information;
+	return '<strong>' + areaName + '</strong><br>' + information;
 }
 
 //based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
 function attachPolygonInfoWindow(polygon, html)
 {
-	polygon.infoWindow = new google.maps.InfoWindow({
-		content: html,
+	//polygon.infoWindow = new google.maps.InfoWindow({
+	polygon.infoWindow = new InfoBubble({
+		content:html,
+		shadowStyle:0,
+		padding:0,
+		backgroundColor:'transparent',
+		borderRadius:5,
+		arrowSize:10,
+		borderWidth:1,
+		borderColor:'#2c2c2c',
+		disableAutoPan:true,
+		hideCloseButton:true,
+		arrowPosition:30,
+		backgroundClassName:'infoBubble',
+		tabClassName:'tabby',
+		arrowStyle:2,
+		maxHeight:50,
 	});
 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
 		polygon.infoWindow.setPosition(e.latLng);

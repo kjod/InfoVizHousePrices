@@ -59,8 +59,7 @@ body .textContainer{
   max-width:500px;
   width:90%;
   text-align:center;
-  height:100%;
-  padding-top:50px;
+  height:90%;
 }
 .textContainer #abutton{
   text-decoration:none;
@@ -518,3 +517,6 @@ path{
   position:"absolute";
   z-index:"1000";
 }*/
+.infoBubble{
+  text-align:center
+}
