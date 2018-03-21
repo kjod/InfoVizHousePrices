@@ -78,24 +78,26 @@ function prevQuestion(){
 	shownQuestion = nextQuestion;
 }
 
-setTimeout(function(){
-	var side_stats = document.getElementById('side_stats');
-	side_stats.style.width = "0%";
-	setTimeout(function(){
-		side_stats.style.opacity = "1";
-		side_stats.style.position = "static";
-		side_stats.style.display = "none";
-	},300);
-},500);
-
-
-
 function underline(thisThing, howMuch){
 	var lines = thisThing.getElementsByTagName('line');
 	lines[0].style.width=howMuch;
 }
 
-var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+var path = window.location.pathname;
+var page = path.split("/").pop();
+if(page=='main.html'){
+	setTimeout(function(){
+		var side_stats = document.getElementById('side_stats');
+		side_stats.style.width = "0%";
+		setTimeout(function(){
+			side_stats.style.opacity = "1";
+			side_stats.style.position = "static";
+			side_stats.style.display = "none";
+		},300);
+	},500);
+	var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+}
+
 var answeredQuestions = 0;
 var previousValue = "meh";
 function checkValue(thisThing){

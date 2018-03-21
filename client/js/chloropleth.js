@@ -48,8 +48,8 @@ function getData(field){
 	d3.json(datasets[zoomLevel], function(shapes) {
 		console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
-	    maxValue = Math.max(...arr)
-	    minValue = Math.min(...arr)
+	    maxValue = Math.max(...arr);
+	    minValue = Math.min(...arr.filter(value => value > 0));
 	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
 			.domain([minValue, maxValue])
 			.range(["cornflowerblue", "red"]);
@@ -118,21 +118,42 @@ function getData(field){
 
 
 function infoWindowText(areaName, information){
-	return '<strong>' + areaName + '</strong><br />' + information;
+	return '<strong>' + areaName + '</strong><br>' + information;
 }
 
 //based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
 function attachPolygonInfoWindow(polygon, html)
 {
 	polygon.infoWindow = new google.maps.InfoWindow({
-		content: html,
+		content:html,
 	});
+	/*polygon.infoWindow = new InfoBubble({
+		content:html,
+		shadowStyle:0,
+		padding:0,
+		backgroundColor:'transparent',
+		borderRadius:5,
+		arrowSize:10,
+		borderWidth:1,
+		borderColor:'#2c2c2c',
+		disableAutoPan:true,
+		hideCloseButton:true,
+		arrowPosition:30,
+		backgroundClassName:'infoBubble',
+		tabClassName:'tabby',
+		arrowStyle:2,
+		maxHeight:50,
+	});*/
 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
 		polygon.infoWindow.setPosition(e.latLng);
+		setTimeout(function(){
 		polygon.infoWindow.open(map);
+		},10);
 	});
 	google.maps.event.addListener(polygon, 'mouseout', function() {
+		setTimeout(function(){
 		polygon.infoWindow.close();
+		},20);
 	});
 }
 

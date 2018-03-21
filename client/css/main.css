@@ -50,6 +50,32 @@ body{
   -webkit-transition:.25s width ease-out;
   transition:.25s width ease-out;
 }
+body .textContainer{
+  width:100%;
+  height:calc(100% - var(--header-height));
+  display:inline-flex;
+}
+.textContainer .mainText{
+  max-width:500px;
+  width:90%;
+  text-align:center;
+  height:90%;
+}
+.textContainer #abutton{
+  text-decoration:none;
+  padding:12px 24%;
+  background-color:#2FA500;
+  color:#FFF;
+  font-size:18px;
+  border-radius:50px;
+  box-shadow:0px 7px 5px rgba(68,68,68,0.6);
+  -webkit-transition:.25s all ease-out;
+  transition:.25s all ease-out;
+}
+.textContainer #abutton:hover{
+  background-color:#258300;
+  letter-spacing:5px;
+}
 #questions{
   float:left;
   background-color:#000;
@@ -491,3 +517,6 @@ path{
   position:"absolute";
   z-index:"1000";
 }*/
+.infoBubble{
+  text-align:center
+}
