@@ -536,6 +536,11 @@ path{
   position:"absolute";
   z-index:"1000";
 }*/
+
 .infoBubble{
   text-align:center
+}
+
+.legendRadar(){
+  background-color: black;
 }

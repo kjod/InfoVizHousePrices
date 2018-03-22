@@ -4,8 +4,21 @@ const scaleColor = d3.scaleLinear() //Scale for Population density
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
 const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
-const layers = {population_density: "Population_density_2016", crime_rate: "Crime_index_2016", energy: "energy_label_2016"}
-const filterSwitch = {population_density: false, crime_rate: false, energy:false} 
+const layers = {
+	population_density: "Population_density_2016", 
+	crime_rate: "Crime_index_2016", 
+	energy: "energy_label_2016",
+	/*ethinicities:{
+		"Antillean_2016",
+		"Moroccan_2016",
+		"No_migration_background_2016",
+		"Other_non_western_2016",
+		"Surinamese_2016",
+		"Turks_2016",
+		"Western_2016"
+		},*/
+}
+const filterSwitch = {population_density: false, crime_rate: false, energy:false } 
 const fillOpacityDefault = 0.4;
 const highlightedFillOpacityDefault = 0.7;
 const datasets = {"districts": "names_coordinates_data/districts.json", 
@@ -34,6 +47,7 @@ function changeZoomLevel(value){
 
 function getData(field){
 	d3.json(datasets[zoomLevel], function(shapes) {
+		console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
 	    minValue = Math.min(...arr.filter(value => value > 0));
@@ -47,6 +61,7 @@ function getData(field){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
 			if (d[field] !== ""){
 				thisColor = redBlueScaleColor(+d[field]);
+				console.log(d[field])
 				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
 				mapData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 			}
@@ -100,6 +115,8 @@ function getData(field){
 			showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
+		console.log("mapData ", mapData)
+		console.log("Polygon ", polygons)
 		legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		updateAnswers();
 	});
@@ -197,6 +214,18 @@ function updateAnswers(){
 
 	const pref = applyAnswers();
 	let i = 0;
+
+	if(houseProcesSwitch){
+		houseProcesSwitch = !houseProcesSwitch
+		if(houseViz === "heatmap"){
+			removeHeatMap()
+			drawHeatMap("house_price");
+		} else {
+			removeScatter()
+			drawScatter("house_price");
+		}
+	}
+
 	areaPolygons.forEach(function(polygon){
 		if(checkAnswers(pref, i)){
 			polygon.setOptions({fillOpacity: highlightedFillOpacityDefault});
@@ -243,6 +272,7 @@ function removeChoroplethLayers(){
 		});
 	if(document.getElementById("choroplethLegend")){
 		document.getElementById("choroplethLegend").remove();
+		document.getElementById("choropleth").remove();
 	}
 	mapData = []
 	//polygons = null
