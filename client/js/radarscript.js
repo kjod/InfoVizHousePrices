@@ -110,7 +110,6 @@ function initGraph(area_code, area_name){
       }
     }
 
-    console.log(d.length)
 
     if (d[0].length < 3){
       

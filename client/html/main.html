@@ -8,7 +8,7 @@
             //global variables
             var map = null;
             var zoomLevel = "districts"
-            var nationality = "Antillean"
+            var nationality = "antillean"
             var houseViz = "heatmap"
             var houseProcesSwitch = false;
             var year = 2016;
@@ -84,9 +84,9 @@
                         </select>
                     </div>
                 </section>
-                <section id="seniorfilter" class="transit">
+                <!--section id="seniorfilter" class="transit">
                     <div class="subsection">
-                        <!--Do you want a house you can get old in?<br-->
+                        <!--Do you want a house you can get old in?<br->
                         Are you looking for a senior home?<br>
                         <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="y">Yes</option>
@@ -97,7 +97,7 @@
                             </option>
                         </select>
                     </div>
-                </section>
+                </section-->
                 <section id="partyfilter" class="transit">
                     <div class="subsection">
                         Is it important for you to live in an area that has many restaurants and nightlife facilities?<br>
@@ -124,6 +124,16 @@
                 </svg>
             </div>
         </div>
+        <div id="questionsExplanationTooltip" class="explanationTooltip">
+            <div class="upperarrow tooltipArrow"></div>
+            <div class="small-cross" onclick="this.parentElement.remove()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            Answer the questions to get recommendations on what areas fit you the most!
+            Uninteresting areas will go transparent.
+        </div>
         <div id="container">
             <div id="filters">
                 <div id="openclosecontainer">
@@ -135,8 +145,8 @@
                         <span class="icon-bar"></span>
                     </div>
                 </div>
-                <div id="filterExplanationTooltip">
-                    <div class="leftarrow"></div>
+                <div id="filterExplanationTooltip" class="explanationTooltip">
+                    <div class="leftarrow tooltipArrow"></div>
                     Click here to open more filters!
                 </div>
                 <div id="filter_bar">
@@ -198,7 +208,7 @@
                         </li>
                         <li>
                             <label class="switch">
-                              <input type="checkbox" onclick="getEmploymentLayer(nationality);showFilter('nationality_subfilter')" id="nationalitySwitch">
+                              <input type="checkbox" onclick="drawChoropleth(nationality);showFilter('nationality_subfilter')" id="nationalitySwitch">
                               <span class="slider round"></span>
                             </label>
                             <label>
@@ -206,15 +216,15 @@
                             </label>
                         </li>
                         <div id="nationality_subfilter" class="selectSubFilter subfilter">
-                            <select onclick="changeNationality('ethinicities.'+value + '_' + year)";>
-                                <option value="Antillean">Antillean</option>
-                                <option value="Moroccan">Moroccan</option>
-                                <option value="No_migration_background">No migration background</option>
-                                <option value="Other_non_western">Other non western</option>
-                                <option value="Surinamese">Surinamese</option>
-                                <option value="No_migration_background">No migration background</option>
-                                <option value="Turks">Turks</option>
-                                <option value="Western">Western</option>
+                            <select onclick="changeNationality(value)">
+                                <option value="antillean">Antillean</option>
+                                <option value="moroccan">Moroccan</option>
+                                <option value="no_migration_background">No migration background</option>
+                                <option value="other_non_western">Other non western</option>
+                                <option value="surinamese">Surinamese</option>
+                                <option value="no_migration_background">No migration background</option>
+                                <option value="turks">Turks</option>
+                                <option value="western">Western</option>
                             </select>
                         </div>
                     </ul>
