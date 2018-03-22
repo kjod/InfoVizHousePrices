@@ -78,7 +78,7 @@ function initGraph(area_code, area_name){
     }
 
     //Legend titles
-    var LegendOptions = [area_name, 'Average of all regions'];
+    var LegendOptions = [area_name, 'City average'];
 
 
     // create the different axes
@@ -90,12 +90,20 @@ function initGraph(area_code, area_name){
 
 
       // check if bigger than zero
-      if(normalized_selected > 0.0){
-        normalized_selected += 0.5 - normalized_all 
+      if(normalized_selected >= 0.0){
+        // set the average to 0.5 and change the region value accordingly
         var city_average = 0.5
+        normalized_selected += city_average - normalized_all 
+        // if the normalized region value exceeds 1,
+        // bring it back to 1 and decrease the city average
         if (normalized_selected > 1){
           city_average -= normalized_selected - 1
           normalized_selected = 1.0
+        }
+        // some variable values need to be inverted
+        if(variableNames[i] === "Energy label"){
+          normalized_selected = 1 - normalized_selected
+          city_average = 1 - city_average
         }
         d[0].push({axis:variableNames[i],value:normalized_selected})
         d[1].push({axis:variableNames[i],value:city_average})
