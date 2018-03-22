@@ -147,7 +147,12 @@
                 </div>
                 <div id="filterExplanationTooltip" class="explanationTooltip">
                     <div class="leftarrow tooltipArrow"></div>
-                    Click here to open more filters!
+                    <div class="small-cross" onclick="this.parentElement.remove()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <p>Click here to open more filters!</p>
                 </div>
                 <div id="filter_bar">
                     <div id="zoom_filter" class="filter flexcentered">
@@ -222,7 +227,6 @@
                                 <option value="no_migration_background">No migration background</option>
                                 <option value="other_non_western">Other non western</option>
                                 <option value="surinamese">Surinamese</option>
-                                <option value="no_migration_background">No migration background</option>
                                 <option value="turks">Turks</option>
                                 <option value="western">Western</option>
                             </select>

@@ -21,6 +21,20 @@ const layers = {
 	turks: "Turks_2016",
 	western: "Western_2016"
 }
+
+const color_scale = {
+	Population_density_2016: ["cornflowerblue", "red"], 
+	Crime_index_2016:["cornflowerblue", "red"],  
+	energy_label_2016: ["cornflowerblue", "red"],
+	//energy: ["cornflowerblue", "red"],
+	Antillean_2016: ["khaki", "lightseagreen"],
+	Moroccan_2016: ["khaki", "lightseagreen"],
+	No_migration_background_2016: ["khaki", "lightseagreen"],
+	Other_non_western_2016: ["khaki", "lightseagreen"],
+	Surinamese_2016: ["khaki", "lightseagreen"],
+	Turks_2016: ["khaki", "lightseagreen"],
+	Western_2016: ["khaki", "lightseagreen"],	
+}
 const filterSwitch = {population_density: false, crime_rate: false, energy:false, nationality: false } 
 const fillOpacityDefault = 0.0;
 const highlightedFillOpacityDefault = 0.7;
@@ -28,7 +42,14 @@ const datasets = {"districts": "names_coordinates_data/districts.json",
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
 const units = {'Population_density_2016':' Pop./km2',
 				'energy_label_2016':'%',
-				'Crime_index_2016':' index value'}
+				'Crime_index_2016':' index value',
+				'Antillean_2016':'% Antillean',
+				'Moroccan_2016':'% Moroccan',
+				'No_migration_background_2016':'%',
+				'Other_non_western_2016':'%',
+				'Surinamese_2016':'% Surinamese',
+				'Turks_2016':'% Turks',
+				'Western_2016':'% Western'}
 var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
 	.domain([0,28312.0])
 	.range(["cornflowerblue", "red"]);
@@ -57,9 +78,11 @@ function getData(field){
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
 	    minValue = Math.min(...arr.filter(value => value > 0));
-	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
-			.domain([minValue, maxValue])
-			.range(["cornflowerblue", "red"]);
+	    if(field !== "neutral"){
+		    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
+				.domain([minValue, maxValue])
+				.range(color_scale[field]);
+		}	
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
@@ -147,7 +170,7 @@ function getData(field){
 }
 
 function neutralScreen(){
-	getData();
+	getData('neutral');
 }
 
 function infoWindowText(areaName, information){
