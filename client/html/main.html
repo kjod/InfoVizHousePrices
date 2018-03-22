@@ -84,9 +84,9 @@
                         </select>
                     </div>
                 </section>
-                <section id="seniorfilter" class="transit">
+                <!--section id="seniorfilter" class="transit">
                     <div class="subsection">
-                        <!--Do you want a house you can get old in?<br-->
+                        <!--Do you want a house you can get old in?<br->
                         Are you looking for a senior home?<br>
                         <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
                             <option value="y">Yes</option>
@@ -97,7 +97,7 @@
                             </option>
                         </select>
                     </div>
-                </section>
+                </section-->
                 <section id="partyfilter" class="transit">
                     <div class="subsection">
                         Is it important for you to live in an area that has many restaurants and nightlife facilities?<br>
@@ -124,6 +124,16 @@
                 </svg>
             </div>
         </div>
+        <div id="questionsExplanationTooltip" class="explanationTooltip">
+            <div class="upperarrow tooltipArrow"></div>
+            <div class="small-cross" onclick="this.parentElement.remove()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            Answer the questions to get recommendations on what areas fit you the most!
+            Uninteresting areas will go transparent.
+        </div>
         <div id="container">
             <div id="filters">
                 <div id="openclosecontainer">
@@ -135,8 +145,8 @@
                         <span class="icon-bar"></span>
                     </div>
                 </div>
-                <div id="filterExplanationTooltip">
-                    <div class="leftarrow"></div>
+                <div id="filterExplanationTooltip" class="explanationTooltip">
+                    <div class="leftarrow tooltipArrow"></div>
                     Click here to open more filters!
                 </div>
                 <div id="filter_bar">
@@ -161,7 +171,7 @@
                             <span id="houseVizSelector" class="selector" draggable="true" ondragstart="drag(event)"></span>
                         </div>
                         <li>
-                            <label class="switch">
+                            <label class="switch" >
                               <input type="checkbox" onclick="drawChoropleth('population_density')" id="population_densitySwitch">
                               <span class="slider round"></span>
                             </label>
@@ -184,7 +194,7 @@
                               <span class="slider round"></span>
                             </label>
                             <label>
-                                Energy
+                                Energy label
                             </label>
                         </li>
                         <li>

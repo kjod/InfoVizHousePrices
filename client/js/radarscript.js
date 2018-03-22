@@ -34,7 +34,7 @@ function initGraph(area_code, area_name){
 
   var area_clicked = null
 
-  d3.json("names_coordinates_data/districts.json", function(shapes) {
+  d3.json(datasets[zoomLevel], function(shapes) {
     var counter = 0
     shapes.Areas.forEach(function(d){
       counter += 1
@@ -110,7 +110,13 @@ function initGraph(area_code, area_name){
       }
     }
 
+
+    if (d[0].length < 3){
+      
+    }
+    else{
       RadarChart.draw("#overviewChart", d, mycfg);
+      
       var svg = d3.select('#overviewChart')
       .selectAll('svg')
       .append('svg')
@@ -132,7 +138,7 @@ function initGraph(area_code, area_name){
       .attr("class", "legend")
       .attr("height", 100)
       .attr("width", 200)
-      .attr('transform', 'translate(90,20)') 
+      .attr('transform', 'translate(90,10)') 
       ;
       //Create colour squares
       legend.selectAll('rect')
@@ -156,6 +162,7 @@ function initGraph(area_code, area_name){
         .attr("fill", "#737373")
         .text(function(d) { return d; })
         ; 
+      }
   })
 }
 

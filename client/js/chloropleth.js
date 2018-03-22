@@ -7,7 +7,7 @@ const scaleColor = d3.scaleLinear() //Scale for Population density
 				.range([0,255]);
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
-const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
+const preference_ids = ["greenselect", "childrenselect", "budgetselect", "partyselect"];
 const layers = {
 	population_density: "Population_density_2016", 
 	crime_rate: "Crime_index_2016", 
@@ -21,13 +21,15 @@ const layers = {
 	western: "Western_2016"
 }
 const filterSwitch = {population_density: false, crime_rate: false, energy:false, nationality: false } 
-const fillOpacityDefault = 0.4;
+const fillOpacityDefault = 0.0;
 const highlightedFillOpacityDefault = 0.7;
 const datasets = {"districts": "names_coordinates_data/districts.json", 
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
-
+const units = {'Population_density_2016':' Pop./km2',
+				'energy_label_2016':'%',
+				'Crime_index_2016':' index value'}
 var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
-	.domain([0,14156.0,28312.0])
+	.domain([0,28312.0])
 	.range(["cornflowerblue", "red"]);
 var POPDENSITYSWITCH = false;
 var polygons = [];
@@ -59,7 +61,7 @@ function getData(field){
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
-		var polygonOpacity = fillOpacityDefault;
+		var polygonOpacity = highlightedFillOpacityDefault;
 		if(field == "neutral"){
 			polygonOpacity = 0.0;
 		}
@@ -91,9 +93,14 @@ function getData(field){
 			google.maps.event.addListener(polygon,"mouseout",function(){
 				polygon.setOptions({fillOpacity: polygonOpacity});
 			});
+			let tooltipInnerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field] + units[field];
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
-				tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field];
+				if(field!="neutral"){
+					tooltipContainer.innerHTML = tooltipInnerHTML;
+				}else{
+					tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>';
+				}
 				tooltipContainer.style.opacity = 1;
 				if(!statsOn){
 					showStats();
@@ -124,9 +131,9 @@ function getData(field){
 				map.panTo(center);
 			});
 			if (field != "neutral"){
-				showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
+				showInfoTooltip(polygon, tooltipInnerHTML, tooltipContainer);
 			}else{
-				showInfoTooltip(polygon, d.area_name, "", tooltipContainer);
+				showInfoTooltip(polygon, '<strong>'+d.area_name+'</strong><br>', tooltipContainer);
 			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
@@ -145,10 +152,10 @@ function infoWindowText(areaName, information){
 	return '<strong>' + areaName + '</strong><br>' + information;
 }
 
-function showInfoTooltip(polygon, areaName, information, tooltipContainer){
+function showInfoTooltip(polygon, tooltipInnerHTML, tooltipContainer){
 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
 		if(!statsOn){
-			tooltipContainer.innerHTML = '<strong>' + areaName + '</strong><br>' + information;
+			tooltipContainer.innerHTML = tooltipInnerHTML;
 			tooltipContainer.style.opacity = 1;
 		}
 	});
@@ -213,7 +220,7 @@ function checkAnswers(preferences, i){
 		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n") || (preferences[1] === "")) && //children
 		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1") || (preferences[2] === "")) && //budget
 		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1") || (preferences[3] === "")) && //senior, doesn't work, no data
-		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1") || (preferences[4] === ""))){ //party
+		((areaData[i][3] >= ((preferences[3] - 1) * 5000.0)) || (preferences[3] === "1") || (preferences[3] === ""))){ //party
 		return true;
 	}else{
 		return false;
@@ -221,8 +228,7 @@ function checkAnswers(preferences, i){
 }
 
 
-function updateAnswers(polygonOpacity){
-
+function updateAnswers(polygonOpacity = highlightedFillOpacityDefault){
 	areaPolygons = polygons;
 	if (previousValue==""){
 		answeredQuestions++;
