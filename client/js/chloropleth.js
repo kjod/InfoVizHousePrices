@@ -28,7 +28,14 @@ const datasets = {"districts": "names_coordinates_data/districts.json",
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
 const units = {'Population_density_2016':' Pop./km2',
 				'energy_label_2016':'%',
-				'Crime_index_2016':' index value'}
+				'Crime_index_2016':' index value',
+				'Antillean_2016':'% Antillean',
+				'Moroccan_2016':'% Moroccan',
+				'No_migration_background_2016':'%',
+				'Other_non_western_2016':'%',
+				'Surinamese_2016':'% Surinamese',
+				'Turks_2016':'% Turks',
+				'Western_2016':'% Western'}
 var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
 	.domain([0,28312.0])
 	.range(["cornflowerblue", "red"]);
@@ -53,6 +60,7 @@ function changeZoomLevel(value){
 }
 
 function getData(field){
+	console.log(field)
 	d3.json(datasets[zoomLevel], function(shapes) {
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
