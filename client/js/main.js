@@ -184,15 +184,12 @@ function drop(ev) {
 }
 
 function changeHousePriceViz(value){
-	console.log(value)
 	if(document.getElementById("house_priceSwitch").checked){
 		if(houseViz === "heatmap"){
-			console.log("Heatmap" )
 			removeHeatMap()
 			houseProcesSwitch = false;//temp
 			drawScatter("house_price");
 		} else {
-			console.log("Scatter ")
 			removeScatter()
 			houseProcesSwitch = false;//temp
 			//check here if choropleth map being used
@@ -202,12 +199,12 @@ function changeHousePriceViz(value){
 	houseViz = value;
 }
 
-function changeNationalityPriceViz(value){
-	console.log(value)
+function changeNationality(value){
 	if(document.getElementById("nationalitySwitch").checked){
-		removeChoropleth()
+		removeChoroplethLayers()
+		filterSwitch[checkIfNat(value)] = !filterSwitch[checkIfNat(value)]
 		//houseProcesSwitch = false;//temp
-		drawChorolpleth(value)
+		drawChoropleth(value)
 	}
 	nationality = value
 }
@@ -228,11 +225,9 @@ function showFilter(filterID){
 }
 
 function filterHouseData(data){
-	console.log("here man")
 	var filter = applyAnswers()[2]
 	data = data.filter(o => {
         if(filter == 4){///<200,000
-          console.log(o.house_price)
           return o.house_price < 200000 
         } else if(filter == 3){//3 < 200,000 - 500,000
           return o.house_price >= 200000 && o.house_price <= 500000 

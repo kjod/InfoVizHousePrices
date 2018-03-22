@@ -12,18 +12,16 @@ const layers = {
 	population_density: "Population_density_2016", 
 	crime_rate: "Crime_index_2016", 
 	energy: "energy_label_2016",
-	/*ethinicities:{
-		"Antillean_2016",
-		"Moroccan_2016",
-		"No_migration_background_2016",
-		"Other_non_western_2016",
-		"Surinamese_2016",
-		"Turks_2016",
-		"Western_2016"
-		},*/
+	antillean: "Antillean_2016",
+	moroccan: "Moroccan_2016",
+	no_migration_background: "No_migration_background_2016",
+	other_non_western: "Other_non_western_2016",
+	surinamese: "Surinamese_2016",
+	turks: "Turks_2016",
+	western: "Western_2016"
 }
-const filterSwitch = {population_density: false, crime_rate: false, energy:false } 
-const fillOpacityDefault = 0;
+const filterSwitch = {population_density: false, crime_rate: false, energy:false, nationality: false } 
+const fillOpacityDefault = 0.0;
 const highlightedFillOpacityDefault = 0.7;
 const datasets = {"districts": "names_coordinates_data/districts.json", 
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
@@ -44,14 +42,14 @@ function changeZoomLevel(value){
 	zoomLevel = value//(zoomLevel === "districts") ? "neighbourhoods" : "districts";
 	if(currentField !== ""){
 		removeChoroplethLayers()
-		filterSwitch[currentField] = !filterSwitch[currentField]// want opposite effect
+		nats.includes()
+		filterSwitch[checkIfNat(currentField)] = !filterSwitch[checkIfNat(currentField)]// want opposite effect
 		drawChoropleth(currentField)
 	}
 }
 
 function getData(field){
 	d3.json(datasets[zoomLevel], function(shapes) {
-		console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
 	    minValue = Math.min(...arr.filter(value => value > 0));
@@ -71,7 +69,6 @@ function getData(field){
 				thisColor = "gray";
 			}else if (d[field] !== ""){
 				thisColor = redBlueScaleColor(+d[field]);
-				console.log(d[field])
 				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
 				mapData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 			}
@@ -123,7 +120,6 @@ function getData(field){
 					zoomLevel = 14;
 				}
 				
-				//console.log(center.toString());
 				map.setZoom(zoomLevel);
 				map.panTo(center);
 			});
@@ -134,8 +130,6 @@ function getData(field){
 			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
-		console.log("mapData ", mapData)
-		console.log("Polygon ", polygons)
 		if (field != "neutral"){
 			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		}
@@ -267,12 +261,30 @@ function updateAnswers(polygonOpacity = highlightedFillOpacityDefault){
 	});
 }
 
+const nats = ["antillean",
+			"moroccan",
+			"no_migration_background",
+			"other_non_western",
+			"surinamese",
+			"turks",
+			"western"]
+
+function checkIfNat(layer){
+	return nats.includes(layer) ? "nationality" : layer;
+}
 
 function switchLayers(layer){
 	for(i in filterSwitch){
+		layer = checkIfNat(layer)
+		i = checkIfNat(i);
+
 		if(i !== layer && i !== "house_price"){
 			document.getElementById(i + "Switch").checked = false;
 			filterSwitch[i] = false;//double check
+		} else {
+			
+			//document.getElementById(i + "Switch").checked = true;
+			//filterSwitch[i] = true;//double check
 		}
 	}
 }
@@ -282,11 +294,12 @@ function drawChoropleth(layer){
 	removeChoroplethLayers()
 	//console.log(layer)
 	switchLayers(layer);
-	if(!filterSwitch[layer]){
+	checkIfNat
+	if(!filterSwitch[checkIfNat(layer)]){
 		currentField = layer;
 		getData(layers[layer])
 	}
-	filterSwitch[layer] = !filterSwitch[layer]	
+	filterSwitch[checkIfNat(layer)] = !filterSwitch[checkIfNat(layer)]	
 }
 
 
