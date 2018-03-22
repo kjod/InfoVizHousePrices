@@ -318,6 +318,10 @@ body .textContainer{
   left:-18px;
   border-right-color:black;
 }
+#filterExplanationTooltip p{
+  padding:0 2px;
+  margin:0;
+}
 #content{
   display:inline-flex;
   position:relative;
