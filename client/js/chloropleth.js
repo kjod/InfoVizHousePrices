@@ -70,6 +70,9 @@ function changeZoomLevel(value){
 		nats.includes()
 		filterSwitch[checkIfNat(currentField)] = !filterSwitch[checkIfNat(currentField)]// want opposite effect
 		drawChoropleth(currentField)
+	} else {
+		removeChoroplethLayers()
+		getData("neutral")
 	}
 }
 
@@ -339,7 +342,7 @@ function drawChoropleth(layer){
 		getData(layers[layer]);
 	}else{
 		neutral = true;
-		getData();
+		getData("neutral");
 	}
 	filterSwitch[checkIfNat(layer)] = !filterSwitch[checkIfNat(layer)]	
 }
