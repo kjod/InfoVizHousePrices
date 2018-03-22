@@ -44,9 +44,9 @@ var RadarChart = {
     
     var g = d3.select(id)
             .append("svg")
-            .attr("width", "100%")
+            //.attr("width", "700px")
             .attr("height", "100%")
-            .attr("style", "margin-left:5%;")
+            .attr("style", "min-width:700px;margin-top:100px;")
             .append("g")
             .attr("height", "100%")
             .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
