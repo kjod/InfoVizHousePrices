@@ -37,6 +37,7 @@ var mapData = [];
 var maxValue = 0;
 var minValue = 0;
 var statsOn = false;
+var neutral = true;
 
 var currentField = ""//use as default
 
@@ -62,12 +63,12 @@ function getData(field){
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
 		var polygonOpacity = highlightedFillOpacityDefault;
-		if(field == "neutral"){
+		if(neutral == true){
 			polygonOpacity = 0.0;
 		}
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
-			if (field == "neutral"){
+			if (neutral == true){
 				thisColor = "gray";
 			}else if (d[field] !== ""){
 				thisColor = redBlueScaleColor(+d[field]);
@@ -96,7 +97,7 @@ function getData(field){
 			let tooltipInnerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field] + units[field];
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
-				if(field!="neutral"){
+				if(neutral == false){
 					tooltipContainer.innerHTML = tooltipInnerHTML;
 				}else{
 					tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>';
@@ -130,14 +131,14 @@ function getData(field){
 				map.setZoom(zoomLevel);
 				map.panTo(center);
 			});
-			if (field != "neutral"){
+			if (neutral == false){
 				showInfoTooltip(polygon, tooltipInnerHTML, tooltipContainer);
 			}else{
 				showInfoTooltip(polygon, '<strong>'+d.area_name+'</strong><br>', tooltipContainer);
 			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
-		if (field != "neutral"){
+		if (neutral == false){
 			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		}
 		updateAnswers(polygonOpacity);
@@ -145,7 +146,7 @@ function getData(field){
 }
 
 function neutralScreen(){
-	getData("neutral");
+	getData();
 }
 
 function infoWindowText(areaName, information){
@@ -229,6 +230,7 @@ function checkAnswers(preferences, i){
 
 
 function updateAnswers(polygonOpacity = highlightedFillOpacityDefault){
+	if(neutral == true) polygonOpacity = fillOpacityDefault;
 	areaPolygons = polygons;
 	if (previousValue==""){
 		answeredQuestions++;
@@ -302,10 +304,12 @@ function drawChoropleth(layer){
 	switchLayers(layer);
 	checkIfNat
 	if(!filterSwitch[checkIfNat(layer)]){
+		neutral = false;
 		currentField = layer;
 		getData(layers[layer]);
 	}else{
-		getData("neutral");
+		neutral = true;
+		getData();
 	}
 	filterSwitch[checkIfNat(layer)] = !filterSwitch[checkIfNat(layer)]	
 }
