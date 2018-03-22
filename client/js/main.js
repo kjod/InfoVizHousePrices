@@ -34,8 +34,8 @@ function showStats(){
 	if(map.style.width=="100%" || map.style.width==""){
 		side_stats.style.display = "block";
 		setTimeout(function(){
-		map.style.width = "30%";
-		side_stats.style.width = "calc(70% - 2px)";
+		map.style.width = "50%";
+		side_stats.style.width = "calc(50% - 2px)";
 		},10);
 	}else{
 		statsOn = false;
