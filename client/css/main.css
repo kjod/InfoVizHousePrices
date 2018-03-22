@@ -720,3 +720,11 @@ path{
 .legendRadar(){
   background-color:black;
 }
+
+
+#indexPage #questions,
+#indexPage #questionsExplanationTooltip,
+#indexPage #openclosecontainer,
+#indexPage #filterExplanationTooltip{
+  display:none
+}
