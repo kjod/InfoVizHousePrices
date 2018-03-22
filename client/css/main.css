@@ -516,7 +516,8 @@ path{
   position:absolute;
   top:0px;
   right:0px;
-  width:155px;
+  min-width:155px;
+  width:-moz-fit-content;
   height:33px;
   padding:10px;
   font-size:11px;
