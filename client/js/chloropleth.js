@@ -213,7 +213,7 @@ function checkAnswers(preferences, i){
 		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n") || (preferences[1] === "")) && //children
 		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1") || (preferences[2] === "")) && //budget
 		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1") || (preferences[3] === "")) && //senior, doesn't work, no data
-		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1") || (preferences[4] === ""))){ //party
+		((areaData[i][3] >= ((preferences[3] - 1) * 5000.0)) || (preferences[3] === "1") || (preferences[3] === ""))){ //party
 		return true;
 	}else{
 		return false;
