@@ -19,13 +19,13 @@ const layers = {
 		},*/
 }
 const filterSwitch = {population_density: false, crime_rate: false, energy:false } 
-const fillOpacityDefault = 0.4;
+const fillOpacityDefault = 0;
 const highlightedFillOpacityDefault = 0.7;
 const datasets = {"districts": "names_coordinates_data/districts.json", 
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
 
 var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
-	.domain([0,14156.0,28312.0])
+	.domain([0,28312.0])
 	.range(["cornflowerblue", "red"]);
 var POPDENSITYSWITCH = false;
 var polygons = [];

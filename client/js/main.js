@@ -14,14 +14,21 @@ if(page=='main.html'){
 	var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
 
 	deleteTooltip = true;
-	filterExplanationTooltip = document.getElementById('filterExplanationTooltip');
+	filterExplanationTooltip    = document.getElementById('filterExplanationTooltip');
+	questionsExplanationTooltip = document.getElementById('questionsExplanationTooltip');
 	setTimeout(function(){
 		filterExplanationTooltip.style.opacity = 0.7;
+		questionsExplanationTooltip.style.opacity = 0.7;
 	},1000);
 	setTimeout(function(){
-		if(deleteTooltip) filterExplanationTooltip.remove();
-		deleteTooltip = false;
-	},4000);
+		filterExplanationTooltip.style.opacity = 0;
+		questionsExplanationTooltip.style.opacity = 0;
+		setTimeout(function(){
+			questionsExplanationTooltip.remove();
+			if(deleteTooltip) filterExplanationTooltip.remove();
+			deleteTooltip = false;
+		},300);
+	},5000);
 }
 
 function openCloseFilters(){
