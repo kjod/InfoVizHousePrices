@@ -333,7 +333,7 @@ function drawChoropleth(layer){
 		getData(layers[layer]);
 	}else{
 		neutral = true;
-		getData();
+		getData("neutral");
 	}
 	filterSwitch[checkIfNat(layer)] = !filterSwitch[checkIfNat(layer)]	
 }
