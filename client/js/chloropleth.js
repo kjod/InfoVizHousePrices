@@ -254,6 +254,7 @@ function removeChoroplethLayers(){
 		});
 	if(document.getElementById("choroplethLegend")){
 		document.getElementById("choroplethLegend").remove();
+		document.getElementById("choropleth").remove();
 	}
 	mapData = []
 	//polygons = null

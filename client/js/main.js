@@ -124,12 +124,15 @@ function drop(ev) {
 }
 
 function changeHousePriceViz(value){
+	console.log(value)
 	if(document.getElementById("house_priceSwitch").checked){
 		if(houseViz === "heatmap"){
+			console.log("Heatmap" )
 			removeHeatMap()
 			houseProcesSwitch = false;//temp
 			drawScatter("house_price");
 		} else {
+			console.log("Scatter ")
 			removeScatter()
 			houseProcesSwitch = false;//temp
 			//check here if choropleth map being used
@@ -139,7 +142,7 @@ function changeHousePriceViz(value){
 	houseViz = value;
 }
 
-function changeHousePriceViz(value){
+function changeNationalityPriceViz(value){
 	console.log(value)
 	if(document.getElementById("nationalitySwitch").checked){
 		removeChoropleth()
