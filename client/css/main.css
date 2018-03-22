@@ -517,9 +517,14 @@ path{
   cursor:pointer; 
 }
 
-/*.scatterHeadingText{
+.scatterHeadingText{
+  width:100%;
   text-align:center;
-}*/
+  float:left;
+}
+.scatterTooltipTable{
+  width:100%;
+}
 
 /*.tooltip{ /* Only seems to work when applied through javascript *//*
   background-color:"black"

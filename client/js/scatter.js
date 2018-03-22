@@ -58,20 +58,20 @@ function scatterPlot(datasetDict, key) {
                                   let node = document.createElement("div");
                                   node.id = "tooltip" + SCATTERPOINTID + event.value.postcode
                                   node.className = "tooltip"                            /*This is stupid!*/
-                                  node.innerHTML =  "<span class='scatterHeadingText'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>" 
-                                                    + event.value.postcode + "</b><span>"+
-                                                    "<span><br> House Price: "+ event.value.house_price.toFixed(2) + 
-                                                    "<br>Avg Purchase Price: " + event.value.purchase_price.toFixed(2) + "</span>"
+                                  node.innerHTML =  "<span class='scatterHeadingText'><b>"//&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+                                                    + event.value.postcode + "</b></span>"+
+                                                    "<table class='scatterTooltipTable'><tr><td>House Price:</td><td>"+ event.value.house_price.toFixed(2) +    
+                                                    "</td></tr><tr><td>\
+                                                    Avg Purchase Price:</td><td>" + event.value.purchase_price.toFixed(2) + "</td></tr></table>"
                                                     /*"<br>Avg Size: " + event.value.size +
                                                     "<br>Avg Area: " + event.value.area*/
                                   //node.style = elem.style
                                   node.style.top = (elem.parentElement.style.top.slice(0, -2) - 60) + "px"
                                   node.style.left = elem.parentElement.style.left
-                                  node.style.backgroundColor = "black"
-                                  node.style.borderBottom = "1px dotted black";
-                                  node.style.width = "200px";
-                                  node.style.color = "#fff";
-                                  node.style.padding = "5px 0";
+                                  node.style.backgroundColor = "white";
+                                  node.style.border = "3px solid black";
+                                  node.style.width = "175px";
+                                  node.style.padding = "5px";
                                   node.style.borderRadius = "6px";
                                   node.style.position = "absolute";
                                   node.style.zIndex = "1000";
