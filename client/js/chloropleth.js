@@ -1,3 +1,7 @@
+//variable to save previous center and zooming state
+var prev_center;
+var prev_zoomLvl;
+
 const scaleColor = d3.scaleLinear() //Scale for Population density
 				.domain([10.0,28312.0])
 				.range([0,255]);
@@ -92,6 +96,11 @@ function getData(field){
 					showStats();
 					statsOn = true;
 				}
+				
+				//first save the current zooming state
+				prev_center = map.getCenter();
+				prev_zoomLvl = map.getZoom();
+				
 				//zooming
 				var bounds = new google.maps.LatLngBounds();
 				
