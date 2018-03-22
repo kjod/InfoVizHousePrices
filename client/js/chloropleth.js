@@ -11,6 +11,7 @@ const preference_ids = ["greenselect", "childrenselect", "budgetselect", "partys
 const layers = {
 	population_density: "Population_density_2016", 
 	crime_rate: "Crime_index_2016", 
+	// energy: "energy_index_2016",
 	energy: "energy_label_2016",
 	antillean: "Antillean_2016",
 	moroccan: "Moroccan_2016",
