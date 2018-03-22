@@ -39,6 +39,7 @@ function showStats(){
 		},10);
 	}else{
 		statsOn = false;
+		tooltipContainer.style.opacity = 0;
 		map.style.width = "100%";
 		side_stats.style.width = "0%";
 		setTimeout(function(){
