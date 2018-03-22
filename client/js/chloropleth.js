@@ -70,6 +70,9 @@ function changeZoomLevel(value){
 		nats.includes()
 		filterSwitch[checkIfNat(currentField)] = !filterSwitch[checkIfNat(currentField)]// want opposite effect
 		drawChoropleth(currentField)
+	} else {
+		removeChoroplethLayers()
+		getData("neutral")
 	}
 }
 
@@ -163,7 +166,9 @@ function getData(field){
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
 		if (neutral == false){
-			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
+			if(minValue !== 0 && maxValue === 1/0){
+				legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
+			}
 		}
 		updateAnswers(polygonOpacity);
 	});
@@ -333,7 +338,7 @@ function drawChoropleth(layer){
 		getData(layers[layer]);
 	}else{
 		neutral = true;
-		getData();
+		getData("neutral");
 	}
 	filterSwitch[checkIfNat(layer)] = !filterSwitch[checkIfNat(layer)]	
 }
