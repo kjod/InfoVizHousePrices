@@ -145,6 +145,7 @@ body .textContainer{
     border-radius:0px;
     height:100%;
   }
+  :root{--header-height:100px;}
 }
 #questions path{
   fill:white;
