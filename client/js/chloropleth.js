@@ -7,7 +7,7 @@ const scaleColor = d3.scaleLinear() //Scale for Population density
 				.range([0,255]);
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
-const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
+const preference_ids = ["greenselect", "childrenselect", "budgetselect", "partyselect"];
 const layers = {
 	population_density: "Population_density_2016", 
 	crime_rate: "Crime_index_2016", 
