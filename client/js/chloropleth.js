@@ -85,10 +85,13 @@ function getData(field){
 				polygon.setOptions({fillOpacity: fillOpacityDefault});
 			});
 			google.maps.event.addListener(polygon,"click",function(){
-				statsOn = true;
 				initGraph(d.area_code, d.area_name);
-				showStats();
-				
+				tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field];
+				tooltipContainer.style.opacity = 1;
+				if(!statsOn){
+					showStats();
+					statsOn = true;
+				}
 				//zooming
 				var bounds = new google.maps.LatLngBounds();
 				
@@ -108,7 +111,6 @@ function getData(field){
 				//console.log(center.toString());
 				map.setZoom(zoomLevel);
 				map.panTo(center);
-
 			});
 			showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
