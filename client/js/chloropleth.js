@@ -23,9 +23,9 @@ const layers = {
 }
 
 const color_scale = {
-	population_density: ["cornflowerblue", "red"], 
-	crime_rate:["cornflowerblue", "red"],  
-	energy: ["cornflowerblue", "red"],
+	Population_density_2016: ["cornflowerblue", "red"], 
+	Crime_index_2016:["cornflowerblue", "red"],  
+	energy_label_2016: ["cornflowerblue", "red"],
 	//energy: ["cornflowerblue", "red"],
 	Antillean_2016: ["khaki", "lightseagreen"],
 	Moroccan_2016: ["khaki", "lightseagreen"],
