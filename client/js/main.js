@@ -1,8 +1,38 @@
+var path = window.location.pathname;
+var page = path.split("/").pop();
+var deleteTooltip = false;
+if(page=='main.html'){
+	setTimeout(function(){
+		var side_stats = document.getElementById('side_stats');
+		side_stats.style.width = "0%";
+		setTimeout(function(){
+			side_stats.style.opacity = "1";
+			side_stats.style.position = "static";
+			side_stats.style.display = "none";
+		},300);
+	},500);
+	var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+
+	deleteTooltip = true;
+	filterExplanationTooltip = document.getElementById('filterExplanationTooltip');
+	setTimeout(function(){
+		filterExplanationTooltip.style.opacity = 0.7;
+	},1000);
+	setTimeout(function(){
+		if(deleteTooltip) filterExplanationTooltip.remove();
+		deleteTooltip = false;
+	},4000);
+}
+
 function openCloseFilters(){
 	var filters = document.getElementById('filters');
 	var filter_bar = document.getElementById('filter_bar');
 	var content = document.getElementById('content');
 	var openclose = document.getElementById('openclose');
+	if(deleteTooltip){
+		document.getElementById('filterExplanationTooltip').remove();
+		deleteTooltip = false;
+	}
 	if(filters.style.width == "var(--filter-min-width)" || filters.style.width == ""){
 		filters.style.width = "20%";
 		filters.style.maxWidth = "200px";
@@ -83,29 +113,6 @@ function prevQuestion(){
 function underline(thisThing, howMuch){
 	var lines = thisThing.getElementsByTagName('line');
 	lines[0].style.width=howMuch;
-}
-
-var path = window.location.pathname;
-var page = path.split("/").pop();
-if(page=='main.html'){
-	setTimeout(function(){
-		var side_stats = document.getElementById('side_stats');
-		side_stats.style.width = "0%";
-		setTimeout(function(){
-			side_stats.style.opacity = "1";
-			side_stats.style.position = "static";
-			side_stats.style.display = "none";
-		},300);
-	},500);
-	var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
-
-	filterExplanationTooltip = document.getElementById('filterExplanationTooltip');
-	setTimeout(function(){
-		filterExplanationTooltip.style.opacity = 0.7;
-	},1000);
-	setTimeout(function(){
-		filterExplanationTooltip.style.opacity = 0;
-	},4000);
 }
 
 var answeredQuestions = 0;
