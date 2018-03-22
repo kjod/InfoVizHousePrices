@@ -168,3 +168,21 @@ function showFilter(filterID){
 	if(filter.style.maxHeight == "" || filter.style.maxHeight=="0px") filter.style.maxHeight = "40px";
 	else filter.style.maxHeight = "0px";
 }
+
+function filterHouseData(data){
+	console.log("here man")
+	var filter = applyAnswers()[2]
+	data = data.filter(o => {
+        if(filter == 4){///<200,000
+          console.log(o.house_price)
+          return o.house_price < 200000 
+        } else if(filter == 3){//3 < 200,000 - 500,000
+          return o.house_price >= 200000 && o.house_price <= 500000 
+        } else if(filter == 2){// >500,000 
+          return o.house_price > 500000
+        } else {// all
+          return true;
+        }
+      })
+	return data
+}

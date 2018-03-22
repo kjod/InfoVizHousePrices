@@ -214,6 +214,18 @@ function updateAnswers(){
 
 	const pref = applyAnswers();
 	let i = 0;
+
+	if(houseProcesSwitch){
+		houseProcesSwitch = !houseProcesSwitch
+		if(houseViz === "heatmap"){
+			removeHeatMap()
+			drawHeatMap("house_price");
+		} else {
+			removeScatter()
+			drawScatter("house_price");
+		}
+	}
+
 	areaPolygons.forEach(function(polygon){
 		if(checkAnswers(pref, i)){
 			polygon.setOptions({fillOpacity: highlightedFillOpacityDefault});

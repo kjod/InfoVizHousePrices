@@ -11,8 +11,10 @@ key: used to determine which value in dataset will be used for colouring.
 */
 function scatterPlot(datasetDict, key) {
     var width = 960, height = 500;
+    
     d3.json("funda_data.json", function(data) {
-      
+      data = filterHouseData(data)
+
       var arr = data.map(o => o[key]);
       let maxValue = Math.max(...arr)
       let minValue = Math.min(...arr)
