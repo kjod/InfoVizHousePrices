@@ -96,7 +96,11 @@ function getData(field){
 			let tooltipInnerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field] + units[field];
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
-				tooltipContainer.innerHTML = tooltipInnerHTML;
+				if(field!="neutral"){
+					tooltipContainer.innerHTML = tooltipInnerHTML;
+				}else{
+					tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>';
+				}
 				tooltipContainer.style.opacity = 1;
 				if(!statsOn){
 					showStats();
@@ -225,7 +229,6 @@ function checkAnswers(preferences, i){
 
 
 function updateAnswers(polygonOpacity = highlightedFillOpacityDefault){
-
 	areaPolygons = polygons;
 	if (previousValue==""){
 		answeredQuestions++;
