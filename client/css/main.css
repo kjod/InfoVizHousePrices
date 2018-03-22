@@ -211,7 +211,7 @@ body .textContainer{
   height:40px;
   background-color:#ccc;
 }
-#container #filters #filter_bar .filter#house_price_filter{
+#container #filters #filter_bar .subfilter{
   max-height:0px;
   -webkit-transition:.3s max-height ease-out;
   transition:.3s max-height ease-out;
@@ -248,6 +248,13 @@ body .textContainer{
   align-items:center;
   justify-content:left;
   padding:7px 5px;
+}
+#container #filters .selectSubFilter{
+  padding:0 8px;
+  width:calc(100% - 16px);
+}
+#container #filters .selectSubFilter select{
+  width:100%;
 }
 #container #filters #openclosecontainer{
   width:100%;
