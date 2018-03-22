@@ -7,29 +7,27 @@ const scaleColor = d3.scaleLinear() //Scale for Population density
 				.range([0,255]);
 
 const color = d3.scaleOrdinal(d3.schemeCategory20); //used for the random coloring
-const preference_ids = ["greenselect", "childrenselect", "budgetselect", "seniorselect", "partyselect"];
+const preference_ids = ["greenselect", "childrenselect", "budgetselect", "partyselect"];
 const layers = {
 	population_density: "Population_density_2016", 
 	crime_rate: "Crime_index_2016", 
 	energy: "energy_label_2016",
-	/*ethinicities:{
-		"Antillean_2016",
-		"Moroccan_2016",
-		"No_migration_background_2016",
-		"Other_non_western_2016",
-		"Surinamese_2016",
-		"Turks_2016",
-		"Western_2016"
-		},*/
+	antillean: "Antillean_2016",
+	moroccan: "Moroccan_2016",
+	no_migration_background: "No_migration_background_2016",
+	other_non_western: "Other_non_western_2016",
+	surinamese: "Surinamese_2016",
+	turks: "Turks_2016",
+	western: "Western_2016"
 }
-const filterSwitch = {population_density: false, crime_rate: false, energy:false } 
-const fillOpacityDefault = 0.4;
+const filterSwitch = {population_density: false, crime_rate: false, energy:false, nationality: false } 
+const fillOpacityDefault = 0.0;
 const highlightedFillOpacityDefault = 0.7;
 const datasets = {"districts": "names_coordinates_data/districts.json", 
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
 
 var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
-	.domain([0,14156.0,28312.0])
+	.domain([0,28312.0])
 	.range(["cornflowerblue", "red"]);
 var POPDENSITYSWITCH = false;
 var polygons = [];
@@ -44,14 +42,14 @@ function changeZoomLevel(value){
 	zoomLevel = value//(zoomLevel === "districts") ? "neighbourhoods" : "districts";
 	if(currentField !== ""){
 		removeChoroplethLayers()
-		filterSwitch[currentField] = !filterSwitch[currentField]// want opposite effect
+		nats.includes()
+		filterSwitch[checkIfNat(currentField)] = !filterSwitch[checkIfNat(currentField)]// want opposite effect
 		drawChoropleth(currentField)
 	}
 }
 
 function getData(field){
 	d3.json(datasets[zoomLevel], function(shapes) {
-		// console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
 	    minValue = Math.min(...arr.filter(value => value > 0));
@@ -61,7 +59,7 @@ function getData(field){
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
-		var polygonOpacity = fillOpacityDefault;
+		var polygonOpacity = highlightedFillOpacityDefault;
 		if(field == "neutral"){
 			polygonOpacity = 0.0;
 		}
@@ -71,7 +69,6 @@ function getData(field){
 				thisColor = "gray";
 			}else if (d[field] !== ""){
 				thisColor = redBlueScaleColor(+d[field]);
-				// console.log(d[field])
 				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
 				mapData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 			}
@@ -123,7 +120,6 @@ function getData(field){
 					zoomLevel = 14;
 				}
 				
-				//console.log(center.toString());
 				map.setZoom(zoomLevel);
 				map.panTo(center);
 			});
@@ -134,8 +130,6 @@ function getData(field){
 			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
-		// console.log("mapData ", mapData)
-		// console.log("Polygon ", polygons)
 		if (field != "neutral"){
 			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		}
@@ -219,7 +213,7 @@ function checkAnswers(preferences, i){
 		(((areaData[i][1] >= 20.0) && (preferences[1] == "y")) || (preferences[1] == "n") || (preferences[1] === "")) && //children
 		((areaData[i][2] >= ((preferences[2] - 1) * 100000)) || (preferences[2] === "1") || (preferences[2] === "")) && //budget
 		// ((areaData[i][3] >= ((preferences[3] - 1) * 33.3)) || (preferences[3] === "1") || (preferences[3] === "")) && //senior, doesn't work, no data
-		((areaData[i][4] >= ((preferences[4] - 1) * 5000.0)) || (preferences[4] === "1") || (preferences[4] === ""))){ //party
+		((areaData[i][3] >= ((preferences[3] - 1) * 5000.0)) || (preferences[3] === "1") || (preferences[3] === ""))){ //party
 		return true;
 	}else{
 		return false;
@@ -227,7 +221,7 @@ function checkAnswers(preferences, i){
 }
 
 
-function updateAnswers(polygonOpacity){
+function updateAnswers(polygonOpacity = highlightedFillOpacityDefault){
 	areaPolygons = polygons;
 	if (previousValue==""){
 		answeredQuestions++;
@@ -266,12 +260,30 @@ function updateAnswers(polygonOpacity){
 	});
 }
 
+const nats = ["antillean",
+			"moroccan",
+			"no_migration_background",
+			"other_non_western",
+			"surinamese",
+			"turks",
+			"western"]
+
+function checkIfNat(layer){
+	return nats.includes(layer) ? "nationality" : layer;
+}
 
 function switchLayers(layer){
 	for(i in filterSwitch){
+		layer = checkIfNat(layer)
+		i = checkIfNat(i);
+
 		if(i !== layer && i !== "house_price"){
 			document.getElementById(i + "Switch").checked = false;
 			filterSwitch[i] = false;//double check
+		} else {
+			
+			//document.getElementById(i + "Switch").checked = true;
+			//filterSwitch[i] = true;//double check
 		}
 	}
 }
@@ -281,11 +293,12 @@ function drawChoropleth(layer){
 	removeChoroplethLayers()
 	//console.log(layer)
 	switchLayers(layer);
-	if(!filterSwitch[layer]){
+	checkIfNat
+	if(!filterSwitch[checkIfNat(layer)]){
 		currentField = layer;
 		getData(layers[layer])
 	}
-	filterSwitch[layer] = !filterSwitch[layer]	
+	filterSwitch[checkIfNat(layer)] = !filterSwitch[checkIfNat(layer)]	
 }
 
 
