@@ -21,6 +21,20 @@ const layers = {
 	turks: "Turks_2016",
 	western: "Western_2016"
 }
+
+const color_scale = {
+	population_density: ["cornflowerblue", "red"], 
+	crime_rate:["cornflowerblue", "red"],  
+	energy: ["cornflowerblue", "red"],
+	//energy: ["cornflowerblue", "red"],
+	Antillean_2016: ["khaki", "lightseagreen"],
+	Moroccan_2016: ["khaki", "lightseagreen"],
+	No_migration_background_2016: ["khaki", "lightseagreen"],
+	Other_non_western_2016: ["khaki", "lightseagreen"],
+	Surinamese_2016: ["khaki", "lightseagreen"],
+	Turks_2016: ["khaki", "lightseagreen"],
+	Western_2016: ["khaki", "lightseagreen"],	
+}
 const filterSwitch = {population_density: false, crime_rate: false, energy:false, nationality: false } 
 const fillOpacityDefault = 0.0;
 const highlightedFillOpacityDefault = 0.7;
@@ -67,7 +81,7 @@ function getData(field){
 	    minValue = Math.min(...arr.filter(value => value > 0));
 	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
 			.domain([minValue, maxValue])
-			.range(["cornflowerblue", "red"]);
+			.range(color_scale[field]);
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
