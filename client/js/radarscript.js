@@ -87,10 +87,18 @@ function initGraph(area_code, area_name){
       // normalize the datapoints
       var normalized_selected = applyNormalization(data[i],selected_region[i])
       var normalized_all = applyNormalization(data[i],average_all_regions[i])
+
+
       // check if bigger than zero
       if(normalized_selected > 0.0){
+        normalized_selected += 0.5 - normalized_all 
+        var city_average = 0.5
+        if (normalized_selected > 1){
+          city_average -= normalized_selected - 1
+          normalized_selected = 1.0
+        }
         d[0].push({axis:variableNames[i],value:normalized_selected})
-        d[1].push({axis:variableNames[i],value:normalized_all})
+        d[1].push({axis:variableNames[i],value:city_average})
       }
     }
 
