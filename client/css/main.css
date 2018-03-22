@@ -53,13 +53,17 @@ body{
 body .textContainer{
   width:100%;
   height:calc(100% - var(--header-height));
-  display:inline-flex;
+  /*display:inline-flex;*/
+  position:fixed;
+  z-index:1;
+  background:white;
+  opacity:0.8;
+  top:var(--header-height);
 }
 .textContainer .mainText{
   max-width:500px;
   width:90%;
   text-align:center;
-  height:90%;
 }
 .textContainer #abutton{
   text-decoration:none;
@@ -714,5 +718,5 @@ path{
 }
 
 .legendRadar(){
-  background-color: black;
+  background-color:black;
 }
