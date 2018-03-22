@@ -110,7 +110,6 @@ function initGraph(area_code, area_name){
       }
     }
 
-    if(d.length > 0){
       RadarChart.draw("#overviewChart", d, mycfg);
       var svg = d3.select('#overviewChart')
       .selectAll('svg')
@@ -157,7 +156,6 @@ function initGraph(area_code, area_name){
         .attr("fill", "#737373")
         .text(function(d) { return d; })
         ; 
-    }
   })
 }
 
