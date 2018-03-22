@@ -93,7 +93,11 @@ function getData(field){
 			});
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
-				tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field];
+				if(field!="neutral"){
+					tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field];
+				}else{
+					tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>';
+				}
 				tooltipContainer.style.opacity = 1;
 				if(!statsOn){
 					showStats();
