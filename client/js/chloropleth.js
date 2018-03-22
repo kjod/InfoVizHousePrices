@@ -25,7 +25,9 @@ const fillOpacityDefault = 0.0;
 const highlightedFillOpacityDefault = 0.7;
 const datasets = {"districts": "names_coordinates_data/districts.json", 
 				  "neighbourhoods": "names_coordinates_data/neighbourhoods.json"}//add to main
-
+const units = {'Population_density_2016':' Pop./km2',
+				'energy_label_2016':'%',
+				'Crime_index_2016':' index value'}
 var redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
 	.domain([0,28312.0])
 	.range(["cornflowerblue", "red"]);
@@ -91,9 +93,10 @@ function getData(field){
 			google.maps.event.addListener(polygon,"mouseout",function(){
 				polygon.setOptions({fillOpacity: polygonOpacity});
 			});
+			let tooltipInnerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field] + units[field];
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
-				tooltipContainer.innerHTML = '<strong>' + d.area_name + '</strong><br>' + +d[field];
+				tooltipContainer.innerHTML = tooltipInnerHTML;
 				tooltipContainer.style.opacity = 1;
 				if(!statsOn){
 					showStats();
@@ -124,9 +127,9 @@ function getData(field){
 				map.panTo(center);
 			});
 			if (field != "neutral"){
-				showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
+				showInfoTooltip(polygon, tooltipInnerHTML, tooltipContainer);
 			}else{
-				showInfoTooltip(polygon, d.area_name, "", tooltipContainer);
+				showInfoTooltip(polygon, '<strong>'+d.area_name+'</strong><br>', tooltipContainer);
 			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
@@ -145,10 +148,10 @@ function infoWindowText(areaName, information){
 	return '<strong>' + areaName + '</strong><br>' + information;
 }
 
-function showInfoTooltip(polygon, areaName, information, tooltipContainer){
+function showInfoTooltip(polygon, tooltipInnerHTML, tooltipContainer){
 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
 		if(!statsOn){
-			tooltipContainer.innerHTML = '<strong>' + areaName + '</strong><br>' + information;
+			tooltipContainer.innerHTML = tooltipInnerHTML;
 			tooltipContainer.style.opacity = 1;
 		}
 	});
