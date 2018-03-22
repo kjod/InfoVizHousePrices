@@ -4,8 +4,20 @@
     <head>
         <title>House Hunt!</title>
         <link rel="stylesheet" href="../css/main.css">
+        <script type="text/javascript">
+            //global variables
+            var map = null;
+            var zoomLevel = "districts"
+            var nationality = "antillean"
+            var houseViz = "heatmap"
+            var houseProcesSwitch = false;
+            var year = 2016;
+            const DATASETS = {"funda": {name:"funda", dataset: "funda_data.json"}} 
+        </script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
     </head>
-    <body>
+    <body id="indexPage">
         <div id="header" class="defaultdiv flexcentered">
             <h2>FIND A HOUSE</h2>
             <div id="topmenu">
@@ -21,10 +33,248 @@
         </div>
         <div class="textContainer flexcentered">
             <div class="mainText">
-            Looking for new home? Should it be child friendly area? What are the crime rates? How is the population density in the district or neighbourhood? What are the energy labels in area? Get important local information on the area you're most interested in.<br><br><br><br>
+            <p style="font-size:130%";>Looking for new home?<br><br> Should it be in a child friendly area?<br><br> What are the crime rates?<br><br> How is the population density in the district or neighbourhood?<br><br> What are the energy labels in that area?<br><br> Get important local information on the area you're most interested in<br><br><br><br>
+            </p>
             <a id="abutton" href="main.html">GO TO MAP</a>
             </div>
         </div>
+        <div id="questions" class="flexcentered">
+            <div id="completedLine"></div>
+            <div class="leftarrow flexcentered" id="questionleftarrow" onclick="prevQuestion()">
+                <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
+                    <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"></path>
+                </svg>
+            </div>
+                <section id="budgetfilter" class="transit">
+                    <div class="subsection">
+                        What is your budget to spend on a house?<br>
+                        <!-- Use javascript to render this -->
+                        <select id="budgetselect" onchange="updateAnswers();" onfocus="checkValue(this);"> 
+                            <option value="4">
+                                < €200.000
+                            </option>
+                            <option value="3">
+                              €200.000 - €500.000
+                            </option>
+                            <option value="2">
+                                > €500.000</option>
+                            <option value="1">I don't mind</option>
+                            <option value="" selected disabled hidden>
+                                Choose an option
+                            </option>
+                        </select>
+                    </div>
+                </section>
+                <section id="greenfilter" class="transit">
+                    <div class="subsection">
+                        Is it important for you to live in a green area?<br>
+                        <select id="greenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="3">Very important</option>
+                            <option value="2">It is preferable</option>
+                            <option value="1">I don't mind</option>
+                            <option value="" selected disabled hidden>
+                                Choose an option
+                            </option>
+                        </select>
+                    </div>
+                </section>
+                <section id="childrenfilter" class="transit">
+                    <div class="subsection">
+                        Would you like to live in a childfriendly environment?<br>
+                        <select id="childrenselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="y">Yes</option>
+                            <option value="n">No</option>
+                            <option value="1">I don't mind</option>
+                            <option value="" selected disabled hidden>
+                                Choose an option
+                            </option>
+                        </select>
+                    </div>
+                </section>
+                <!--section id="seniorfilter" class="transit">
+                    <div class="subsection">
+                        <!--Do you want a house you can get old in?<br->
+                        Are you looking for a senior home?<br>
+                        <select id="seniorselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="y">Yes</option>
+                            <option value="n">No</option>
+                            <option value="1">I don't mind</option>
+                            <option value="" selected disabled hidden>
+                                Choose an option
+                            </option>
+                        </select>
+                    </div>
+                </section-->
+                <section id="partyfilter" class="transit">
+                    <div class="subsection">
+                        Is it important for you to live in an area that has many restaurants and nightlife facilities?<br>
+                        <select id="partyselect" onchange="updateAnswers();" onfocus="checkValue(this);">
+                            <option value="4">
+                                Yes
+                            </option>
+                            <option value="3">
+                                Preferably
+                            </option>
+                            <option value="2">
+                                I don't mind
+                            </option>
+                            <option value="1">Preferably not</option>
+                            <option value="" selected disabled hidden>
+                                Choose an option
+                            </option>
+                        </select>
+                    </div>
+                </section> 
+            <div class="rightarrow flexcentered" id="questionrightarrow" onclick="nextQuestion()">
+                <svg width="36px" height="36px" class="arrowsvg" viewBox="0 0 24 24">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+                </svg>
+            </div>
+        </div>
+        <div id="questionsExplanationTooltip" class="explanationTooltip">
+            <div class="upperarrow tooltipArrow"></div>
+            <div class="small-cross" onclick="this.parentElement.remove()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            Answer the questions to get recommendations on what areas fit you the most!
+            Uninteresting areas will go transparent.
+        </div>
+        <div id="container">
+            <div id="filters">
+                <div id="openclosecontainer">
+                    <h1 id="filterTitle" class="flexcentered">Filters</h1>
+                    <!--img src="../img/burger.png" id="openclose" onclick="openCloseFilters()"-->
+                    <div class="icon-hamburger-wrap" onmouseover="hoverHamburger(this, '5px 0', '11px 8px')" onmouseout="hoverHamburger(this, '4px 0', '12px 8px')" onclick="clickHamburger(this);openCloseFilters()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </div>
+                <div id="filterExplanationTooltip" class="explanationTooltip">
+                    <div class="leftarrow tooltipArrow"></div>
+                    <div class="small-cross" onclick="this.parentElement.remove()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <p>Click here to open more filters!</p>
+                </div>
+                <div id="filter_bar">
+                    <div id="zoom_filter" class="filter flexcentered">
+                        <div class="districtOrNeighbourhoodFilter flexcentered" id="districtFilter" onclick="changeZoomLevel('districts');changeLeftRight('zoomSelector', '2%', '50%');">DISTRICT</div>
+                        <div class="districtOrNeighbourhoodFilter flexcentered" id="ngbFilter" onclick="changeZoomLevel('neighbourhoods');changeLeftRight('zoomSelector', '50%', '0%');">NEIGHBOURHOOD</div>
+                        <span id="zoomSelector" class="selector"></span>
+                    </div>
+                    <ul>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="drawHouseViz('house_price');showFilter('house_price_subfilter')" id="house_priceSwitch">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                House Prices
+                            </label>
+                        </li>
+                        <div id="house_price_subfilter" class="filter flexcentered subfilter">
+                            <div class="districtOrNeighbourhoodFilter flexcentered" id="districtFilter" onclick="changeHousePriceViz('heatmap');changeLeftRight('houseVizSelector', '2%', '50%');" ondrop="drop(event)" ondragover="allowDrop(event)">HEAT MAP</div>
+                            <div class="districtOrNeighbourhoodFilter flexcentered" id="ngbFilter" onclick="changeHousePriceViz('scatter');changeLeftRight('houseVizSelector', '50%', '0%');" ondrop="drop(event)" ondragover="allowDrop(event)">SCATTERPLOT</div>
+                            <span id="houseVizSelector" class="selector" draggable="true" ondragstart="drag(event)"></span>
+                        </div>
+                        <li>
+                            <label class="switch" >
+                              <input type="checkbox" onclick="drawChoropleth('population_density')" id="population_densitySwitch">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Population density <!--(Districts)-->
+                            </label>
+                        </li>
+                        <!--<li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="drawChoropleth('populationDensity')" id="neighbourCheck">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Population density (Neighbourhoods)
+                            </label>
+                        </li>-->
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="drawChoropleth('energy')" id="energySwitch">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Energy label
+                            </label>
+                        </li>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="drawChoropleth('crime_rate')" id="crime_rateSwitch">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Crime index
+                            </label>
+                        </li>
+                        <li>
+                            <label class="switch">
+                              <input type="checkbox" onclick="drawChoropleth(nationality);showFilter('nationality_subfilter')" id="nationalitySwitch">
+                              <span class="slider round"></span>
+                            </label>
+                            <label>
+                                Nationalities
+                            </label>
+                        </li>
+                        <div id="nationality_subfilter" class="selectSubFilter subfilter">
+                            <select onclick="changeNationality(value)">
+                                <option value="antillean">Antillean</option>
+                                <option value="moroccan">Moroccan</option>
+                                <option value="no_migration_background">No migration background</option>
+                                <option value="other_non_western">Other non western</option>
+                                <option value="surinamese">Surinamese</option>
+                                <option value="turks">Turks</option>
+                                <option value="western">Western</option>
+                            </select>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+                <div id="map"></div>
+                <div id="tooltipContainer"></div>
+                <div id="legendContainer"></div>
+                <div id="side_stats">
+                    <!--img src="../img/close.svg" id="openclose-radar" onclick="showStats()"-->
+                    <div class="icon-hamburger-wrap open" onclick="showStats()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div id="charts_overview">
+                        <div id="overviewChart"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="auxfilter"></div>
+        </div>
+        <!--div class="flexcentered defaultdiv">
+            <button id="showstats" onclick="showStats()">SHOW STATS</button>
+        </div-->
+        <script src="../js/infobubble.js"></script>
+        <script src="../js/infobubble-compiled.js"></script>
+        <script src="../js/legendFormatter.js"></script>
+        <script src="../js/scatter.js"></script>
+        <script src="../js/heatmap.js"></script>
+        <script src="../js/chloropleth.js"></script>
+        <!--script src="../js/overviewChart.js"></script-->
+        <script src="../js/RadarChart.js"></script>
+        <script src="../js/radarscript.js"></script>
+        <script src="../js/map.js"></script>
+        <!--Use your own api key here-->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&key=AIzaSyBkBpLzzZrOrAvacjMyydfymXa5tRTOgc4&callback=createMap"></script>
+        <script src="../js/employment.js"></script>
         <script src="../js/main.js"></script>
     </body>
 </html>
