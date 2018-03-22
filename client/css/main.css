@@ -258,6 +258,32 @@ body .textContainer{
   cursor:pointer;
   margin:7px;
 }
+#filterExplanationTooltip{
+  position:fixed;
+  top:calc(var(--header-height) + var(--questions-height) + 3px);
+  left:44px;
+  z-index:1;
+  width:130px;
+  background-color:black;
+  color:#FFF;
+  padding:10px;
+  opacity:0;
+  -webkit-transition:.3s opacity ease-out;
+  transition:.3s opacity ease-out;
+}
+#filterExplanationTooltip .leftarrow{
+  border-width:8px;
+  border-style:solid;
+  width:0;
+  height:0;
+  border-color:transparent;
+  border-right-color:black;
+  display:inline-block;
+  margin:0 0 2px 2px;
+  position:absolute;
+  top:9px;
+  left:-18px;
+}
 #content{
   display:inline-flex;
   position:relative;

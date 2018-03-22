@@ -98,6 +98,14 @@ if(page=='main.html'){
 		},300);
 	},500);
 	var totalQuestions = document.getElementById('questions').getElementsByTagName('section').length;
+
+	filterExplanationTooltip = document.getElementById('filterExplanationTooltip');
+	setTimeout(function(){
+		filterExplanationTooltip.style.opacity = 0.7;
+	},1000);
+	setTimeout(function(){
+		filterExplanationTooltip.style.opacity = 0;
+	},4000);
 }
 
 var answeredQuestions = 0;
