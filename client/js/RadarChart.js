@@ -16,7 +16,7 @@ var RadarChart = {
      h: 300,
      factor: 1,
      factorLegend: .85,
-     levels: 3,
+     levels: 10,
      maxValue: 0,
      radians: 2 * Math.PI,
      opacityArea: 0.5,
