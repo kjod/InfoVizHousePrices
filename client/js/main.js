@@ -22,13 +22,17 @@ if(page=='main.html'){
 	},1000);
 	setTimeout(function(){
 		filterExplanationTooltip.style.opacity = 0;
-		//questionsExplanationTooltip.style.opacity = 0;
 		setTimeout(function(){
-			//questionsExplanationTooltip.remove();
 			if(deleteTooltip) filterExplanationTooltip.remove();
 			deleteTooltip = false;
 		},300);
 	},4000);
+	setTimeout(function(){
+		questionsExplanationTooltip.style.opacity = 0;
+		setTimeout(function(){
+			questionsExplanationTooltip.remove();
+		},300);
+	},10000);
 }
 
 function openCloseFilters(){

@@ -61,7 +61,7 @@ function getData(field){
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
-		var polygonOpacity = fillOpacityDefault;
+		var polygonOpacity = highlightedFillOpacityDefault;
 		if(field == "neutral"){
 			polygonOpacity = 0.0;
 		}
@@ -227,7 +227,7 @@ function checkAnswers(preferences, i){
 }
 
 
-function updateAnswers(polygonOpacity){
+function updateAnswers(polygonOpacity = highlightedFillOpacityDefault){
 
 	areaPolygons = polygons;
 	if (previousValue==""){
