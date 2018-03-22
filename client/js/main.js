@@ -38,6 +38,7 @@ function showStats(){
 		side_stats.style.width = "calc(70% - 2px)";
 		},10);
 	}else{
+		statsOn = false;
 		map.style.width = "100%";
 		side_stats.style.width = "0%";
 		setTimeout(function(){

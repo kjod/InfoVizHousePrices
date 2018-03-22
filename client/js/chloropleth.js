@@ -19,6 +19,7 @@ var polygons = [];
 var mapData = [];
 var maxValue = 0;
 var minValue = 0;
+var statsOn = false;
 
 var currentField = ""//use as default
 
@@ -40,6 +41,7 @@ function getData(field){
 			.domain([minValue, maxValue])
 			.range(["cornflowerblue", "red"]);
 	    polygons = []
+		tooltipContainer = document.getElementById('tooltipContainer');
 		
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
@@ -68,6 +70,7 @@ function getData(field){
 				polygon.setOptions({fillOpacity: fillOpacityDefault});
 			});
 			google.maps.event.addListener(polygon,"click",function(){
+				statsOn = true;
 				initGraph(d.area_code, d.area_name);
 				showStats();
 				
@@ -92,7 +95,7 @@ function getData(field){
 				map.panTo(center);
 
 			});
-			showInfoTooltip(polygon, d.area_name, +d[field]);
+			showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
 		legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
@@ -105,14 +108,15 @@ function infoWindowText(areaName, information){
 	return '<strong>' + areaName + '</strong><br>' + information;
 }
 
-function showInfoTooltip(polygon, areaName, information){
-	tooltipContainer = document.getElementById('tooltipContainer');
+function showInfoTooltip(polygon, areaName, information, tooltipContainer){
 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
-		tooltipContainer.innerHTML = '<strong>' + areaName + '</strong><br>' + information;
-		tooltipContainer.style.opacity = 1;
+		if(!statsOn){
+			tooltipContainer.innerHTML = '<strong>' + areaName + '</strong><br>' + information;
+			tooltipContainer.style.opacity = 1;
+		}
 	});
 	google.maps.event.addListener(polygon, 'mouseout', function() {
-		tooltipContainer.style.opacity = 0;
+		if(!statsOn) tooltipContainer.style.opacity = 0;
 	});
 }
 
