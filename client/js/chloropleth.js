@@ -166,9 +166,7 @@ function getData(field){
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
 		if (neutral == false){
-			if(minValue !== 0 && maxValue === 1/0){
-				legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
-			}
+			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		}
 		updateAnswers(polygonOpacity);
 	});
