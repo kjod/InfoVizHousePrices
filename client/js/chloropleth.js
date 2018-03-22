@@ -1,3 +1,7 @@
+//variable to save previous center and zooming state
+var prev_center;
+var prev_zoomLvl;
+
 const scaleColor = d3.scaleLinear() //Scale for Population density
 				.domain([10.0,28312.0])
 				.range([0,255]);
@@ -57,9 +61,15 @@ function getData(field){
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
+		var polygonOpacity = fillOpacityDefault;
+		if(field == "neutral"){
+			polygonOpacity = 0.0;
+		}
 		shapes.Areas.forEach(function(d){
 			var thisColor = "rgb(169,169,169)"; //gray when the value is empty
-			if (d[field] !== ""){
+			if (field == "neutral"){
+				thisColor = "gray";
+			}else if (d[field] !== ""){
 				thisColor = redBlueScaleColor(+d[field]);
 				console.log(d[field])
 				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
@@ -74,7 +84,7 @@ function getData(field){
 				strokeOpacity: 1,
 				strokeWeight: 2,
 				fillColor: thisColor,
-				fillOpacity: fillOpacityDefault
+				fillOpacity: polygonOpacity
 			});
 
 			polygons.push(polygon);
@@ -82,7 +92,7 @@ function getData(field){
 				polygon.setOptions({fillOpacity: '0.9'});
 			});
 			google.maps.event.addListener(polygon,"mouseout",function(){
-				polygon.setOptions({fillOpacity: fillOpacityDefault});
+				polygon.setOptions({fillOpacity: polygonOpacity});
 			});
 			google.maps.event.addListener(polygon,"click",function(){
 				initGraph(d.area_code, d.area_name);
@@ -92,6 +102,11 @@ function getData(field){
 					showStats();
 					statsOn = true;
 				}
+				
+				//first save the current zooming state
+				prev_center = map.getCenter();
+				prev_zoomLvl = map.getZoom();
+				
 				//zooming
 				var bounds = new google.maps.LatLngBounds();
 				
@@ -112,16 +127,25 @@ function getData(field){
 				map.setZoom(zoomLevel);
 				map.panTo(center);
 			});
-			showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
+			if (field != "neutral"){
+				showInfoTooltip(polygon, d.area_name, +d[field], tooltipContainer);
+			}else{
+				showInfoTooltip(polygon, d.area_name, "", tooltipContainer);
+			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
 		console.log("mapData ", mapData)
 		console.log("Polygon ", polygons)
-		legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
-		updateAnswers();
+		if (field != "neutral"){
+			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
+		}
+		updateAnswers(polygonOpacity);
 	});
 }
 
+function neutralScreen(){
+	getData("neutral");
+}
 
 function infoWindowText(areaName, information){
 	return '<strong>' + areaName + '</strong><br>' + information;
@@ -139,41 +163,41 @@ function showInfoTooltip(polygon, areaName, information, tooltipContainer){
 	});
 }
 
-//based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
-function attachPolygonInfoWindow(polygon, html)
-{
-	polygon.infoWindow = new google.maps.InfoWindow({
-		content:html,
-	});
-	/*polygon.infoWindow = new InfoBubble({
-		content:html,
-		shadowStyle:0,
-		padding:0,
-		backgroundColor:'transparent',
-		borderRadius:5,
-		arrowSize:10,
-		borderWidth:1,
-		borderColor:'#2c2c2c',
-		disableAutoPan:true,
-		hideCloseButton:true,
-		arrowPosition:30,
-		backgroundClassName:'infoBubble',
-		tabClassName:'tabby',
-		arrowStyle:2,
-		maxHeight:50,
-	});*/
-	google.maps.event.addListener(polygon, 'mouseover', function(e) {
-		polygon.infoWindow.setPosition(e.latLng);
-		setTimeout(function(){
-		polygon.infoWindow.open(map);
-		},10);
-	});
-	google.maps.event.addListener(polygon, 'mouseout', function() {
-		setTimeout(function(){
-		polygon.infoWindow.close();
-		},20);
-	});
-}
+// //based on: https://divideandconquer.se/2011/09/15/marker-and-polygon-tooltips-in-google-maps-v3/
+// function attachPolygonInfoWindow(polygon, html)
+// {
+// 	polygon.infoWindow = new google.maps.InfoWindow({
+// 		content:html,
+// 	});
+// 	// polygon.infoWindow = new InfoBubble({
+// 	// 	content:html,
+// 	// 	shadowStyle:0,
+// 	// 	padding:0,
+// 	// 	backgroundColor:'transparent',
+// 	// 	borderRadius:5,
+// 	// 	arrowSize:10,
+// 	// 	borderWidth:1,
+// 	// 	borderColor:'#2c2c2c',
+// 	// 	disableAutoPan:true,
+// 	// 	hideCloseButton:true,
+// 	// 	arrowPosition:30,
+// 	// 	backgroundClassName:'infoBubble',
+// 	// 	tabClassName:'tabby',
+// 	// 	arrowStyle:2,
+// 	// 	maxHeight:50,
+// 	// });
+// 	google.maps.event.addListener(polygon, 'mouseover', function(e) {
+// 		polygon.infoWindow.setPosition(e.latLng);
+// 		setTimeout(function(){
+// 		polygon.infoWindow.open(map);
+// 		},10);
+// 	});
+// 	google.maps.event.addListener(polygon, 'mouseout', function() {
+// 		setTimeout(function(){
+// 		polygon.infoWindow.close();
+// 		},20);
+// 	});
+// }
 
 function applyAnswers(){
 	let preferences = [0, 0, 0, 0, 0];
@@ -203,7 +227,7 @@ function checkAnswers(preferences, i){
 }
 
 
-function updateAnswers(){
+function updateAnswers(polygonOpacity){
 
 	areaPolygons = polygons;
 	if (previousValue==""){
@@ -228,9 +252,9 @@ function updateAnswers(){
 
 	areaPolygons.forEach(function(polygon){
 		if(checkAnswers(pref, i)){
-			polygon.setOptions({fillOpacity: highlightedFillOpacityDefault});
+			polygon.setOptions({fillOpacity: polygonOpacity});
 			google.maps.event.addListener(polygon,"mouseout",function(){
-				polygon.setOptions({fillOpacity: highlightedFillOpacityDefault});
+				polygon.setOptions({fillOpacity: polygonOpacity});
 			});
 		}else{
 			polygon.setOptions({fillOpacity: fillOpacityDefault});

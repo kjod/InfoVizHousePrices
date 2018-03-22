@@ -92,24 +92,30 @@ function createHiddenCircle(thisThing, e){
 }
 
 function showStats(){
-	var side_stats = document.getElementById('side_stats');
-	var map = document.getElementById('map');
-	if(map.style.width=="100%" || map.style.width==""){
+	var side_stats = document.getElementById('side_stats');	
+	var mapID = document.getElementById('map');
+	if(mapID.style.width=="100%" || mapID.style.width==""){
 		side_stats.style.display = "block";
 		setTimeout(function(){
-		map.style.width = "50%";
+		mapID.style.width = "50%";
 		side_stats.style.width = "calc(50% - 2px)";
 		},10);
 	}else{
 		statsOn = false;
 		tooltipContainer.style.opacity = 0;
-		map.style.width = "100%";
+		mapID.style.width = "100%";
 		side_stats.style.width = "0%";
+		
+		//change the zooming back to the previous state
+		map.setZoom(prev_zoomLvl);
+		map.panTo(prev_center);
+		
 		setTimeout(function(){
 			side_stats.style.display = "none";
 		},300);
 	}
 }
+
 
 var shownQuestion = 0;
 function nextQuestion(){
