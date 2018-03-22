@@ -6,20 +6,20 @@ function legendFormatter(colorScale, key, id, maxValue, minValue){
   let sum = 0;
     
   ext_color_domain.push(minValue)
-  legend_labels.push("<" + minValue.toFixed(2))
+  legend_labels.push("<" + (id !== "scatter" ? minValue.toFixed(2) : minValue))
 
   for(var i = 1; i < divideValue; i++){
-    sum = maxValue/divideValue * i
+    sum = maxValue/divideValue * i + minValue
     color_domain.push(sum)
     ext_color_domain.push(sum)
-    legend_labels.push(sum.toFixed(2) + "+")
+    legend_labels.push((id !== "scatter" ? sum.toFixed(2) : sum) + "+")
   }
  
   var scatterDiv = d3.select("#content")
     .append("div")
     .attr("id", id)
 
-  let xWidth = 50
+  let xWidth = 60
   var legendContainer = d3.select("#legendContainer");//need to check this
   var legend = legendContainer
     .insert("div",":first-child")

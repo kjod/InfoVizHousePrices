@@ -20,7 +20,7 @@ function scatterPlot(datasetDict, key) {
       let minValue = Math.min(...arr)
 
       const colorScale = d3.scaleLinear()
-        .domain([minValue, maxValue * .25 , (minValue + maxValue) * .75, maxValue])
+        .domain([minValue, ((minValue + maxValue) * .25) + minValue , ((minValue + maxValue) * .75) + minValue, maxValue])
         .range([ "yellow", "orange", "red", "maroon"]);
 
       legendFormatter(colorScale, key, "scatter", maxValue, minValue)
