@@ -51,7 +51,7 @@ function changeZoomLevel(value){
 
 function getData(field){
 	d3.json(datasets[zoomLevel], function(shapes) {
-		console.log(shapes)
+		// console.log(shapes)
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
 	    minValue = Math.min(...arr.filter(value => value > 0));
@@ -71,7 +71,7 @@ function getData(field){
 				thisColor = "gray";
 			}else if (d[field] !== ""){
 				thisColor = redBlueScaleColor(+d[field]);
-				console.log(d[field])
+				// console.log(d[field])
 				//thisColor = "rgb(0, 0, " + (Math.round(scaleColor(+d.Population_density_2016))) + ")";
 				mapData.push([+d.surface_green_2016, +d.Households_with_children_2016, +d.WOZ_value_2016, 0, +d.horeca_2016]);
 			}
@@ -134,8 +134,8 @@ function getData(field){
 			}
 			//attachPolygonInfoWindow(polygon, infoWindowText(d.area_name, +d[field]));
 		});
-		console.log("mapData ", mapData)
-		console.log("Polygon ", polygons)
+		// console.log("mapData ", mapData)
+		// console.log("Polygon ", polygons)
 		if (field != "neutral"){
 			legendFormatter(redBlueScaleColor, field, "choropleth", maxValue, minValue);
 		}
@@ -228,7 +228,6 @@ function checkAnswers(preferences, i){
 
 
 function updateAnswers(polygonOpacity){
-
 	areaPolygons = polygons;
 	if (previousValue==""){
 		answeredQuestions++;
