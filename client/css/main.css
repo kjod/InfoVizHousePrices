@@ -195,14 +195,6 @@ body .textContainer{
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
 }
-#container #filters h1#filterTitle{
-  margin:0;
-  position:absolute;
-  overflow:auto;
-  max-width:0px;
-  -webkit-transition:.3s max-width ease-out;
-  transition:.3s max-width ease-out;
-}
 #container #auxfilter{
   float:left;
   width:var(--filter-min-width);
@@ -260,6 +252,19 @@ body .textContainer{
 #container #filters #openclosecontainer{
   width:100%;
   overflow:auto;
+  position:relative;
+}
+#container #filters h1#filterTitle{
+  margin:0;
+  position:absolute;
+  overflow:hidden;
+  margin-left:5px;
+  font-size:18px;
+  letter-spacing:10px;
+  height:100%;
+  max-width:0px;
+  -webkit-transition:.25s max-width ease-out;
+  transition:.25s max-width ease-out;
 }
 #container #filters #openclose{
   float:right;
