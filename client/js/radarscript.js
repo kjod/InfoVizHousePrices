@@ -132,7 +132,7 @@ function initGraph(area_code, area_name){
     .attr("class", "legend")
     .attr("height", 100)
     .attr("width", 200)
-    .attr('transform', 'translate(90,20)') 
+    .attr('transform', 'translate(90,10)') 
     ;
     //Create colour squares
     legend.selectAll('rect')
