@@ -25,6 +25,7 @@ if(page=='main.html'){
 }
 
 function openCloseFilters(){
+	var filterTitle = document.getElementById('filterTitle');
 	var filters = document.getElementById('filters');
 	var filter_bar = document.getElementById('filter_bar');
 	var content = document.getElementById('content');
@@ -34,6 +35,7 @@ function openCloseFilters(){
 		deleteTooltip = false;
 	}
 	if(filters.style.width == "var(--filter-min-width)" || filters.style.width == ""){
+		filterTitle.style.maxWidth = "134px";
 		filters.style.width = "20%";
 		filters.style.maxWidth = "200px";
 		filter_bar.style.width = "100%";
@@ -45,6 +47,7 @@ function openCloseFilters(){
 			openclose.classList.remove('rotate-right');
 		},300);
 	}else{
+		filterTitle.style.maxWidth = "0px";
 		filters.style.width = "var(--filter-min-width)";
 		filter_bar.style.width = "0%";
 		content.style.width = "calc(100% - 2*var(--filter-min-width))";

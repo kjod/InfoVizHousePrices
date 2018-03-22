@@ -195,6 +195,14 @@ body .textContainer{
   -webkit-transition:.3s width ease-out;
   transition:.3s width ease-out;
 }
+#container #filters h1#filterTitle{
+  margin:0;
+  position:absolute;
+  overflow:auto;
+  max-width:0px;
+  -webkit-transition:.3s max-width ease-out;
+  transition:.3s max-width ease-out;
+}
 #container #auxfilter{
   float:left;
   width:var(--filter-min-width);
