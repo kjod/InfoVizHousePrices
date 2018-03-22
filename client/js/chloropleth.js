@@ -60,7 +60,7 @@ var maxValue = 0;
 var minValue = 0;
 var statsOn = false;
 var neutral = true;
-
+var previousArea = "";
 var currentField = ""//use as default
 
 function changeZoomLevel(value){
@@ -130,7 +130,13 @@ function getData(field){
 				if(!statsOn){
 					showStats();
 					statsOn = true;
+				}else{
+					if(previousArea == d.area_name){
+						showStats();
+						statsOn = false;
+					}
 				}
+				previousArea = d.area_name;
 				
 				//first save the current zooming state
 				prev_center = map.getCenter();
