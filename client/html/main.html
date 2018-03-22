@@ -125,8 +125,13 @@
         <div id="container">
             <div id="filters">
                 <div id="openclosecontainer">
-                    <h1 id="filterTitle" class="flexcentered">FILTERS</h1>
-                    <img src="../img/burger.png" id="openclose" onclick="openCloseFilters()">
+                    <h1 id="filterTitle" class="flexcentered">Filters</h1>
+                    <!--img src="../img/burger.png" id="openclose" onclick="openCloseFilters()"-->
+                    <div class="icon-hamburger-wrap" onmouseover="hoverHamburger(this, '5px 0', '11px 8px')" onmouseout="hoverHamburger(this, '4px 0', '12px 8px')" onclick="clickHamburger(this);openCloseFilters()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
                 </div>
                 <div id="filterExplanationTooltip">
                     <div class="leftarrow"></div>
@@ -206,7 +211,12 @@
                 <div id="tooltipContainer"></div>
                 <div id="legendContainer"></div>
                 <div id="side_stats">
-                    <img src="../img/close.svg" id="openclose-radar" onclick="showStats()">
+                    <!--img src="../img/close.svg" id="openclose-radar" onclick="showStats()"-->
+                    <div class="icon-hamburger-wrap open" onclick="showStats()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
                     <div id="charts_overview">
                         <div id="overviewChart"></div>
                     </div>

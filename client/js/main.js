@@ -29,7 +29,7 @@ function openCloseFilters(){
 	var filters = document.getElementById('filters');
 	var filter_bar = document.getElementById('filter_bar');
 	var content = document.getElementById('content');
-	var openclose = document.getElementById('openclose');
+	//var openclose = document.getElementById('openclose');
 	if(deleteTooltip){
 		document.getElementById('filterExplanationTooltip').remove();
 		deleteTooltip = false;
@@ -41,24 +41,47 @@ function openCloseFilters(){
 		filter_bar.style.width = "100%";
 		content.style.width = "80%";
 		content.style.minWidth = "calc(100% - 200px)";
-		openclose.classList.add('rotate-right');
+		/*openclose.classList.add('rotate-right');
 		setTimeout(function(){
 			openclose.src="../img/close.svg";
 			openclose.classList.remove('rotate-right');
-		},300);
+		},300);*/
 	}else{
 		filterTitle.style.maxWidth = "0px";
 		filters.style.width = "var(--filter-min-width)";
 		filter_bar.style.width = "0%";
 		content.style.width = "calc(100% - 2*var(--filter-min-width))";
-		openclose.classList.add('rotate-left');
+		//openclose.classList.add('rotate-left');
 		setTimeout(function(){
 			filters.style.maxWidth = "var(--filter-min-width)";
 			content.style.minWidth = "calc(100% - 2*var(--filter-min-width))";
-			openclose.src="../img/burger.png";
-			openclose.classList.remove('rotate-left');
+			/*openclose.src="../img/burger.png";
+			openclose.classList.remove('rotate-left');*/
 		},300);
 	}
+}
+
+function hoverHamburger(thisThing, marginChange, thisMarginChange){
+	if(!thisThing.classList.contains('open')){
+		var lines = thisThing.getElementsByTagName('span');
+		thisThing.style.margin = thisMarginChange
+		lines[1].style.margin = marginChange;
+	}
+}
+
+function clickHamburger(thisThing){
+	if(thisThing.classList.contains('open')) thisThing.classList.remove('open');
+	else thisThing.classList.add('open');
+}
+
+function createHiddenCircle(thisThing, e){
+	var hiddenCircle = document.createElement('div');
+	hiddenCircle.classList.add('hiddenCircle');
+	hiddenCircle.style.left  = e.clientX  + "px";
+    hiddenCircle.style.top  = e.clientY  + "px";
+	document.body.appendChild(hiddenCircle);
+    hiddenCircle.style.width = '10px';
+    hiddenCircle.style.height = '10px';
 }
 
 function showStats(){
