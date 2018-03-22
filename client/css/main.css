@@ -575,6 +575,7 @@ path{
   position:"absolute";
   z-index:"1000";
 }*/
+
 .infoBubble{
   text-align:center
 }
@@ -641,4 +642,8 @@ path{
   height:0px;
   -webkit-transition:5s all ease-out;
   transition:5s all ease-out;
+}
+
+.legendRadar(){
+  background-color: black;
 }
