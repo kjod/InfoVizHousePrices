@@ -31,7 +31,7 @@ function heatMap(datasetDict, key) {
           'rgba(255, 0, 0, 1)'
       ]
 
-      legendFormatter(colorScale, key, "heatmap", maxValue, minValue)
+      //legendFormatter(colorScale, key, "heatmap", maxValue, minValue)
 
       var pointArray = new google.maps.MVCArray(data.map( o => { return { 
                                                                           location: new google.maps.LatLng(o.lat, o.lon), 
@@ -62,6 +62,6 @@ function drawHeatMap(layer){
 
 function removeHeatMap(){
     heatmap.setMap(null);
-    document.getElementById("heatmapLegend").remove();
-    document.getElementById("heatmap").remove(); 
+    //document.getElementById("heatmapLegend").remove();
+    // /document.getElementById("heatmap").remove(); 
 }

@@ -278,12 +278,10 @@ body .textContainer{
   cursor:pointer;
   margin:7px;
 }
-#filterExplanationTooltip{
+.explanationTooltip{
   position:fixed;
   top:calc(var(--header-height) + var(--questions-height) + 3px);
-  left:44px;
   z-index:1;
-  width:130px;
   background-color:black;
   color:#FFF;
   padding:10px;
@@ -291,18 +289,34 @@ body .textContainer{
   -webkit-transition:.3s opacity ease-out;
   transition:.3s opacity ease-out;
 }
-#filterExplanationTooltip .leftarrow{
+.explanationTooltip .tooltipArrow{
+  position:absolute;
   border-width:8px;
   border-style:solid;
   width:0;
   height:0;
   border-color:transparent;
-  border-right-color:black;
   display:inline-block;
   margin:0 0 2px 2px;
-  position:absolute;
+}
+#questionsExplanationTooltip{
+  top:calc(var(--header-height) + var(--questions-height) + 10px);
+  width:300px;
+  left:calc(50% - 150px);
+}
+#questionsExplanationTooltip .upperarrow{
+  border-bottom-color:black;
+  left:50%;
+  top:-16px;
+}
+#filterExplanationTooltip{
+  left:44px;
+  width:130px;
+}
+#filterExplanationTooltip .leftarrow{
   top:9px;
   left:-18px;
+  border-right-color:black;
 }
 #content{
   display:inline-flex;
@@ -639,6 +653,49 @@ path{
   -o-transform:translate3d(0, -8px, 0) rotate(-45deg);
   -ms-transform:translate3d(0, -8px, 0) rotate(-45deg);
   transform:translate3d(0, -8px, 0) rotate(-45deg);
+}
+
+.small-cross{
+  cursor:pointer;
+  width:18px;
+  height:14px;
+  position:absolute;
+  right:7px;
+}
+.small-cross .icon-bar{
+  opacity:1;
+  -webkit-transition:-webkit-transform 0.1s ease-in;
+  -o-transition:-o-transform 0.1s ease;
+  -ms-transition:-ms-transform 0.1s ease;
+  -moz-transition:-moz-transform 0.1s ease;
+  transition:transform 0.1s ease-in;
+  -webkit-transform-origin:50% 50%;
+  -o-transform-origin:50% 50%;
+  -ms-transform-origin:50% 50%;
+  -moz-transform-origin:50% 50%;
+  transform-origin:50% 50%;
+  background:#EEE;
+  display:block;
+  height:2px;
+  margin:0;
+}
+.small-cross .icon-bar:nth-child(1){
+  -webkit-transform:translate3d(0, 6px, 0) rotate(45deg);
+  -moz-transform:translate3d(0, 6px, 0) rotate(45deg);
+  -o-transform:translate3d(0, 6px, 0) rotate(45deg);
+  -ms-transform:translate3d(0, 6px, 0) rotate(45deg);
+  transform:translate3d(0, 6px, 0) rotate(45deg);
+}
+.small-cross .icon-bar:nth-child(2) {
+  margin:4px 0;
+  opacity:0;
+}
+.small-cross .icon-bar:nth-child(3) {
+  -webkit-transform:translate3d(0, -6px, 0) rotate(-45deg);
+  -moz-transform:translate3d(0, -6px, 0) rotate(-45deg);
+  -o-transform:translate3d(0, -6px, 0) rotate(-45deg);
+  -ms-transform:translate3d(0, -6px, 0) rotate(-45deg);
+  transform:translate3d(0, -6px, 0) rotate(-45deg);
 }
 
 .hiddenCircle{
