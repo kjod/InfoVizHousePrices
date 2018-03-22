@@ -23,9 +23,9 @@ const layers = {
 }
 
 const color_scale = {
-	population_density: ["cornflowerblue", "red"], 
-	crime_rate:["cornflowerblue", "red"],  
-	energy: ["cornflowerblue", "red"],
+	Population_density_2016: ["cornflowerblue", "red"], 
+	Crime_index_2016:["cornflowerblue", "red"],  
+	energy_label_2016: ["cornflowerblue", "red"],
 	//energy: ["cornflowerblue", "red"],
 	Antillean_2016: ["khaki", "lightseagreen"],
 	Moroccan_2016: ["khaki", "lightseagreen"],
@@ -74,14 +74,15 @@ function changeZoomLevel(value){
 }
 
 function getData(field){
-	console.log(field)
 	d3.json(datasets[zoomLevel], function(shapes) {
 		var arr = shapes.Areas.map(o => o[field]);
 	    maxValue = Math.max(...arr);
 	    minValue = Math.min(...arr.filter(value => value > 0));
-	    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
-			.domain([minValue, maxValue])
-			.range(color_scale[field]);
+	    if(field !== "neutral"){
+		    redBlueScaleColor = d3.scaleLinear()//need to calculate scale dynamically
+				.domain([minValue, maxValue])
+				.range(color_scale[field]);
+		}	
 	    polygons = []
 		tooltipContainer = document.getElementById('tooltipContainer');
 		
@@ -169,7 +170,7 @@ function getData(field){
 }
 
 function neutralScreen(){
-	getData();
+	getData('neutral');
 }
 
 function infoWindowText(areaName, information){
